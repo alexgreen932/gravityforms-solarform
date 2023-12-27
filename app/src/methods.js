@@ -18,9 +18,9 @@ export default {
   finishForm(){
   },
   textareaData(){
-    const array = this.screens;  
-    const obj = Object.fromEntries(array.map(item => [item.title, item.value]));
-    return JSON.stringify(obj);
+    // const array = this.screens;  
+    // const obj = Object.fromEntries(array.map(item => [item.title, item.value]));
+    // return JSON.stringify(obj);
 
   },
   output(){//dev
