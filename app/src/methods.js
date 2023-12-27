@@ -1,6 +1,7 @@
 
 
 export default {
+  calc(){},
   langCurrent(){
       if ( this.lang_current == 1 ) {
           this.screens = this.screens_en;

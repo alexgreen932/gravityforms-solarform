@@ -102,7 +102,8 @@ class Solar_Calcs {
 	 *                    - 'roof_area': The area of the roof.
 	 * @return void
 	 */
-	protected function do_calculation( $data ) {
+	// protected function do_calculation( $data ) {
+	public function do_calculation( $data ) {
 
 
 		$this->calcs['roof_type_mod'] = self::ROOF_TYPE_MOD[ $data['roof_type'] ];
@@ -183,5 +184,21 @@ class Solar_Calcs {
 
 	public function __get( $key ) {
 		return $this->get( $key );
+	}
+
+	/**
+	 * DEV TEM METHOD - remove then - 
+	 *
+	 * @param [type] $key
+	 * @return void
+	 */
+
+	public function d( $var= 'test', $die = false  ) {
+		echo '<pre>';
+		var_dump($var);
+		echo '</pre>';
+		if ( $die ) {
+			die();
+		}
 	}
 }
