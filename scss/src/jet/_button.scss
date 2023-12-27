@@ -1,0 +1,32 @@
+
+.j-but,
+.j-but-rounded,
+.j-but-round
+{
+    display: inline-flex;
+    // display: block;
+    // flex-shrink: 1;
+    // width: 200px;
+    // width: auto!important;
+    justify-content: center;
+    align-items: center;
+    padding: 7px 15px;
+    cursor: pointer;
+    -webkit-transition: all 0.2s ease-in-out;
+    transition: all 0.2s ease-in-out;
+    &:hover{
+        text-decoration: none;
+        -webkit-transform: scale(1.1);
+        transform: scale(1.05);
+    }
+}
+.j-but-rounded{
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    border-radius: 5px;
+}
+.j-but-round{
+    -webkit-border-radius: 15px;
+    -moz-border-radius: 15px;
+    border-radius: 15px;
+}
