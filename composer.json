@@ -1,0 +1,29 @@
+{
+    "name": "sicom/gf-solarform",
+    "authors": [
+        {
+            "name": "Solar Form"
+        }
+    ],
+    "config": {
+        "vendor-dir": "core/vendor",
+        "allow-plugins": {
+            "dealerdirect/phpcodesniffer-composer-installer": true
+        }
+    },
+    "require": {
+        "stoutlogic/acf-builder": "^1.12",
+        "symfony/yaml": "^5.4"
+    },
+    "require-dev": {
+        "dealerdirect/phpcodesniffer-composer-installer": "^0.7.2",
+        "object-calisthenics/phpcs-calisthenics-rules": "*",
+        "phpcompatibility/phpcompatibility-wp": "*",
+        "wp-coding-standards/wpcs": "*"
+    },
+    "scripts" : {
+        "cs": "phpcs -v",
+        "css": "phpcs -v --report=summary",
+        "csf": "phpcbf -v"
+    }
+}
