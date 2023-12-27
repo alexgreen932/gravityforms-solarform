@@ -12,4 +12,17 @@ define( 'GFSF_PLUGIN_ENTRY_FILE', __FILE__ );
 $file_data = get_file_data( __FILE__, array( 'version' => 'Version' ) );
 define( 'GFSF_VERSION', $file_data['version'] );
 
+define('GFSFI_APP', plugin_dir_path(__FILE__) . 'app/');
+define('GFSFI_APP_URL', plugin_dir_url(__FILE__) . 'app/');
+define('GFSFI_ASSETS', plugin_dir_url(__FILE__) . 'assets/');
+
 require GFSF_PLUGIN_PATH . '/core/init.php';
+
+
+add_action('wp_enqueue_scripts', 'gfsfi_public_scripts_and_styles');
+//enqueues scripts and styled on the front end
+function gfsfi_public_scripts_and_styles()
+{
+    wp_enqueue_style('j-style', plugin_dir_url(__FILE__) . 'assets/css/style.css', array(), '');
+}
+
