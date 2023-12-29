@@ -95,6 +95,7 @@ class Solar_Field extends GF_Field {
 		// $input .= '<div id="gfsf-app"></div>';
 		
 		// return $input;
+		
 		//app form
 		ob_start();
 		include GFSFI_APP . 'frontend.php';

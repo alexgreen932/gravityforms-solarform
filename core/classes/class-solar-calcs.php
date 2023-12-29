@@ -193,7 +193,7 @@ class Solar_Calcs {
 	 * @return void
 	 */
 
-	public function d( $var= 'test', $die = false  ) {
+	public function d( $var = 'test', $die = false  ) {
 		echo '<pre>';
 		var_dump($var);
 		echo '</pre>';

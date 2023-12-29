@@ -24,38 +24,18 @@ add_action('wp_ajax_nopriv_your_ajax_action', 'solar_calc_ajax_function');
 
 function solar_calc_ajax_function()
 {
-    error_log('Function called!', 0);
-    require_once plugin_dir_path(__FILE__) . 'core/classes/class-solar-calcs.php';
-
-    // ajax-handler
     if (isset($_POST['calc'])) {
-        $roof_area = $_POST['roof_area'];
-        $roof_type = $_POST['roof_type'];
-        $roof_angle = $_POST['roof_angle'];
-
-        $gravityFormData = array(
-            'roof_area' => $roof_area,
-            'roof_type' => $roof_type,
-            'roof_angle' => $roof_angle,
-        );
-
-        // Create an instance of the Solar_Calcs class
-        $calc = new Solar_Calcs($gravityFormData);
-
-        // Perform the calculation and return the result
-        $result = $calc->do_calculation($gravityFormData);
-
-        // You can echo or return the result
-        echo json_encode($result);
-        wp_die(); 
+        $response = array('message' => 'AJAX works!');
+        echo json_encode($response);
+        wp_die();
     }
 }
 
 add_action('wp_enqueue_scripts', 'gfsfi_public_scripts_and_styles');
-//enqueues scripts and styled on the front end
-function gfsfi_public_scripts_and_styles()
-{
+
+function gfsfi_public_scripts_and_styles() {
     wp_enqueue_style('j-style', plugin_dir_url(__FILE__) . 'assets/css/style.css', array(), '');
-    wp_enqueue_script('j-script', plugin_dir_url(__FILE__) . 'assets/js/script.js', [], '1.0');
+    wp_enqueue_script('jquery'); // Enqueue jQuery
+    // wp_enqueue_script('j-script', plugin_dir_url(__FILE__) . 'assets/js/script.js', array('jquery'), '1.0');
 }
 

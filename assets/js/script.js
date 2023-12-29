@@ -1,28 +1,22 @@
 jQuery(document).ready(function ($) {
-    // $('#calc-data').submit(function () {
-    $('#calc').click(function () {
+    // Use the form ID to bind the submit event
+    $('#calc-data').on('submit', function (event) {
         event.preventDefault();
+        console.log('click works');
 
-        // var handler = window.location.origin +'/wp-content/plugins/gravityforms-solarform/core/classes/ajax-handler.php';
-        //var handler = window.location.origin + '/wp-admin/admin-ajax.php';
-
-
-        // Perform AJAX request
         $.ajax({
             type: 'POST',
-            url: 'http://test.dev/wp-admin/admin-ajax.php',
-            // action: 'my_solar_ajax_action',
-            // url: ajaxurl,
+            url: window.location.origin + '/wp-admin/admin-ajax.php',
             // data: $('#calc-data').serialize(),
+            // dataType: 'json', // Expect JSON response
             data: {
-                action: 'my_solar_ajax_action', // Replace with your actual action hook
+                action: 'test_ajax_action',
                 roof_area: $('#calc-data input[name=roof_area]').val(),
                 roof_type: $('#calc-data input[name=roof_type]').val(),
                 roof_angle: $('#calc-data input[name=roof_angle]').val(),
-                calc: 1 // Add a flag to indicate that it's a calculation request
+                calc: 1
             },
             success: function (response) {
-                // Handle the response here
                 console.log(response);
             }
         });
