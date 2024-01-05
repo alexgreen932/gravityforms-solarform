@@ -17,7 +17,7 @@ const template = `
                 </select>
             </template>
 
-            <g-map :scr="screen" :lang="lang" @newel="screen=$event"></g-map>
+            <!-- nest_comment_start~<g-map :scr="screen" :lang="lang" @newel="screen=$event"></g-map>~nest_comment_end -->
         </div>
 
         <template v-if="screen!==0">
@@ -54,7 +54,7 @@ const template = `
                                 <select v-model="el.value">
                                     <option v-for="op in angle">{{op}}</option>
                                 </select>
-                                Здесь не совсем понятно и надо подумать как сделать
+                                <!-- nest_comment_start~Здесь не совсем понятно и надо подумать как сделать~nest_comment_end -->
                             </template>
                             <template v-if="index==5">
                                 <select v-model="el.value">
@@ -123,14 +123,7 @@ export default {
                 count: null,
                 price: null,
             },
-            roof_types: [
-                "One-slope",
-                "Gable",
-                "Four slopes",
-                "Flat",
-                "Option 1",
-                "Option 2"
-            ],
+            roof_types: ["Satteldach", "Zeltdach", "Flachdach", "Pultdach", "Walmdach", "Anderes Dach"],
             angle: [0, 30, 45],
             hot_water: [
                 "Electric boiler",

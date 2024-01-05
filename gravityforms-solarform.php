@@ -35,7 +35,7 @@ add_action('wp_enqueue_scripts', 'gfsfi_public_scripts_and_styles');
 
 function gfsfi_public_scripts_and_styles() {
     wp_enqueue_style('j-style', plugin_dir_url(__FILE__) . 'assets/css/style.css', array(), '');
-    wp_enqueue_script('jquery'); // Enqueue jQuery
+    // wp_enqueue_script('jquery'); // Enqueue jQuery
     // wp_enqueue_script('j-script', plugin_dir_url(__FILE__) . 'assets/js/script.js', array('jquery'), '1.0');
 }
 
