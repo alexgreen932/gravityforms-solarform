@@ -157,6 +157,7 @@ let app = Vue.createApp({
                     title5: "Calculate solar system",
                 }
             ],
+            // with almost filled test data for quicker filling and pass screens
             screens_de: [
                 {
                     title: "Lohnt sich eine Photovoltaikanlage?",
@@ -175,7 +176,7 @@ let app = Vue.createApp({
                     des: "Wählen Sie Ihren Haustyp.",
                     value: 'Satteldach',
                     title2: "2 Dachseiten belegen",
-                    value2: 30,
+                    value2: '',
                     title3: "",
                     value3: "",
                     title4: "",
@@ -191,7 +192,7 @@ let app = Vue.createApp({
                     title: "Ausrichtung",
                     des: "Richten Sie Ihr Haus gleich aus wie auf dem Satellitenbild.",
                     title: "Ausrichtung",
-                    value: 40,
+                    value: 45,
                 },
                 {
                     title: "Warmwasser",
@@ -213,7 +214,7 @@ let app = Vue.createApp({
                     title5: "Solaranlage berechnen:",
                 }
             ],
-            //nulled
+            //With null data for prod
             // screens_de: [
             //     {
             //         title: "Lohnt sich eine Photovoltaikanlage?",

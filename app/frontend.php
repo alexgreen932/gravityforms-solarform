@@ -97,7 +97,7 @@ if (is_admin()) {
                                             </option>
                                         </select>
                                             
-                                            <button class="j-but" :disabled="!el.value" @click.prevent="screen=10">
+                                            <button class="j-but" :disabled="!el.value" @click.prevent="screen=10; calc()">
                                                 <i class="fas fa-chart-line"></i></i>
                                                 {{el.title5}}
                                                 <i class="fas fa-angle-double-right"></i>
