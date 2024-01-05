@@ -43,6 +43,14 @@
   box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
 }
 
+.j-grid-col {
+  display: flex;
+  flex-direction: column;
+}
+.j-grid-col h1 {
+  text-align: center;
+}
+
 .j-grid {
   display: flex;
   flex-direction: row;
@@ -73,6 +81,16 @@
 .j-grid #map_canvas2 {
   width: 600px;
   height: 500px;
+}
+.j-grid .j-cell-50 {
+  width: 50%;
+  padding: 10px;
+  box-sizing: border-box;
+}
+.j-grid .j-cell-100 {
+  width: 100%;
+  padding: 10px;
+  box-sizing: border-box;
 }
 .j-grid .j-data {
   width: 500px;
@@ -175,6 +193,14 @@
     transform: rotate(1turn);
   }
 }
+.j-inline-field {
+  display: flex;
+}
+.j-inline-field label {
+  width: 120px;
+  font-weight: bold;
+}
+
 #app .j-reset {
   position: absolute;
   left: 50%;

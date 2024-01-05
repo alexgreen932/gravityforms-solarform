@@ -1,6 +1,17 @@
 
 
 export default {
+  calc_approximate_cost(i){
+    let area = this.screens[1].value;
+    if ( i == 6) {
+      this.form.count = area * 50;
+    }
+  },
+
+  
+
+
+  //check and remove not used
   langCurrent(){
       if ( this.lang_current == 1 ) {
           this.screens = this.screens_en;

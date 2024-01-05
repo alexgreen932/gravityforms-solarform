@@ -12,11 +12,10 @@ if (is_admin()) {
             <div v-if="!ready" class="preloader">
                 <div class="custom-loader"></div>
             </div>
-            <div v-if="screen==42">
-                данные записались в скрытое поле, сюда по идеи надо что-то вывести, и я так понял ГФ поддерживает многостраничный
-                режим, на демо пока одна потому если можно изменяем надпись на кнопке на дальше
+            <div v-if="screen==10">
+                <?php include 'final-forms.php' ?>
             </div>
-            <div v-if="screen!==42">
+            <div v-if="screen!==10">
                 <transition name="custom-classes-transition" enter-active-class="fade-in" leave-active-class="fade-out">
                     <div v-if="screen!==0" class="j-reset" @click.prevent="screen=0">{{lang.reset}}</div>
                 </transition>
@@ -68,7 +67,7 @@ if (is_admin()) {
                                             <select v-model="el.value">
                                                 <option v-for="op in angle">{{op}}</option>
                                             </select>
-                                            Здесь не совсем понятно и надо подумать как сделать
+                                            <!-- Здесь не совсем понятно и надо подумать как сделать -->
                                         </template>
                                         <template v-if="index==5">
                                             <select v-model="el.value">
@@ -85,7 +84,7 @@ if (is_admin()) {
                                         <template v-if="index==7">
                                             <div class="inline">
                                                 <label>{{el.title2}}</label>
-                                                <input type="text" v-model="counted_electric">
+                                                <input type="text" v-model="form.count">
                                             </div>
     
                                             {{el.title3}}
@@ -98,7 +97,7 @@ if (is_admin()) {
                                             </option>
                                         </select>
                                             
-                                            <button class="j-but" :disabled="!el.value" @click.prevent="screen=42">
+                                            <button class="j-but" :disabled="!el.value" @click.prevent="screen=10">
                                                 <i class="fas fa-chart-line"></i></i>
                                                 {{el.title5}}
                                                 <i class="fas fa-angle-double-right"></i>
@@ -106,7 +105,7 @@ if (is_admin()) {
     
                                         </template>
                                         <button v-if="index!==7" class="j-but" :disabled="!el.value"
-                                            @click.prevent="screen=index+1">{{lang.further}}</button>
+                                            @click.prevent="screen=index+1; calc_approximate_cost(index)">{{lang.further}}</button>
                                     </div>
                                 </transition>
                             </div>

@@ -12,7 +12,7 @@ let app = Vue.createApp({
     },
     data() {
         return {
-            screen: 7,
+            screen: 6,
             result: false,
             done: [],
             finish: false,
@@ -30,6 +30,8 @@ let app = Vue.createApp({
                 heating: null,
                 count: null,
                 price: null,
+                min:null,
+                max:null,
             },
             roof_types: ["Satteldach", "Zeltdach", "Flachdach", "Pultdach", "Walmdach", "Anderes Dach"],
             angle: [0, 30, 45],
@@ -159,19 +161,19 @@ let app = Vue.createApp({
                 {
                     title: "Lohnt sich eine Photovoltaikanlage?",
                     des: "Simulieren Sie mit wenigen Angaben die Produktion, Wirtschaftlichkeit und Kosten einer Photovoltaikanlage mit oder ohne Batteriespeicher.",
-                    value: 330,
+                    value: '',
                 },
                 {
                     title: "Dachfläche",
                     des: "Markieren Sie die gesamte Dachfläche Ihres Hauses.",
-                    value: 'Satteldach',
+                    value: 330,
                     title2: "Neubau oder manuelle Eingabe?",
                     value2: false,
                 },
                 {
                     title: "Haustyp",
                     des: "Wählen Sie Ihren Haustyp.",
-                    value: null,
+                    value: 'Satteldach',
                     title2: "2 Dachseiten belegen",
                     value2: 30,
                     title3: "",
@@ -182,14 +184,14 @@ let app = Vue.createApp({
                 {
                     title: "Dachneigung",
                     des: "Wählen Sie Ihre Dachneigung oder geben Sie diese manuell ein.",
-                    value: 45,
+                    value: 30,
                     title2: "Manuelle Eingabe",
                 },
                 {
                     title: "Ausrichtung",
                     des: "Richten Sie Ihr Haus gleich aus wie auf dem Satellitenbild.",
                     title: "Ausrichtung",
-                    value: 'lorem',
+                    value: 40,
                 },
                 {
                     title: "Warmwasser",
