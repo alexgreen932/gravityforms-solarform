@@ -119,9 +119,6 @@ if (is_admin()) {
     <?php endif; ?>
 
 
-
-
-
 <script type="application/javascript"
     src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD6kg86tNbggcIdZ7yCJ5zqWzVVLfeQeug&libraries=places,geometry"></script>
 <script src="<?php echo GFSFI_ASSETS . 'js/vue.js' ?>"></script><!-- dev mode -->  

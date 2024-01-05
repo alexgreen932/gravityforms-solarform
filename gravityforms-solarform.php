@@ -19,23 +19,12 @@ define('GFSFI_ASSETS', plugin_dir_url(__FILE__) . 'assets/');
 
 require GFSF_PLUGIN_PATH . '/core/init.php';
 
-add_action('wp_ajax_your_ajax_action', 'solar_calc_ajax_function');
-add_action('wp_ajax_nopriv_your_ajax_action', 'solar_calc_ajax_function');
+include 'hooks.php';
 
-function solar_calc_ajax_function()
-{
-    if (isset($_POST['calc'])) {
-        $response = array('message' => 'AJAX works!');
-        echo json_encode($response);
-        wp_die();
-    }
-}
-
+//add style
 add_action('wp_enqueue_scripts', 'gfsfi_public_scripts_and_styles');
-
 function gfsfi_public_scripts_and_styles() {
     wp_enqueue_style('j-style', plugin_dir_url(__FILE__) . 'assets/css/style.css', array(), '');
-    // wp_enqueue_script('jquery'); // Enqueue jQuery
-    // wp_enqueue_script('j-script', plugin_dir_url(__FILE__) . 'assets/js/script.js', array('jquery'), '1.0');
+
 }
 

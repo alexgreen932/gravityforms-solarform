@@ -79,22 +79,6 @@ class Solar_Field extends GF_Field {
 		$is_entry_detail = $this->is_entry_detail();
 		$is_form_editor  = $this->is_form_editor();
 		$id              = (int) $this->id;
-		// $input           = '';
-	
-		// if ( $is_entry_detail ) {
-		// 	$input .= "<pre>{$value}</pre>";
-	
-		// 	return $input . '<br/>' . esc_html__( 'Fields are not editable', 'gf-solarform' );
-		// }
-
-		// if ( $is_form_editor ) {
-		// 	$input .= '<br><hr><br>';
-		// }
-	
-		// $input .= "<input type='textarea' id='input_{$id}' name='input_{$id}' value='{$value}' />";
-		// $input .= '<div id="gfsf-app"></div>';
-		
-		// return $input;
 		
 		//app form
 		ob_start();
