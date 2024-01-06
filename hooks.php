@@ -1,10 +1,18 @@
-<?php
+h<?php
 if (!defined('ABSPATH'))
     exit;
 
-    //for dev
+    
+    /**
+     * For development only - it displays any data in var_dump in red bordered div
+     *
+     * @param string $var
+     * @param boolean $die
+     * @return void
+     */
     function d( $var = 'test', $die = true  ) {
 		echo '<div style="border: red solid 1px; padding:20px; margin:20px; background:#fff">';
+		echo '<h3>Func var_dump for development and debugging only!</h3>';
 		echo '<pre>';
 		var_dump($var);
 		echo '</pre>';
@@ -14,83 +22,53 @@ if (!defined('ABSPATH'))
 		}
 	}
 
-/**
- * hooks to display in backend in development, commented
- */
-// Add custom column to entry list table
-// add_filter('gform_entries_columns', 'add_custom_column');
-// add_filter('gform_entries_column_values', 'populate_custom_column', 10, 3);
-// add_action('gform_entry_detail', 'add_custom_section');
 
+// this works ! ---
 /**
  * Details view hook
  */
-add_action( 'gform_entry_detail', 'add_to_details', 10, 3 );
+add_action( 'gform_entry_detail', 'add_to_details', 10, 2 );
 function add_to_details( $form, $entry ) {
-    d($entry);//dev
+    // d($entry);//dev
     // if ( $form['id'] == 1 ) {
-        echo '<div>This hook is used to add additional information to the details page for an entry.</div>';
+        // echo '<div>This hook is used to add additional information to the details page for an entry.</div>';
     // }
-}
-
-add_filter( 'gform_entries_column_filter', 'change_column_data', 10, 5 );
-function change_column_data( $value, $form_id, $field_id, $entry, $query_string ) {
-    d($entry);//dev
-    //only change the data when form id is 1 and field id is 2
-    // if ( $form_id != 1 && $field_id != 2 ) {
-    //     return $value;
-    // }
-    // return "newdata";
-}
-
-
-
-
-function add_custom_column($columns)
-{
-    // d($columns);
-    $columns['custom_json'] = 'Custom JSON';
-    return $columns;
-}
-
-// Populate custom column with data
-
-function populate_custom_column($value, $form, $field)
-{
-    if ($field['type'] === 'gf-solarform' && $field['id'] === 'your_field_id') {
-        // Get JSON data from the entry
-        $entry = GFAPI::get_entry($value['entry_id']);
-        $json_data = isset($entry['your_field_id']) ? $entry['your_field_id'] : '';
-
-        // Format JSON data for better readability
-        $formatted_json = json_encode(json_decode($json_data), JSON_PRETTY_PRINT);
-
-        return '<pre>' . esc_html($formatted_json) . '</pre>';
+    $data = json_decode($entry[1]);
+    echo '<div class="j-admin-block">';
+    echo '<h2>Solar Form Data</h2>';
+    foreach ($data as $key => $value) {
+        echo '<div class="j-inline-field">';
+        echo '<label>' . $key . '</label>';
+        echo $value;
+        echo '</div>';
     }
-    return $value;
+    echo '</div>';
+    // $html = '';
+    // $html .= '<div class="j-inline-field">';
+    // $html .= '<div class="j-inline-field"><label>Any Label:</label>Here can be any field which is important ex Name, Email</div>';
+    // $html .= '<div class="j-inline-field"><label>Dachfläche:</label>' . $data->Dachfläche .'</div>';
+    // $html .= '<div class="j-inline-field">ETC</div>';
+    // $html .= '<div class="j-inline-field">ETC</div>';
+    // // $html .= get_current_screen()->base;
+    // echo $html;
 }
 
 
+// add_filter('gform_entries_column_values', 'change_column_data', 10, 4);
+// function change_column_data($value, $form, $field, $entry) {
+//     return '9999';
+// }
 
-// Add custom section to entry detail page
+/**
+ * replaces json with data via foreach
+ */
+add_filter( 'gform_entries_primary_column_filter', function( $column_value, $form_id, $field_id, $entry, $query_string, $edit_url, $field_value ) {
+    $data = json_decode($entry[1]);
+    $html = '';
+    $html .= '<div class="j-inline-field"><label>Any Label:</label>Here can be any field which is important ex Name, Email</div>';
+    $html .= '<div class="j-inline-field"><label>Dachfläche:</label>' . $data->Dachfläche .'</div>';
+    $html .= '<div class="j-inline-field">ETC</div>';
+    // $html .= get_current_screen()->base;
+    return $html;
+}, 10, 7 );
 
-function add_custom_section($form_id, $entry)
-{
-    error_log('Entering add_custom_section function');
-    ?>
-        <div class="gform-entry-detail-section">
-            <h3>Custom JSON Section</h3>
-            <?php
-            // Get JSON data from the entry
-            $json_data = isset($entry['your_field_id']) ? $entry['your_field_id'] : '';
-
-            // Format JSON data for better readability
-            $formatted_json = json_encode(json_decode($json_data), JSON_PRETTY_PRINT);
-
-            echo '<pre>' . esc_html($formatted_json) . '</pre>';
-            ?>
-        </div>
-        <?php
-        error_log('Exiting add_custom_section function');
-
-}

@@ -21,8 +21,17 @@ require GFSF_PLUGIN_PATH . '/core/init.php';
 
 include 'hooks.php';
 
-//add style
+//add styles
+add_action('admin_enqueue_scripts', 'enqueue_admin_scripts_and_styles');
 add_action('wp_enqueue_scripts', 'gfsfi_public_scripts_and_styles');
+
+function enqueue_admin_scripts_and_styles()
+{
+    //calls if our pages
+    if (get_current_screen()->id == 'forms_page_gf_entries') {
+        wp_enqueue_style('j-style', plugin_dir_url(__FILE__) . 'assets/css/style.css', array(), '');
+    }
+}
 function gfsfi_public_scripts_and_styles() {
     wp_enqueue_style('j-style', plugin_dir_url(__FILE__) . 'assets/css/style.css', array(), '');
 

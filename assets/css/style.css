@@ -201,6 +201,32 @@
   font-weight: bold;
 }
 
+.j-admin-block {
+  font-size: 1rem;
+  position: relative;
+  margin: 20px 0;
+  padding: 20px;
+  box-sizing: border-box;
+  background: #fff;
+  -webkit-box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+  -moz-box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+}
+.j-admin-block h2 {
+  padding: 0 0 20px !important;
+  font-size: 2rem !important;
+  font-weight: normal !important;
+}
+.j-admin-block .j-inline-field {
+  display: flex;
+  padding: 7px 0;
+  border-bottom: 1px solid #e9e9e9;
+}
+.j-admin-block .j-inline-field label {
+  width: 300px;
+  font-weight: bold;
+}
+
 #app .j-reset {
   position: absolute;
   left: 50%;
