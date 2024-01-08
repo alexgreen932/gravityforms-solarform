@@ -12,7 +12,7 @@ if (is_admin()) {
             <div v-if="!ready" class="preloader">
                 <div class="custom-loader"></div>
             </div>
-            <div v-if="screen==10">
+            <div v-show="screen==10">
                 <?php include 'final-forms.php' ?>
             </div>
             <div v-if="screen!==10">
