@@ -1,6 +1,11 @@
+$unactive: #818181;
+$active: #86CC67;
+$radius: 4px;
+$bor_lg: #b0bec5;
 
 @import 'src/base';
 @import 'src/form';
 @import 'src/v-anim';
 @import 'src/keyframes';
+@import 'src/styles';
 @import 'src/mobile';

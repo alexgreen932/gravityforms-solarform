@@ -30,13 +30,12 @@ if (is_admin()) {
                         </select> -->
                         </template>
     
-                        <g-map :scr="screen" :lang="lang" @newel="screen=$event"></g-map>
+                        <!-- <g-map :scr="screen" :lang="lang" @newel="screen=$event"></g-map> -->
                     </div>
     
                     <template v-if="screen!==0">
                         <div class="j-data">
-                            <j-preview v-if="screen!==0" :els="screens" :ind="screen" :lang="lang"
-                                @newel="screen=$event"></j-preview>
+                            <j-preview v-if="screen!==0" :els="screens" :ind="screen" :lang="lang" @newel="screen=$event"></j-preview>
                             <div class="data-sell" v-for="(el, index) in screens" :key="el">
                                 <transition name="custom-classes-transition" enter-active-class="fade-in-bottom">
                                     <div v-if="screen==index">
@@ -82,10 +81,10 @@ if (is_admin()) {
     
                                         </template>
                                         <template v-if="index==7">
-                                            <div class="inline">
+                                            <!-- <div class="inline">
                                                 <label>{{el.title2}}</label>
                                                 <input type="text" v-model="form.count">
-                                            </div>
+                                            </div> -->
     
                                             {{el.title3}}
                                             <!-- <select v-model="el.value">

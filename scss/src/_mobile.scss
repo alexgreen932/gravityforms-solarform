@@ -1,13 +1,17 @@
 //ipad air
 @media (max-width: 820px) {
     #app {
-        max-height: auto!important;
-        .j-grid{
-            .j-map, .j-data{
+        max-height: 100%!important;
+
+        .j-grid {
+
+            .j-map,
+            .j-data {
                 width: 50% !important;
                 height: 100% !important;
                 box-sizing: border-box;
             }
+
             #map_canvas2 {
                 width: 100% !important;
                 height: 400px;
@@ -15,28 +19,46 @@
                 box-sizing: border-box;
             }
 
-        } 
+        }
 
     }
 
 }
 
 //mos mobiles
-@media (max-width: 480px) {
+@media (max-width: 420px) {
+
+    .grid-column,
+    .gform_fields,
+    .gfield,
+    .gform-body,
+    .gform_heading,
+    .gform_ajax_frame_1,
+    #gform_1 {
+        width: 100%!important;
+        max-width: 100%!important;
+    }
+
     #app {
-        max-height: auto!important;
-        .j-grid{
+        max-width: 100%!important;
+        max-height: 100%!important;
+
+        .j-grid {
             flex-direction: column;
-            .j-map, .j-data {
+
+            .j-map,
+            .j-data {
                 width: 100% !important;
+                max-width: 100% !important;
                 box-sizing: border-box;
             }
+
             #map_canvas2 {
-                width: 100% !important;
+                // width: 100% !important;
                 box-sizing: border-box;
                 height: 300px !important;
             }
-        } 
+        }
 
     }
 }

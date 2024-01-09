@@ -34,6 +34,13 @@ export default {
             autocomplete.setComponentRestrictions({
                 country: ["de"],
             });
+            //! map mobile resize
+            // google.maps.event.addDomListener(window, "resize", function() {
+            //     var center = map.getCenter();
+            //     google.maps.event.trigger(map, "resize");
+            //     map.setCenter(center); 
+            // });
+
             autocomplete.addListener("place_changed", function () {
                 var place = autocomplete.getPlace();
                 if (!place.geometry) {

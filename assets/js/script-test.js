@@ -2,13 +2,6 @@ jQuery(document).ready(function ($) {
     // Use the form ID to bind the submit event
     $('#gform_submit_button_1').appendTo('#final-form');
     $('#gform_submit_button_1').attr('disabled', true);
-    // var n = $('#name').val();
-    // var l = $('#last-name').val();
-    // var t = $('#phone').val();
-    // var e = $('#email').val();
-    // if ( n.length && l.length && t.length && e.length ) {
-    // 	$('#gform_submit_button_1').attr('disabled', false);
-    // }
     $('#gform_submit_button_1').attr('disabled', false);//TODO validation in vue
     //fix gmap width
     if(screen.width < 500 ||
@@ -19,6 +12,7 @@ jQuery(document).ready(function ($) {
        	var w = $(window).width();
         console.log('w', w);
         w = w - 100;
+        console.log("w", w);
        	$('#map_canvas2').width(w);
        }
 });
