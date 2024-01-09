@@ -28,6 +28,6 @@
 
         <div class="j-cell-100">
             <textarea name="" id="" cols="30" rows="10" placeholder="Ihre Nachricht"></textarea>
-            <!-- <button>Absenden</button> -->
+            <div class="but_wrap"></div>
         </div>
     </div>

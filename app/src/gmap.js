@@ -1,7 +1,8 @@
 const template = `
     <div class="inline">
-        <input id="autocompleteInput" type="text" placeholder="Введите адрес">
-        <button v-show="scr==0" class="j-but" @click.prevent="goTo()">{{lang.show}}</button>
+        <input v-if="ind==0" id="autocompleteInput" type="text">
+        <input v-if="ind!==0"  id="autocompleteInput" class="stand_alone" type="text">
+        <button v-show="scr==0" class="j-but j-but-map" @click.prevent="goTo()">{{lang.show}}</button>
     </div> 
     
     <div v-show="scr!==0" id="map_canvas2"></div>
@@ -10,7 +11,7 @@ const template = `
 
 export default {
     template,
-    props: ['el','scr', 'lang'],
+    props: ['el','scr', 'ind', 'lang'],
     emits: ['newel'],
     data() {
         return {

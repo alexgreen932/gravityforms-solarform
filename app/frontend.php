@@ -30,7 +30,7 @@ if (is_admin()) {
                         </select> -->
                         </template>
     
-                        <!-- <g-map :scr="screen" :lang="lang" @newel="screen=$event"></g-map> -->
+                        <g-map :scr="screen" :lang="lang" :ind="screen" @newel="screen=$event"></g-map>
                     </div>
     
                     <template v-if="screen!==0">
@@ -103,8 +103,11 @@ if (is_admin()) {
                                             </button>
     
                                         </template>
-                                        <button v-if="index!==7" class="j-but" :disabled="!el.value"
+                                        <div class="but_wrap">
+                                            <button v-if="index!==7" class="j-but" :disabled="!el.value"
                                             @click.prevent="screen=index+1; calc_approximate_cost(index)">{{lang.further}}</button>
+                                        </div>
+                                        
                                     </div>
                                 </transition>
                             </div>

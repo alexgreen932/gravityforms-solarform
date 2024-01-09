@@ -1,6 +1,6 @@
 jQuery(document).ready(function ($) {
     // Use the form ID to bind the submit event
-    $('#gform_submit_button_1').appendTo('#final-form');
+    $('#gform_submit_button_1').appendTo('#final-form .but_wrap');
     $('#gform_submit_button_1').attr('disabled', true);
     // var n = $('#name').val();
     // var l = $('#last-name').val();

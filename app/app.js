@@ -12,7 +12,7 @@ let app = Vue.createApp({
     },
     data() {
         return {
-            screen: 10,
+            screen: 0,
             result: false,
             done: [],
             finish: false,
@@ -158,82 +158,25 @@ let app = Vue.createApp({
                 }
             ],
             // with almost filled test data for quicker filling and pass screens
-            screens_de: [
-                {
-                    title: "Lohnt sich eine Photovoltaikanlage?",
-                    des: "Simulieren Sie mit wenigen Angaben die Produktion, Wirtschaftlichkeit und Kosten einer Photovoltaikanlage mit oder ohne Batteriespeicher.",
-                    value: '',
-                },
-                {
-                    title: "Dachfläche",
-                    des: "Markieren Sie die gesamte Dachfläche Ihres Hauses.",
-                    value: 330,
-                    title2: "Neubau oder manuelle Eingabe?",
-                    value2: false,
-                },
-                {
-                    title: "Haustyp",
-                    des: "Wählen Sie Ihren Haustyp.",
-                    value: 'Satteldach',
-                    title2: "2 Dachseiten belegen",
-                    value2: '',
-                    title3: "",
-                    value3: "",
-                    title4: "",
-                    value4: "",
-                },
-                {
-                    title: "Dachneigung",
-                    des: "Wählen Sie Ihre Dachneigung oder geben Sie diese manuell ein.",
-                    value: 30,
-                    title2: "Manuelle Eingabe",
-                },
-                {
-                    title: "Ausrichtung",
-                    des: "Richten Sie Ihr Haus gleich aus wie auf dem Satellitenbild.",
-                    title: "Ausrichtung",
-                    value: 45,
-                },
-                {
-                    title: "Warmwasser",
-                    des: "Wie erwärmen Sie Ihr Warmwasser?",
-                    value: 'lorem',
-                },
-                {
-                    title: "Heizung",
-                    des: "Wie heizen Sie Ihr Gebäude?",
-                    value: 'lorem',
-                },
-                {
-                    title: "Jahresverbrauch",
-                    des: "Wie hoch ist Ihr Jahresstromverbrauch?",
-                    value: 18930,
-                    title2: "Total:",
-                    title3: "Wie hoch ist Ihr Strompreis?",
-                    title4: "Strompreis:",
-                    title5: "Solaranlage berechnen:",
-                }
-            ],
-            //With null data for prod
             // screens_de: [
             //     {
             //         title: "Lohnt sich eine Photovoltaikanlage?",
             //         des: "Simulieren Sie mit wenigen Angaben die Produktion, Wirtschaftlichkeit und Kosten einer Photovoltaikanlage mit oder ohne Batteriespeicher.",
-            //         value: "",
+            //         value: '',
             //     },
             //     {
             //         title: "Dachfläche",
             //         des: "Markieren Sie die gesamte Dachfläche Ihres Hauses.",
-            //         value: null,
+            //         value: 330,
             //         title2: "Neubau oder manuelle Eingabe?",
             //         value2: false,
             //     },
             //     {
             //         title: "Haustyp",
             //         des: "Wählen Sie Ihren Haustyp.",
-            //         value: null,
+            //         value: 'Satteldach',
             //         title2: "2 Dachseiten belegen",
-            //         value2: "",
+            //         value2: '',
             //         title3: "",
             //         value3: "",
             //         title4: "",
@@ -242,35 +185,92 @@ let app = Vue.createApp({
             //     {
             //         title: "Dachneigung",
             //         des: "Wählen Sie Ihre Dachneigung oder geben Sie diese manuell ein.",
-            //         value: null,
+            //         value: 30,
             //         title2: "Manuelle Eingabe",
             //     },
             //     {
             //         title: "Ausrichtung",
             //         des: "Richten Sie Ihr Haus gleich aus wie auf dem Satellitenbild.",
             //         title: "Ausrichtung",
-            //         value: null,
+            //         value: 45,
             //     },
             //     {
             //         title: "Warmwasser",
             //         des: "Wie erwärmen Sie Ihr Warmwasser?",
-            //         value: null,
+            //         value: 'lorem',
             //     },
             //     {
             //         title: "Heizung",
             //         des: "Wie heizen Sie Ihr Gebäude?",
-            //         value: null,
+            //         value: 'lorem',
             //     },
             //     {
             //         title: "Jahresverbrauch",
             //         des: "Wie hoch ist Ihr Jahresstromverbrauch?",
-            //         value: null,
+            //         value: 18930,
             //         title2: "Total:",
             //         title3: "Wie hoch ist Ihr Strompreis?",
             //         title4: "Strompreis:",
             //         title5: "Solaranlage berechnen:",
             //     }
             // ],
+            //With null data for prod
+            screens_de: [
+                {
+                    title: "Lohnt sich eine Photovoltaikanlage?",
+                    des: "Simulieren Sie mit wenigen Angaben die Produktion, Wirtschaftlichkeit und Kosten einer Photovoltaikanlage mit oder ohne Batteriespeicher.",
+                    value: "",
+                },
+                {
+                    title: "Dachfläche",
+                    des: "Markieren Sie die gesamte Dachfläche Ihres Hauses.",
+                    value: null,
+                    title2: "Neubau oder manuelle Eingabe?",
+                    value2: false,
+                },
+                {
+                    title: "Haustyp",
+                    des: "Wählen Sie Ihren Haustyp.",
+                    value: null,
+                    title2: "2 Dachseiten belegen",
+                    value2: "",
+                    title3: "",
+                    value3: "",
+                    title4: "",
+                    value4: "",
+                },
+                {
+                    title: "Dachneigung",
+                    des: "Wählen Sie Ihre Dachneigung oder geben Sie diese manuell ein.",
+                    value: null,
+                    title2: "Manuelle Eingabe",
+                },
+                {
+                    title: "Ausrichtung",
+                    des: "Richten Sie Ihr Haus gleich aus wie auf dem Satellitenbild.",
+                    title: "Ausrichtung",
+                    value: null,
+                },
+                {
+                    title: "Warmwasser",
+                    des: "Wie erwärmen Sie Ihr Warmwasser?",
+                    value: null,
+                },
+                {
+                    title: "Heizung",
+                    des: "Wie heizen Sie Ihr Gebäude?",
+                    value: null,
+                },
+                {
+                    title: "Jahresverbrauch",
+                    des: "Wie hoch ist Ihr Jahresstromverbrauch?",
+                    value: null,
+                    title2: "Total:",
+                    title3: "Wie hoch ist Ihr Strompreis?",
+                    title4: "Strompreis:",
+                    title5: "Solaranlage berechnen:",
+                }
+            ],
             lang_current: 0,
             lang: {
                 show: 'Show',
