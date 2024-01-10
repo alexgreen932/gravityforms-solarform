@@ -30,6 +30,7 @@ export function calc() {
     const roofArea = this.screens[1].value;
     const roofType = this.screens[2].value;
     const roofAngle = this.screens[3].value;
+    console.log('roofAngle: ', roofAngle);
 
     //dev
     console.log("roofArea:", roofArea);
@@ -38,6 +39,7 @@ export function calc() {
 
     const roofTypeModValue = roofTypeMod[roofType] || 0;
     const roofAngleModValue = roofAngleMod[roofAngle] || 0;
+    console.log('roofAngleModValu: ', roofAngleModValue);
 
     const numberOfModules = Math.floor(roofArea / moduleSize);
     console.log('roofArea:', roofArea)
