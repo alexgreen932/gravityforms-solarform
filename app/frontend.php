@@ -9,115 +9,105 @@ if (is_admin()) {
 <div id="app">
     <input type="hidden" id="input_<?php echo $id ?>" name="input_<?php echo $id ?>" :value="textareaData()"/>
     <?php if (!is_admin()): ?>
-            <div v-if="!ready" class="preloader">
-                <div class="custom-loader"></div>
-            </div>
-            <div v-show="screen==10">
-                <?php include 'final-forms.php' ?>
-            </div>
-            <div v-if="screen!==10">
-                <transition name="custom-classes-transition" enter-active-class="fade-in" leave-active-class="fade-out">
-                    <div v-if="screen!==0" class="j-reset" @click.prevent="screen=0">{{lang.reset}}</div>
-                </transition>
-                <div class="j-grid">
-                    <div class="j-map">
-                        <template v-if="screen==0 && screens">
-                            <h3>{{screens[0].title}}</h3>
-                            <p>{{screens[0].des}}</p>
-                            <!-- <select v-model="lang_current" @change="langCurrent()">
-                            <option value="0">Deutsch</option>
-                            <option value="1">English</option>
-                        </select> -->
-                        </template>
-    
-                        <g-map :scr="screen" :lang="lang" :ind="screen" @newel="screen=$event"></g-map>
-                    </div>
-    
-                    <template v-if="screen!==0">
-                        <div class="j-data">
-                            <j-preview v-if="screen!==0" :els="screens" :ind="screen" :lang="lang" @newel="screen=$event"></j-preview>
-                            <div class="data-sell" v-for="(el, index) in screens" :key="el">
-                                <transition name="custom-classes-transition" enter-active-class="fade-in-bottom">
-                                    <div v-if="screen==index">
-                                        <h3>{{el.title}} <span class="step">{{index}}/7</span></h3>
-                                        <p>{{el.des}}</p>
-                                        <template v-if="index==1">
-                                            <input type="text" v-model="el.value" :placeholder="el.name" />
-                                        </template>
-                                        <template v-if="index==2">
-                                            <select v-model="el.value">
-                                                <option v-for="op in roof_types">{{op}}</option>
-                                            </select>
-                                            <template v-if="el.value=='Gable'">
-                                                <label><input type="checkbox" v-model="form.sides_2">Use 2 sides of the
-                                                    roof</label>
-                                            </template>
-                                        </template>
-                                        <template v-if="index==3">
-                                            <select v-model="el.value">
-                                                <option v-for="op in angle">{{op}}</option>
-                                            </select>
-                                            <div class="inline">
-                                                <label>{{el.title2}}</label>
-                                                <input type="number" v-model="el.value">
-                                            </div>
-                                        </template>
-                                        <template v-if="index==4">
-                                            <select v-model="el.value">
-                                                <option v-for="op in angle">{{op}}</option>
-                                            </select>
-                                            <!-- Здесь не совсем понятно и надо подумать как сделать -->
-                                        </template>
-                                        <template v-if="index==5">
-                                            <select v-model="el.value">
-                                                <option v-for="op in hot_water">{{op}}</option>
-                                            </select>
-                                        </template>
-                                        <template v-if="index==6">
-    
-                                            <select v-model="el.value">
-                                                <option v-for="op in heating">{{op}}</option>
-                                            </select>
-    
-                                        </template>
-                                        <template v-if="index==7">
-                                            <!-- <div class="inline">
-                                                <label>{{el.title2}}</label>
-                                                <input type="text" v-model="form.count">
-                                            </div> -->
-    
-                                            {{el.title3}}
-                                            <!-- <select v-model="el.value">
-                                            <option v-for="op in price">{{op}}</option>
-                                        </select> -->
-                                        <select v-model="el.value">
-                                            <option v-for="price in priceOptions" :key="price" :value="price">
-                                                {{ price }} cents
-                                            </option>
-                                        </select>
-                                            
-                                            <button class="j-but" :disabled="!el.value" @click.prevent="screen=10; calc()">
-                                                <i class="fas fa-chart-line"></i></i>
-                                                {{el.title5}}
-                                                <i class="fas fa-angle-double-right"></i>
-                                            </button>
-    
-                                        </template>
-                                        <div class="but_wrap">
-                                            <button v-if="index!==7" class="j-but" :disabled="!el.value"
-                                            @click.prevent="screen=index+1; calc_approximate_cost(index)">{{lang.further}}</button>
-                                        </div>
-                                        
-                                    </div>
-                                </transition>
-                            </div>
-    
+                        <div v-if="!ready" class="preloader">
+                            <div class="custom-loader"></div>
                         </div>
-                    </template>
-                    <g-result :el="screens" :res="result" @newel="result=$event"></g-result>
-                </div>
-            </div>
-            </div>
+                        <div v-show="screen==10">
+                            <?php
+                            include 'final-forms.php'
+                                ?>
+                        </div>
+                        <template v-if="screen!==10">
+                            <transition name="custom-classes-transition" enter-active-class="fade-in" leave-active-class="fade-out">
+                                <div v-if="screen!==0" class="j-reset" @click.prevent="screen=0">{{lang.reset}}</div>
+                            </transition>
+                            <div class="j-grid">
+                                <div class="j-map">
+                                    <template v-if="screen==0 && screens">
+                                        <h3>{{screens[0].title}}</h3>
+                                        <p>{{screens[0].des}}</p>
+                                    </template>
+    
+                                    <g-map :scr="screen" :lang="lang" :ind="screen" @newel="screen=$event"></g-map>
+                                </div>
+    
+                                <template v-if="screen!==0">
+                                    <div class="j-data">
+                                        <j-preview v-if="screen!==0" :els="screens" :ind="screen" :lang="lang" @newel="screen=$event"></j-preview>
+                                        <template v-for="(el, index) in screens" :key="el">
+                                            <transition name="custom-classes-transition" enter-active-class="fade-in-bottom">
+                                                <div class="data-block" v-if="screen==index">
+                                                    <h3>{{el.title}} <span class="step">{{index}}/7</span></h3>
+                                                    <div class="j-desc">{{el.des}}</div>
+                                                    <template v-if="index==1">
+                                                        <input type="text" v-model="el.value" :placeholder="el.name" />
+                                                    </template>
+                                                    <template v-if="index==2">
+                                                        <select v-model="el.value">
+                                                            <option v-for="op in roof_types">{{op}}</option>
+                                                        </select>
+                                                        <template v-if="el.value=='Gable'">
+                                                            <label><input type="checkbox" v-model="form.sides_2">Use 2 sides of the
+                                                                roof</label>
+                                                        </template>
+                                                    </template>
+                                                    <template v-if="index==3">
+                                                        <select v-model="el.value">
+                                                            <option v-for="op in angle">{{op}}</option>
+                                                        </select>
+                                                        <div class="inline">
+                                                            <label>{{el.title2}}</label>
+                                                            <input type="number" v-model="el.value">
+                                                        </div>
+                                                    </template>
+                                                    <template v-if="index==4">
+                                                        <select v-model="el.value">
+                                                            <option v-for="op in angle">{{op}}</option>
+                                                        </select>
+                                                        <!-- Здесь не совсем понятно и надо подумать как сделать -->
+                                                    </template>
+                                                    <template v-if="index==5">
+                                                        <select v-model="el.value">
+                                                            <option v-for="op in hot_water">{{op}}</option>
+                                                        </select>
+                                                    </template>
+                                                    <template v-if="index==6">
+    
+                                                        <select v-model="el.value">
+                                                            <option v-for="op in heating">{{op}}</option>
+                                                        </select>
+    
+                                                    </template>
+                                                    <template v-if="index==7">
+                                                        {{el.title3}}
+
+                                                    <select v-model="el.value">
+                                                        <option v-for="price in priceOptions" :key="price" :value="price">
+                                                            {{ price }} cents
+                                                        </option>
+                                                    </select>
+                                            
+                                                        <button class="j-but" :disabled="!el.value" @click.prevent="screen=10; calc()">
+                                                            <i class="fas fa-chart-line"></i></i>
+                                                            {{el.title5}}
+                                                            <i class="fas fa-angle-double-right"></i>
+                                                        </button>
+    
+                                                    </template>
+                                                    <div class="but_wrap">
+                                                        <button v-if="index!==7" class="j-but" :disabled="!el.value"
+                                                        @click.prevent="screen=index+1; calc_approximate_cost(index)">{{lang.further}}</button>
+                                                    </div>
+                                        
+                                                </div>
+                                            </transition>
+                                        </template>
+    
+                                    </div>
+                                </template>
+                            </div>
+                        </template>
+                        </div>
     <?php endif; ?>
 
 

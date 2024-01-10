@@ -1,4 +1,5 @@
 const template = `
+<div class="j-data-saved-wrapper">
     <template v-for="(el, index) in els" :key="index">
         <template v-if="index>0">
             <transition name="custom-classes-transition" enter-active-class="fade-in-top">
@@ -13,7 +14,8 @@ const template = `
                 </div>
             </transition>
         </template>
-    </template>   
+    </template> 
+  </div>  
 `;
 export default {
   template,

@@ -1,13 +1,13 @@
 //current block theme
 .gform_wrapper {
-    width: 1100px !important;
-    max-width: 1100px !important;
+    // width: 1100px !important;
+    // max-width: 1100px !important;
 
-    body,
-    form {
-        width: 1100px !important;
-        max-width: 1100px !important;
-    }
+    // body,
+    // form {
+    //     width: 1100px !important;
+    //     max-width: 1100px !important;
+    // }
 }
 
 .gform_title,
@@ -275,6 +275,31 @@
     display: none;
 }
 #final-form{
-
+    h1{
+        margin-bottom: 20px!important;
+    }
 }
-
+.j-final-price{
+    display: flex;
+    // justify-content: space-around;
+    background: #fff;
+    padding: 10px;
+    -webkit-box-shadow: 0 5px 15px rgba(0, 0, 0, .08);
+    -moz-box-shadow: 0 5px 15px rgba(0, 0, 0, .08);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, .08);
+    font-weight: 600;
+    div{
+        flex-grow: 1;
+        text-align: center;
+        margin-bottom: 0!important;
+        &:first-child{
+            border-right: 1px solid $bor_lg;
+        }
+        span{
+            font-weight: normal;
+        }
+    }
+}
+.j-data-saved-wrapper{
+    margin-bottom: 20px;
+}

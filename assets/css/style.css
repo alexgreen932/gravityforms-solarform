@@ -1,13 +1,3 @@
-.gform_wrapper {
-  width: 1100px !important;
-  max-width: 1100px !important;
-}
-.gform_wrapper body,
-.gform_wrapper form {
-  width: 1100px !important;
-  max-width: 1100px !important;
-}
-
 .gform_title,
 .gform_description,
 .gfield--type-solarfield .gform-field-label {
@@ -236,6 +226,35 @@
 
 .gform_button {
   display: none;
+}
+
+#final-form h1 {
+  margin-bottom: 20px !important;
+}
+
+.j-final-price {
+  display: flex;
+  background: #fff;
+  padding: 10px;
+  -webkit-box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+  -moz-box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+  font-weight: 600;
+}
+.j-final-price div {
+  flex-grow: 1;
+  text-align: center;
+  margin-bottom: 0 !important;
+}
+.j-final-price div:first-child {
+  border-right: 1px solid #b0bec5;
+}
+.j-final-price div span {
+  font-weight: normal;
+}
+
+.j-data-saved-wrapper {
+  margin-bottom: 20px;
 }
 
 #app .j-reset {
@@ -694,4 +713,68 @@ body {
   -webkit-border-radius: 0px 4px 4px 0px !important;
   -moz-border-radius: 0px 4px 4px 0px !important;
   border-radius: 0px 4px 4px 0px !important;
+}
+
+@media (min-width: 820px) {
+  .gform_wrapper {
+    width: 1100px !important;
+    max-width: 1100px !important;
+  }
+  .gform_wrapper body,
+  .gform_wrapper form {
+    width: 1100px !important;
+    max-width: 1100px !important;
+  }
+}
+@media (max-width: 420px) {
+  #app, #app #final-form {
+    width: 100%;
+  }
+  #app .j-grid, #app .j-grid-col, #app #final-form .j-grid, #app #final-form .j-grid-col {
+    flex-direction: column;
+  }
+  #app .j-map, #app .j-data, #app #final-form .j-map, #app #final-form .j-data {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+  }
+  #app .j-data-saved label, #app #final-form .j-data-saved label {
+    width: 120px !important;
+  }
+  #app .data-block, #app #final-form .data-block {
+    flex-shrink: 1;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+  }
+  #app .j-desc, #app #final-form .j-desc {
+    width: 100%;
+    flex-grow: 1;
+  }
+  #app h3, #app p, #app input, #app select, #app div, #app #final-form h3, #app #final-form p, #app #final-form input, #app #final-form select, #app #final-form div {
+    flex-shrink: 1;
+    width: auto;
+  }
+  #app .j-inline-field, #app #final-form .j-inline-field {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 0;
+  }
+  #app .j-inline-field input, #app #final-form .j-inline-field input {
+    margin-bottom: 0;
+  }
+  #app .j-cell-50, #app #final-form .j-cell-50 {
+    margin-bottom: 0;
+    padding: 0;
+  }
+  #app .j-cell-50 input, #app #final-form .j-cell-50 input {
+    width: 100%;
+  }
+  .j-final-price {
+    flex-direction: column;
+  }
+  .j-final-price div:first-child {
+    border-right-width: 0;
+    border-bottom: 1px solid #b0bec5;
+  }
 }/*# sourceMappingURL=style.css.map */
