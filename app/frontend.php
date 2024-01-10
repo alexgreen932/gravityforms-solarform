@@ -40,7 +40,7 @@ if (is_admin()) {
                                                     <h3>{{el.title}} <span class="step">{{index}}/7</span></h3>
                                                     <div class="j-desc">{{el.des}}</div>
                                                     <template v-if="index==1">
-                                                        <input type="text" v-model="el.value" :placeholder="el.name" />
+                                                        <input type="number" v-model="el.value" :placeholder="el.name" />
                                                     </template>
                                                     <template v-if="index==2">
                                                         <select v-model="el.value">
@@ -59,6 +59,7 @@ if (is_admin()) {
                                                             <label>{{el.title2}}</label>
                                                             <input type="number" v-model="el.value">
                                                         </div>
+                                                        <input type="range" min="0" max="90" v-model="el.value">
                                                     </template>
                                                     <template v-if="index==4">
                                                         <select v-model="el.value">

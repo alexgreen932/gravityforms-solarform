@@ -54,6 +54,15 @@
             flex-shrink: 1;
             width: auto;
         }
+        .inline{
+            display: flex;
+            flex-direction: column;
+            margin-bottom: 10px;
+            // input{
+            //     margin-bottom: 0;
+
+            // }
+        }
         .j-inline-field{
             display: flex;
             flex-direction: column;
@@ -80,5 +89,17 @@
             border-right-width: 0;
             border-bottom: 1px solid $bor_lg;
         }
-    }    
+    }  
+    .j-grid-final{
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        flex-direction: column;
+        input{
+            width: 100%!important; 
+        }
+        .j-final-price{
+            width: 100%;
+        }
+    }  
 }

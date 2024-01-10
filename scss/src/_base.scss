@@ -303,3 +303,17 @@
 .j-data-saved-wrapper{
     margin-bottom: 20px;
 }
+.j-grid-final{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    input{
+        width: 49%!important; 
+    }
+    .j-final-price, .but_wrap{
+        width: 100%;
+    }
+    textarea{
+        margin-bottom: 20px!important;
+    }
+}

@@ -257,6 +257,21 @@
   margin-bottom: 20px;
 }
 
+.j-grid-final {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+.j-grid-final input {
+  width: 49% !important;
+}
+.j-grid-final .j-final-price, .j-grid-final .but_wrap {
+  width: 100%;
+}
+.j-grid-final textarea {
+  margin-bottom: 20px !important;
+}
+
 #app .j-reset {
   position: absolute;
   left: 50%;
@@ -755,6 +770,11 @@ body {
     flex-shrink: 1;
     width: auto;
   }
+  #app .inline, #app #final-form .inline {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 10px;
+  }
   #app .j-inline-field, #app #final-form .j-inline-field {
     display: flex;
     flex-direction: column;
@@ -776,5 +796,17 @@ body {
   .j-final-price div:first-child {
     border-right-width: 0;
     border-bottom: 1px solid #b0bec5;
+  }
+  .j-grid-final {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    flex-direction: column;
+  }
+  .j-grid-final input {
+    width: 100% !important;
+  }
+  .j-grid-final .j-final-price {
+    width: 100%;
   }
 }/*# sourceMappingURL=style.css.map */
