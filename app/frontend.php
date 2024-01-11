@@ -7,7 +7,7 @@ if (is_admin()) {
 ?>
 
 <div id="app">
-    <input type="hidden" id="input_<?php echo $id ?>" name="input_<?php echo $id ?>" :value="textareaData()"/>
+    <input type="hidden" id="input_<?php echo $id ?>" name="input_<?php echo $id ?>" :value="finalData()"/>
     <?php if (!is_admin()): ?>
                         <div v-if="!ready" class="preloader">
                             <div class="custom-loader"></div>

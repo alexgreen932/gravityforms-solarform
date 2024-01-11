@@ -21,18 +21,43 @@ let app = Vue.createApp({
             max:null,
             form: {
                 address: null,
-                size: null,
-                type: null,
-                sides_2: false,
-                angle: null,
-                orientation: null,
-                hot_water: null,
-                heating: null,
-                count: null,
+                // size: null,
+                // type: null,
+                // sides_2: false,
+                // angle: null,
+                // orientation: null,
+                // hot_water: null,
+                // heating: null,
+                // count: null,
+                count_total: null,
                 price: null,
                 min:null,
                 max:null,
+                name:null,
+                last_name:null,
+                tel:null,
+                email:null,
+                message:null,
+                town:null,
+                street:null,
+                house:null,
+                post_code:null,
+                // :null,
+                // :null,
             },
+            // left for now to pick-up data for form
+            // Address: Lorem Ipsum
+            // Floor plan area: 900
+            // Selection of roof type: gable roof
+            // Choice of roof pitch: 30
+            // Name: Doe
+            // First name: John
+            // Street: Weidestraße
+            // House number: 122A
+            // Location: Hamburg-Nord
+            // Postal code: B17EA
+            // Telephone: +49 977 320 4254
+            // Email: work@vivapro.net
             roof_types: ["Satteldach", "Zeltdach", "Flachdach", "Pultdach", "Walmdach", "Anderes Dach"],
             angle: [0, 30, 45],
             hot_water: [

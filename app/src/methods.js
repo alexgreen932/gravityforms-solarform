@@ -40,9 +40,9 @@ export default {
   //   const roofAngle = this.screens[3].value;
 
   //       //dev
-  //       console.log("roofArea:", roofArea);
-  //       console.log("roofType:", roofType);
-  //       console.log("roofAngle:", roofAngle);
+  //       
+  //       
+  //       
 
   //   const roofTypeModValue = roofTypeMod[roofType] || 0;
   //   const roofAngleModValue = roofAngleMod[roofAngle] || 0;
@@ -79,8 +79,8 @@ export default {
     
   //   //old calc
   //   const totalCostsMin = totalCosts - costsSpread;
-  //   console.log('costsSpread:', costsSpread)
-  //   console.log('totalCosts:', totalCosts)
+  //   
+  //   
   //   const totalCostsMax = totalCosts + costsSpread;
 
   //   //new calc
@@ -121,19 +121,56 @@ export default {
       return true;
     }
   },
-  finishForm() {},
-  textareaData() {
+  finishForm() {},//rm
+
+
+  textareaData() {//old
     const array = this.screens;
     const obj = Object.fromEntries(
       array.map((item) => [item.title, item.value])
     );
+
     return JSON.stringify(obj);
   },
-  output() {
+
+  //with new entries
+  finalData() {
+    var arr = this.screens;
+    var obj ={
+      Addresse: 'Will be added',
+      Dachfläche: arr[1].value,
+      Haustyp: arr[2].value,
+      Dachneigung: arr[3].value,
+      Ausrichtung: arr[4].value,
+      Warmwasser: arr[5].value,
+      Heizung: arr[6].value,
+      Jahresverbrauch: arr[7].value,
+      Min: this.form.min,
+      Max: this.form.max,
+      Vorname: this.form.name,
+      Name: this.form.last_name,
+      Telefon: this.form.tel,
+      Mail: this.form.email,
+      Total: this.form.count_total,
+      Ort: this.form.town,
+      Straße: this.form.street,
+      Hausnummer: this.form.house,
+      PLZ: this.form.post_code,
+      Nachricht: this.form.message,
+      // : this.form.,
+    }
+    return JSON.stringify(obj);
+  },
+
+
+
+
+
+  output() {//rm
     //dev
     return JSON.stringify(this.final_obj);
   },
-  outDev() {
+  outDev() {//rm
     //dev
     return JSON.stringify(this.screens);
   },
