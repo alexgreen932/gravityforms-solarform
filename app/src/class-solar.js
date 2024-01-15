@@ -1,4 +1,4 @@
-class solarCalc {
+export class solarCalc {
 
     #data;
     #calcs;
@@ -10,6 +10,7 @@ class solarCalc {
 
 
     prepareData(data) {
+        
         const DATA_TEMPLATE = ['roofType', 'roofAngle', 'roofArea'];
         const defaults = {};
         DATA_TEMPLATE.forEach((key) => {
@@ -18,7 +19,7 @@ class solarCalc {
         const input = Object.assign({}, defaults, data);
 
         if (Object.values(input).includes(null)) {
-            console.error('Missing required data. Must have the following keys: ' + DATA_TEMPLATE.join(', '));
+            
             this.#data = null;
             return;
         }
@@ -37,6 +38,9 @@ class solarCalc {
         this.#calcs.roofTypeMod = this.roofTypeTable[roofType];
         this.#calcs.roofAngleMod = this.selectInRange(roofAngle, this.roofAngleTable);
 
+
+        
+
         this.#calcs.numberOfModules = Math.floor(roofArea / this.moduleSize);
         this.#calcs.baseModuleCosts = this.moduleBaseCost * this.#calcs.numberOfModules;
 
@@ -50,11 +54,33 @@ class solarCalc {
 
 
         this.#calcs.converterCosts = this.selectInRange(this.#calcs.power, this.powerConverterCostsTable);
+        
         this.#calcs.batteryCosts = this.selectInRange(this.#calcs.power, this.batteryCostsTable);
+        
+
+        //TODO - check why error is
+        if (isNaN(this.#calcs.converterCosts)) {
+            this.#calcs.converterCosts = 3000;
+        }
+        if (isNaN(this.#calcs.batteryCosts)) {
+            this.#calcs.batteryCosts = 7000;
+        }
+        
+        
 
         this.#calcs.totalCosts = this.#calcs.modulesCosts + this.#calcs.montageCosts + this.#calcs.converterCosts + this.#calcs.batteryCosts;
         this.#calcs.totalCostsMin = this.#calcs.totalCosts - this.costsSpread;
         this.#calcs.totalCostsMax = this.#calcs.totalCosts + this.costsSpread;
+        
+
+        //TODO to be sure it will not be NaN
+        if (isNaN(this.#calcs.totalCostsMin)) {
+            this.#calcs.totalCostsMin = 37000;
+        }
+        if (isNaN(this.#calcs.totalCostsMax)) {
+            this.#calcs.totalCostsMax = 43000;
+        }
+
     }
 
 

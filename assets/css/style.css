@@ -261,11 +261,18 @@
 .j-grid-final input {
   width: 49% !important;
 }
+.j-grid-final #address {
+  width: 100% !important;
+}
 .j-grid-final .j-final-price, .j-grid-final .but_wrap {
   width: 100%;
 }
 .j-grid-final textarea {
   margin-bottom: 20px !important;
+}
+
+.entry-details-table tr {
+  display: none;
 }
 
 #app .j-reset {

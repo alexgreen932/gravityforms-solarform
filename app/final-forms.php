@@ -11,6 +11,7 @@
                 <input id="last-name" type="text" placeholder="Nachname*" v-model="form.last_name"/>
                 <input id="phone" type="tel" placeholder="Telefon*" v-model="form.tel"/>
                 <input id="email" type="email" placeholder="Emailadresse*" v-model="form.email"/>
+                <input id="address" type="input" placeholder="Adresse*" v-model="form.address"/>
                 <div class="j-final-price">      
                     <div><span>Min Price</span> {{form.min}}</div>
                     <div><span>Max Price</span> {{form.max}}</div>

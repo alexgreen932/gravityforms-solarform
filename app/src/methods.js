@@ -1,6 +1,22 @@
+import { solarCalc } from './class-solar.js'
 import { calc } from './calc.js'
 
 export default {
+  updateCalculation() {
+      let x = new solarCalc({
+          // roofType: this.roofType,
+          // roofAngle: this.roofAngle,
+          // roofArea: this.roofArea,
+
+          roofArea: this.screens[1].value,
+          roofType: this.screens[2].value,
+          roofAngle: this.screens[3].value,
+      });
+
+      x.doCalculation();
+      this.form.min = x.totalCostsMin;
+      this.form.max = x.totalCostsMax;
+  },
   calc_approximate_cost(i) {
     let area = this.screens[1].value;
     if (i == 6) {
@@ -137,7 +153,7 @@ export default {
   finalData() {
     var arr = this.screens;
     var obj ={
-      Addresse: 'Will be added',
+      Addresse: this.form.address,
       Dachfläche: arr[1].value,
       Haustyp: arr[2].value,
       Dachneigung: arr[3].value,

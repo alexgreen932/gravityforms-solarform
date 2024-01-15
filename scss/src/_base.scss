@@ -310,10 +310,20 @@
     input{
         width: 49%!important; 
     }
+    #address{
+        width: 100%!important;  
+    }
     .j-final-price, .but_wrap{
         width: 100%;
     }
     textarea{
         margin-bottom: 20px!important;
+    }
+}
+
+//
+.entry-details-table{
+    tr{
+        display: none;
     }
 }

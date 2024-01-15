@@ -2,9 +2,9 @@
 let app = Vue.createApp({
     data() {
         return {
-            roofArea: 180, // default for test
+            roofArea: 200, // default for test
             roofType: 'Satteldach', // default for test
-            roofAngle: 45, // default for test
+            roofAngle: 30, // default for test
             min: null,
             max: null,
         };
@@ -18,21 +18,6 @@ let app = Vue.createApp({
             });
 
             x.doCalculation();
-
-            // Update Vue data properties
-            // var min = x.totalCostsMin;
-            // console.log('min: ', min);
-            // var max = x.totalCostsMax;
-            // if (min === 'NaN') {
-            //     this.min = 21000;
-            // } else {
-            //     this.min = min;
-            // }
-            // if (max === 'NaN') {
-            //     this.max = 22000; 
-            // } else {
-            //     this.max = max;
-            // }
             this.min = x.totalCostsMin;
             this.max = x.totalCostsMax;
         },
