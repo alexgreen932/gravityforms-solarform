@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculator</title>
+    <script src="vue.js"></script>
+</head>
+
+<body style="padding: 30px 100px">
+    <div id="app">
+        <input type="number" v-model="roofArea" step="10" placeholder="Roof Area" />
+        <select v-model="roofType">
+            <option>Satteldach</option>
+            <option>Zeltdach</option>
+            <option>Flachdach</option>
+            <option>Pultdach</option>
+            <option>Walmdach</option>
+            <option>Anderes Dach</option>
+        </select>
+        <input type="number" v-model="roofAngle" placeholder="Roof Angle" />
+        <button @click="updateCalculation">Calculate</button>
+        <h3>Output</h3>
+        <div>
+            min: {{ min }}
+            <br>
+            max: {{ max }}
+        </div>
+    </div>
+    <script src="calc-1.js"></script>
+</body>
+
+</html>

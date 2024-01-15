@@ -102,20 +102,11 @@ export function calc() {
     
     console.log(batteryCosts);
         
-
-
-
-
     totalCosts = modulesCosts + montageCosts + converterCosts + batteryCosts;
     console.log('batteryCosts:', batteryCosts)
-    console.log('%c%s', 'color: #00bf00', batteryCosts);
     console.log('converterCosts:', converterCosts)
-    console.log('%c%s', 'color: #0088cc', converterCosts);
     console.log('montageCosts:', montageCosts)
-    console.log('modulesCosts:', modulesCosts)
-    //		$this->calcs['total_costs']      = $this->calcs['modules_costs'] + $this->calcs['montage_costs'] + $this->calcs['converter_costs'] + $this->calcs['battery_costs'];
 
-    //old calc
     const totalCostsMin = totalCosts - costsSpread;
 
     console.log('costsSpread:', costsSpread);

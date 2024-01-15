@@ -17,8 +17,8 @@
                     </div>
                 <textarea name="" id="" cols="30" rows="10" placeholder="Ihre Nachricht" v-model="form.message"></textarea>
                 <div class="but_wrap"></div>
-                <textarea rows="10">{{textareaData()}}</textarea> 
-                <textarea rows="10">{{finalData()}}</textarea>   
+                <!-- <textarea rows="10">{{textareaData()}}</textarea> 
+                <textarea rows="10">{{finalData()}}</textarea>    -->
                 
             </div>
         </div>

@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculator</title>
+    <script src="vue.js"></script>
+</head>
+
+<body style="padding: 30px 100px">
+    <div id="app">
+        <input type="number" v-model="roofArea" placeholder="Roof Area" />
+        <select v-model="roofType">
+            <option>Satteldach</option>
+            <option>Zeltdach</option>
+            <option>Flachdach</option>
+            <option>Pultdach</option>
+            <option>Walmdach</option>
+            <option>Anderes Dach</option>
+        </select>
+        <input type="number" v-model="roofAngle" placeholder="Roof Angle" />
+        <button @click="calc()">Calculate</button>
+        <h3>Output</h3>
+        <div>
+            min: {{ min }}
+            <br>
+            max: {{ max }}
+        </div>
+    </div>
+    
+    <script src="https://cdn.jsdelivr.net/npm/vue@3"></script>
+    <script>
+        const app = Vue.createApp({
+            data() {
+                return {
+                    roofArea: null,
+                    roofType: null,
+                    roofAngle: null,
+                    min: null,
+                    max: null,
+                };
+            },
+            methods: {
+                calc() {
+                    // Simplified calculation based on your switch statement
+                    let power = this.roofArea * this.roofAngle; // You might need a more appropriate formula here
+                    let batteryCosts;
+    
+                    switch (true) {
+                        case power >= 30:
+                            batteryCosts = 7000;
+                            break;
+                        case power >= 15:
+                            batteryCosts = 6000;
+                            break;
+                        case power >= 10:
+                            batteryCosts = 5000;
+                            break;
+                        default:
+                            batteryCosts = 0; // Set a default value if needed
+                            break;
+                    }
+    
+                    // You can do additional calculations based on your requirements here
+    
+                    // Update the min and max values in the data
+                    this.min = // Your calculation for min value;
+                    this.max = // Your calculation for max value;
+                },
+            },
+        });
+    
+        app.mount("#app");
+    </script>
+</body>
+
+</html>

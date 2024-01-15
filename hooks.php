@@ -49,10 +49,36 @@ function add_to_details($form, $entry)
 add_filter('gform_entries_primary_column_filter', function ($column_value, $form_id, $field_id, $entry, $query_string, $edit_url, $field_value) {
     $data = json_decode($entry[1]);
     $html = '';
-    $html .= '<div class="j-inline-field"><label>Any Label:</label>Here can be any field which is important ex Name, Email</div>';
-    $html .= '<div class="j-inline-field"><label>Dachfläche:</label>' . $data->Dachfläche . '</div>';
-    $html .= '<div class="j-inline-field">ETC</div>';
+    $html .= '<div class="j-inline-field">';
+    $html .= '<label>Name:</label>';
+    $html .= $data->Vorname . ' ' . $data->Name;
+    $html .= '</div>';
+
+    $html .= '<div class="j-inline-field">';
+    $html .= '<label>Dachfläche:</label>';
+    $html .= $data->Dachfläche . 'm²';
+    $html .= '</div>';
+
+    $html .= '<div class="j-inline-field">';
+    $html .= '<label>Min/Max:</label>' . $data->Min . '/' .$data->Max;
+    $html .= '</div>';
+
     // $html .= get_current_screen()->base;
     return $html;
 }, 10, 7);
+
+// Heizung: arr[6].value,
+// Jahresverbrauch: arr[7].value,
+// Min: this.form.min,
+// Max: this.form.max,
+// : this.form.name,
+// : this.form.last_name,
+// Telefon: this.form.tel,
+// Mail: this.form.email,
+// Total: this.form.count_total,
+// Ort: this.form.town,
+// Straße: this.form.street,
+// Hausnummer: this.form.house,
+// PLZ: this.form.post_code,
+// Nachricht: this.form.message,
 
