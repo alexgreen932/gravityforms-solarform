@@ -52,14 +52,15 @@ if (is_admin()) {
                                                         </template>
                                                     </template>
                                                     <template v-if="index==3">
-                                                        <select v-model="el.value">
+                                                        <j-angle :el="el"></j-angle>
+                                                        <!-- <select v-model="el.value">
                                                             <option v-for="op in angle">{{op}}</option>
                                                         </select>
                                                         <div class="inline">
                                                             <label>{{el.title2}}</label>
                                                             <input type="number" v-model="el.value">
                                                         </div>
-                                                        <input type="range" min="0" max="90" v-model="el.value">
+                                                        <input type="range" min="0" max="90" v-model="el.value"> -->
                                                     </template>
                                                     <template v-if="index==4">
                                                         <select v-model="el.value">

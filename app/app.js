@@ -1,18 +1,18 @@
 import methods from "./src/methods.js";
 import preview from "./src/preview.js";
 import gmap from "./src/gmap.js";
-// import result from "./src/result.js";
+import angle from "./src/angle.js";
 
 let app = Vue.createApp({
     components: {
         "j-preview": preview,
         // "j-question": question,
         "g-map": gmap,
-        // "g-result": result,
+        "j-angle": angle,
     },
     data() {
         return {
-            screen: 0,
+            screen: 3,
             result: false,
             done: [],
             finish: false,

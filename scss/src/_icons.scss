@@ -1,0 +1,53 @@
+.icons-angle {
+    display: flex;
+    justify-content: space-between;
+    height: 160px;
+
+    .icon-wrapper {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 33%;
+        height: 120px;
+        cursor: pointer;            
+        color:#8187AA;
+        transition: all 0.3s ease;
+        &:before {
+            
+        }
+        &:hover{
+            color:#6EC248;
+        }
+
+        div {
+            height: 120px;
+            width: 100%;
+            transition: all 0.5s ease;
+
+        }
+        span{
+            font-weight: 600;
+            margin-top: 10px;
+        }
+    }
+
+    .angle-0:before {
+        content: url('../images/0.svg');
+    }
+    
+    .angle-0:hover:before {
+        content: url('../images/0h.svg');
+    }
+    .angle-30:before {
+        content: url('../images/30.svg');
+    }
+    .angle-30:hover:before {
+        content: url('../images/30h.svg');
+    }
+    .angle-45:before {
+        content: url('../images/45.svg');
+    }
+    .angle-45:hover:before {
+        content: url('../images/45h.svg');
+    }
+}
