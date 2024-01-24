@@ -264,7 +264,8 @@
 .j-grid-final #address {
   width: 100% !important;
 }
-.j-grid-final .j-final-price, .j-grid-final .but_wrap {
+.j-grid-final .j-final-price,
+.j-grid-final .but_wrap {
   width: 100%;
 }
 .j-grid-final textarea {
@@ -273,6 +274,29 @@
 
 .entry-details-table tr {
   display: none;
+}
+
+.area_wrapper {
+  position: relative;
+}
+.area_wrapper .del {
+  display: flex;
+  position: absolute;
+  top: 0;
+  right: 0;
+  line-height: 35px;
+  width: 35px;
+  justify-content: center;
+  align-items: center;
+  background: #6ec248;
+  color: #fff;
+  cursor: pointer;
+  -webkit-border-radius: 0px 4px 4px 0px;
+  -moz-border-radius: 0px 4px 4px 0px;
+  border-radius: 0px 4px 4px 0px;
+}
+.area_wrapper .del:hover {
+  background: #5cac37;
 }
 
 #app .j-reset {

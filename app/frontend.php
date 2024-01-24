@@ -40,7 +40,15 @@ if (is_admin()) {
                                                     <h3>{{el.title}} <span class="step">{{index}}/7</span></h3>
                                                     <div class="j-desc">{{el.des}}</div>
                                                     <template v-if="index==1">
-                                                        <input type="number" v-model="el.value" :placeholder="el.name" />
+                                                        <div class="area_wrapper">
+                                                        <input type="tel" id="areaInput" v-model.number="area" @input="formatArea()" placeholder="Nutzfläche, m²">
+                                                        <span v-if="area" class="del" @click="area=null; el.value=null ">x</span>
+                                                    </div>
+                                                        <textarea v-model="el.value" style="display:none">cleanData()</textarea>
+                                                        <div v-if="area_alert">Area is wrong</div>
+                                                        <!-- --{{area}}
+                                                        ----{{el.value}} -->
+
                                                     </template>
                                                     <template v-if="index==2">
                                                         <select v-model="el.value">

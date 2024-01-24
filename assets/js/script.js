@@ -25,3 +25,19 @@ jQuery(document).ready(function ($) {
     //    }
 });
 
+function formatArea() {
+    // Get the input element
+    var areaInput = document.getElementById('areaInput');
+    
+    // Remove non-numeric characters
+    var value = areaInput.value.replace(/[^0-9]/g, '');
+
+    // Add a comma for every three digits from the right
+    value = value.replace(/\B(?=(\d{3})+(?!\d))/g, ',');
+
+    // Add 'm²' to the end
+    value = value + 'm²';
+
+    // Update the input value
+    areaInput.value = value;
+}

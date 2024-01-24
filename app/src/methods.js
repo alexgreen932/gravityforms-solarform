@@ -2,20 +2,87 @@ import { solarCalc } from './class-solar.js'
 import { calc } from './calc.js'
 
 export default {
+  formatArea(el) {
+    // console.log('el: ', el);
+    // var a = el + 'm²';
+    // el = a;
+    // console.log('a: ', a);
+    // const cursorPosition = el.selectionStart;
+    // el.setSelectionRange(newCursorPosition, newCursorPosition);
+    // return a;
+        // Get the input element
+        // var areaInput = document.getElementById('areaInput');
+    
+        // Remove non-numeric characters
+        // var value =el.replace(/[^0-9]/g, '');
+    
+        // Add a comma for every three digits from the right
+        // value = value.replace(/\B(?=(\d{3})+(?!\d))/g, ',');
+    
+        // Add 'm²' to the end
+        // value = value + 'm²';
+        // setTimeout(() => {
+        //   return value + 'm²';
+        //   }, 500);
+        // return value + 'm²';
+    //--------------------------------
+    // // Get the current cursor position
+    // const cursorPosition = el.selectionStart;
+
+    // // Remove non-numeric characters
+    // let value = String(el.value).replace(/[^0-9]/g, '');
+
+    // // Add a comma for every three digits from the right
+    // value = value.replace(/\B(?=(\d{3})+(?!\d))/g, ',');
+
+    // // Add 'm²' to the end
+    // value = value + 'm²';
+
+    // // Update the data property
+    // el.value = value;
+
+    // // Calculate the new cursor position based on the changes made
+    // const newCursorPosition = cursorPosition + value.length - el.value.length;
+
+    // // Use a timeout to set the cursor position after the DOM has been updated
+    // setTimeout(() => {
+    //   
+    // }, 0);
+      const cursorPosition = this.area.selectionStart;
+      let value = String(this.area).replace(/[^0-9]/g, '');
+
+        // Add a comma for every three digits from the right
+        // value = value.replace(/\B(?=(\d{3})+(?!\d))/g, ',');
+
+        // Add 'm²' to the end
+        value = value + ',00 m²';
+
+        // Update the data property
+        setTimeout(() => {
+          this.area = value;
+          this.cleanData()
+          }, 1500);
+        // this.area = value;
+        // this.area.setSelectionRange(cursorPosition, cursorPosition);
+  },
+  cleanData(){
+    var rt = this.area.replace(',00 m²','');
+    this.screens[1].value = rt;
+  },
   updateCalculation() {
-      let x = new solarCalc({
-          // roofType: this.roofType,
-          // roofAngle: this.roofAngle,
-          // roofArea: this.roofArea,
+    let x = new solarCalc({
+      // roofType: this.roofType,
+      // roofAngle: this.roofAngle,
+      // roofArea: this.roofArea,
 
-          roofArea: this.screens[1].value,
-          roofType: this.screens[2].value,
-          roofAngle: this.screens[3].value,
-      });
+      roofArea: this.screens[1].value,
+      roofType: this.screens[2].value,
+      roofAngle: this.screens[3].value,
+    });
 
-      x.doCalculation();
-      this.form.min = x.totalCostsMin;
-      this.form.max = x.totalCostsMax;
+    x.doCalculation();
+    this.form.min = x.totalCostsMin;
+    this.form.max = x.totalCostsMax;
   },
   calc_approximate_cost(i) {
     let area = this.screens[1].value;
@@ -92,7 +159,7 @@ export default {
   //   });
 
   //   const totalCosts = modulesCosts + montageCosts + converterCosts + batteryCosts;
-    
+
   //   //old calc
   //   const totalCostsMin = totalCosts - costsSpread;
   //   
@@ -137,7 +204,7 @@ export default {
       return true;
     }
   },
-  finishForm() {},//rm
+  finishForm() { },//rm
 
 
   textareaData() {//old
@@ -152,7 +219,7 @@ export default {
   //with new entries
   finalData() {
     var arr = this.screens;
-    var obj ={
+    var obj = {
       Addresse: this.form.address,
       Dachfläche: arr[1].value,
       Haustyp: arr[2].value,

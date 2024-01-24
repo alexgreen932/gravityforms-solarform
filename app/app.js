@@ -17,8 +17,10 @@ let app = Vue.createApp({
             done: [],
             finish: false,
             counted_electric: 18930,
-            min:null,
-            max:null,
+            min:null,//rm
+            max:null,//rm
+            area: null,
+            area_alert: false,
             form: {
                 address: null,
                 // size: null,
