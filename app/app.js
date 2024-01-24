@@ -12,7 +12,7 @@ let app = Vue.createApp({
     },
     data() {
         return {
-            screen: 3,
+            screen: 0,
             result: false,
             done: [],
             finish: false,

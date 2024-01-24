@@ -30,20 +30,20 @@ export function calc() {
     const roofArea = this.screens[1].value;
     const roofType = this.screens[2].value;
     const roofAngle = this.screens[3].value;
-    console.log('roofAngle: ', roofAngle);
+    
 
     //dev
-    console.log("roofArea:", roofArea);
-    console.log("roofType:", roofType);
-    console.log("roofAngle:", roofAngle);
+    
+    
+    
 
     const roofTypeModValue = roofTypeMod[roofType] || 0;
     const roofAngleModValue = roofAngleMod[roofAngle] || 0;
-    console.log('roofAngleModValu: ', roofAngleModValue);
+    
 
     const numberOfModules = Math.floor(roofArea / moduleSize);
-    console.log('roofArea:', roofArea)
-    console.log('moduleSize:', moduleSize)
+    
+    
 
     const baseModuleCosts = moduleBaseCost * numberOfModules;//!?
     const baseAssemblyCosts = moduleAssemblyCost * numberOfModules;
@@ -82,7 +82,7 @@ export function calc() {
             // Default if any
             break;
     }
-    console.log('converterCosts:', converterCosts)
+    
 
     let batteryCosts;     
     switch (true) {
@@ -100,17 +100,17 @@ export function calc() {
             break;
     }
     
-    console.log(batteryCosts);
+    
         
     totalCosts = modulesCosts + montageCosts + converterCosts + batteryCosts;
-    console.log('batteryCosts:', batteryCosts)
-    console.log('converterCosts:', converterCosts)
-    console.log('montageCosts:', montageCosts)
+    
+    
+    
 
     const totalCostsMin = totalCosts - costsSpread;
 
-    console.log('costsSpread:', costsSpread);
-    console.log('totalCosts:', totalCosts);//!???
+    
+    //!???
 
     const totalCostsMax = totalCosts + costsSpread;
 

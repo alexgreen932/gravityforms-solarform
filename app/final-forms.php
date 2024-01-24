@@ -3,7 +3,6 @@
 
         <div id="final-form" class="j-grid-col">
             <h1>PDF-Zusammenfassung</h1>
-
             <j-preview v-if="screen!==0" :els="screens" :ind="screen" :lang="lang" @newel="screen=$event"></j-preview>
 
             <div class="j-grid-final">
