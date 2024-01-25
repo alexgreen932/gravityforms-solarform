@@ -2,71 +2,57 @@ import { solarCalc } from './class-solar.js'
 import { calc } from './calc.js'
 
 export default {
+  updateDirection(direction) {
+    this.dir = direction;
+    var side = null
+    //get compass side
+    if (this.dir > -30 && this.dir < 30) {
+      side = 'Süd';
+    }
+    if (this.dir > 30 && this.dir < 60) {
+      side = 'Süd-West';
+    }
+    if (this.dir > 60 && this.dir < 120) {
+      side = 'West';
+    }
+    if (this.dir > 120 && this.dir < 150) {
+      side = 'Nord-West';
+    }
+    if (this.dir > 150 && this.dir < -150) {
+      side = 'Nord';
+    }
+    if (this.dir > -150 && this.dir < -120) {
+      side = 'Nord-Ost';
+    }
+    if (this.dir > -120 && this.dir < -60) {
+      side = 'Ost';
+    }
+    if (this.dir > -60 && this.dir < -30) {
+      side = 'Süd-Ost';
+    }
+    //add side value based on rotate
+    this.screens[4].value = side;
+  },
   formatArea(el) {
-    // console.log('el: ', el);
-    // var a = el + 'm²';
-    // el = a;
-    // console.log('a: ', a);
-    // const cursorPosition = el.selectionStart;
-    // el.setSelectionRange(newCursorPosition, newCursorPosition);
-    // return a;
-        // Get the input element
-        // var areaInput = document.getElementById('areaInput');
-    
-        // Remove non-numeric characters
-        // var value =el.replace(/[^0-9]/g, '');
-    
-        // Add a comma for every three digits from the right
-        // value = value.replace(/\B(?=(\d{3})+(?!\d))/g, ',');
-    
-        // Add 'm²' to the end
-        // value = value + 'm²';
-        // setTimeout(() => {
-        //   return value + 'm²';
-        //   }, 500);
-        // return value + 'm²';
-    //--------------------------------
-    // // Get the current cursor position
-    // const cursorPosition = el.selectionStart;
+    const cursorPosition = this.area.selectionStart;
+    let value = String(this.area).replace(/[^0-9]/g, '');
 
-    // // Remove non-numeric characters
-    // let value = String(el.value).replace(/[^0-9]/g, '');
-
-    // // Add a comma for every three digits from the right
+    // Add a comma for every three digits from the right
     // value = value.replace(/\B(?=(\d{3})+(?!\d))/g, ',');
 
-    // // Add 'm²' to the end
-    // value = value + 'm²';
+    // Add 'm²' to the end
+    value = value + ',00 m²';
 
-    // // Update the data property
-    // el.value = value;
-
-    // // Calculate the new cursor position based on the changes made
-    // const newCursorPosition = cursorPosition + value.length - el.value.length;
-
-    // // Use a timeout to set the cursor position after the DOM has been updated
-    // setTimeout(() => {
-    //   
-    // }, 0);
-      const cursorPosition = this.area.selectionStart;
-      let value = String(this.area).replace(/[^0-9]/g, '');
-
-        // Add a comma for every three digits from the right
-        // value = value.replace(/\B(?=(\d{3})+(?!\d))/g, ',');
-
-        // Add 'm²' to the end
-        value = value + ',00 m²';
-
-        // Update the data property
-        setTimeout(() => {
-          this.area = value;
-          this.cleanData()
-          }, 1500);
-        // this.area = value;
-        // this.area.setSelectionRange(cursorPosition, cursorPosition);
+    // Update the data property
+    setTimeout(() => {
+      this.area = value;
+      this.cleanData()
+    }, 1500);
+    // this.area = value;
+    // this.area.setSelectionRange(cursorPosition, cursorPosition);
   },
-  cleanData(){
-    var rt = this.area.replace(',00 m²','');
+  cleanData() {
+    var rt = this.area.replace(',00 m²', '');
     this.screens[1].value = rt;
   },
   updateCalculation() {

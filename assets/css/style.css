@@ -804,8 +804,10 @@ body {
 }
 
 #compass-wrap {
+  display: flex;
+  justify-content: center;
+  align-items: center;
   position: relative;
-  width: 260px;
   height: 260px;
   padding: 30px;
 }

@@ -2,6 +2,7 @@ import methods from "./src/methods.js";
 import preview from "./src/preview.js";
 import gmap from "./src/gmap.js";
 import angle from "./src/angle.js";
+import compass from "./src/compass.js";
 
 let app = Vue.createApp({
     components: {
@@ -9,6 +10,7 @@ let app = Vue.createApp({
         // "j-question": question,
         "g-map": gmap,
         "j-angle": angle,
+        "j-compass": compass,
     },
     data() {
         return {
@@ -20,6 +22,7 @@ let app = Vue.createApp({
             min:null,//rm
             max:null,//rm
             compass_degree: 0,
+            dir: null,
             area: null,
             area_alert: false,
             form: {

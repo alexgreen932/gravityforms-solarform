@@ -61,20 +61,14 @@ if (is_admin()) {
                                                     </template>
                                                     <template v-if="index==3">
                                                         <j-angle :el="el"></j-angle>
-                                                        <!-- <select v-model="el.value">
-                                                            <option v-for="op in angle">{{op}}</option>
-                                                        </select>
-                                                        <div class="inline">
-                                                            <label>{{el.title2}}</label>
-                                                            <input type="number" v-model="el.value">
-                                                        </div>
-                                                        <input type="range" min="0" max="90" v-model="el.value"> -->
+                                                        
+                                                        
                                                     </template>
                                                     <template v-if="index==4">
-                                                        <select v-model="el.value">
+                                                        <!-- <select v-model="el.value">
                                                             <option v-for="op in angle">{{op}}</option>
-                                                        </select>
-                                                        <!-- Здесь не совсем понятно и надо подумать как сделать -->
+                                                        </select> -->
+                                                        <j-compass :el="dir" :degree="compass_degree" @nv="updateDirection"></j-compass>
                                                     </template>
                                                     <template v-if="index==5">
                                                         <select v-model="el.value">
@@ -89,15 +83,17 @@ if (is_admin()) {
     
                                                     </template>
                                                     <template v-if="index==7">
-                                                        {{el.title3}}
+
+                                                    <div class="inline"><label>{{el.title3}}(cents)</label><input type="number" v-model="el.value"></div>
+                                                        <!-- nest_comment_start~{{el.title3}}
 
                                                     <select v-model="el.value">
                                                         <option v-for="price in priceOptions" :key="price" :value="price">
                                                             {{ price }} cents
                                                         </option>
-                                                    </select>
+                                                    </select>~nest_comment_end -->
                                             
-                                                        <!-- <button class="j-but" :disabled="!el.value" @click.prevent="screen=10; calc()"> -->
+                                                        
                                                         <button class="j-but" :disabled="!el.value" @click.prevent="screen=10; updateCalculation()">
                                                             <i class="fas fa-chart-line"></i></i>
                                                             {{el.title5}}
@@ -106,8 +102,8 @@ if (is_admin()) {
     
                                                     </template>
                                                     <div class="but_wrap">
-                                                        <button v-if="index!==7" class="j-but" :disabled="!el.value"
-                                                        @click.prevent="screen=index+1; calc_approximate_cost(index)">{{lang.further}}</button>
+                                                        <button v-if="index!==7" class="j-but" :disabled="el.value==null" @click.prevent="screen=index+1; calc_approximate_cost(index)">{{lang.further}}</button>
+                                                        <!-- <button v-if="index!==7" class="j-but" :disabled="!el.value" @click.prevent="screen=index+1; calc_approximate_cost(index)">{{lang.further}}</button> -->
                                                     </div>
                                         
                                                 </div>
