@@ -803,6 +803,88 @@ body {
   content: url("../images/45h.svg");
 }
 
+#compass-wrap {
+  position: relative;
+  width: 260px;
+  height: 260px;
+  padding: 30px;
+}
+
+#compass {
+  position: relative;
+  width: 260px;
+  height: 260px;
+  border: 2px dashed #b0bec5;
+  -webkit-border-radius: 50%;
+  -moz-border-radius: 50%;
+  border-radius: 50%;
+  box-sizing: border-box;
+  cursor: -webkit-grab;
+  cursor: grab;
+}
+#compass div {
+  display: inline-block;
+  width: 130px;
+  height: 130px;
+  box-sizing: border-box;
+  margin-bottom: 0;
+}
+#compass .side-top-left {
+  border-right: 2px dashed #b0bec5;
+  border-bottom: 2px dashed #b0bec5;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+#compass .side-bottom-right {
+  border-top: 2px dashed #b0bec5;
+  border-left: 2px dashed #b0bec5;
+  position: absolute;
+  bottom: 0;
+  right: 0;
+}
+#compass .center {
+  width: 104px;
+  height: 70px;
+  position: absolute;
+  top: 95px;
+  left: 78px;
+  background: #FEB931;
+}
+#compass .center span {
+  display: block;
+  width: 104px;
+  height: 35px;
+  background: #FBA701;
+}
+#compass i {
+  color: #6ec248;
+  position: absolute;
+}
+#compass .fa-compass {
+  font-size: 24px;
+  top: 246px;
+  left: 115px;
+}
+#compass .fa-chevron-left {
+  top: 244px;
+  left: 90px;
+  -moz-transform: rotate(10deg);
+  -webkit-transform: rotate(10deg);
+  -o-transform: rotate(10deg);
+  -ms-transform: rotate(10deg);
+  transform: rotate(10deg);
+}
+#compass .fa-chevron-right {
+  top: 244px;
+  left: 160px;
+  -moz-transform: rotate(350deg);
+  -webkit-transform: rotate(350deg);
+  -o-transform: rotate(350deg);
+  -ms-transform: rotate(350deg);
+  transform: rotate(350deg);
+}
+
 @media (min-width: 820px) {
   .gform_wrapper {
     width: 1100px !important;

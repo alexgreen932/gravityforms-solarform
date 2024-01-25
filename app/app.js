@@ -19,6 +19,7 @@ let app = Vue.createApp({
             counted_electric: 18930,
             min:null,//rm
             max:null,//rm
+            compass_degree: 0,
             area: null,
             area_alert: false,
             form: {
