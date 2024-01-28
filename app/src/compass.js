@@ -2,7 +2,7 @@ export default {
     template: `
         <div id="compass-wrap">
             <!-- <div id="compass" :style="rotate()" @mousedown.left="startDrag" @mousemove="drag" @mouseup="endDrag" @click="rotateByClick"> -->
-            <div id="compass" :style="rotate()" v-on="{ mousedown: startDrag, mousemove:drag, mouseup: endDrag }" @click="rotateByClick" :style="{cursor: cursor}">
+            <div id="compass" v-on="{ mousedown: startDrag, mousemove:drag, mouseup: endDrag }" @click="rotateByClick" :style="{cursor: cursor}">
                 <div class="side-top-left"></div>
                 <div class="side-bottom-right"></div>
                 <div class="center">

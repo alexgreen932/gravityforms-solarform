@@ -25,19 +25,58 @@ jQuery(document).ready(function ($) {
     //    }
 });
 
-function formatArea() {
-    // Get the input element
-    var areaInput = document.getElementById('areaInput');
-    
-    // Remove non-numeric characters
-    var value = areaInput.value.replace(/[^0-9]/g, '');
 
-    // Add a comma for every three digits from the right
-    value = value.replace(/\B(?=(\d{3})+(?!\d))/g, ',');
+let knobTrigger = document.querySelector("#knobTr"),
+    knob = document.querySelector("#labRat"),
+    wrap = document.querySelector("#wrap"),
+    volumeBar = document.querySelector("#volumeBar"),
+    fadeOut;
 
-    // Add 'm²' to the end
-    value = value + 'm²';
-
-    // Update the input value
-    areaInput.value = value;
+function valBetween(v, min, max) {
+    return Math.min(max, Math.max(min, v));
 }
+
+knobTrigger.addEventListener("mousedown", e => {
+    let x0 = knob.getBoundingClientRect().left + knob.offsetWidth / 2,
+        y0 = knob.getBoundingClientRect().top + knob.offsetHeight / 2;
+    let p2 = {
+        x: x0,
+        y: y0
+    };
+    if (e.button === 0) {
+        let rotateKnob = function (e) {
+            let p1 = {
+                x: e.clientX,
+                y: e.clientY
+            },
+                // angle in degrees
+                angleDeg = -Math.atan2(p1.x - p2.x, p1.y - p2.y) * 180 / Math.PI + 180;
+            let percentValue = parseInt((valBetween(angleDeg, 45, 315) - 315) / -2.7);
+            console.log('percentValue: ', percentValue);
+            // console.log(p2.x, p1.x);
+
+            // Set the value of the input field------------------------------------
+            var vueInput = document.getElementById("angle-value");
+            vueInput.value = JSON.stringify(valBetween(angleDeg, 0, 359)-359);
+
+            // Trigger a simulated input event
+            var inputEvent = new InputEvent('input', { bubbles: true });
+            vueInput.dispatchEvent(inputEvent);
+            clearTimeout(fadeOut);
+            knob.style.transform =
+                "rotateZ(" + (valBetween(angleDeg, 0, 359) - 359) + "deg)";
+                
+            // console.log('knob.style.transform: ', knob.style.transform);
+        };
+        document.addEventListener("mousemove", rotateKnob, false);
+        document.addEventListener("mouseup", e => {
+            document.removeEventListener("mousemove", rotateKnob, false);
+        });
+    } else {
+        return false;
+    }
+});
+
+wrap.addEventListener("contextmenu", e => {
+    e.preventDefault();
+});

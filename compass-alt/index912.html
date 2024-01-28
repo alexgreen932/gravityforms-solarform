@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link type="text/css" rel="stylesheet" href="../assets/css/style.css">
+    <link type="text/css" rel="stylesheet" href="../assets/css/all.min.css">
+    <script src="../assets/js/jquery-3.7.1.min.js"></script>
+    <script src="../assets/js/vue.js"></script>
+    <!-- <script src="../assets/js/script.js"></script> -->
+</head>
+
+<body>
+    <div id="app">
+        <j-compassknob></j-compassknob>
+    </div>
+    <script type="module">
+        import comp from '../app/src/compass-knob.js'
+
+        let app = Vue.createApp({
+            components: {
+                "j-compassknob": comp,
+            },
+            data() {
+                return {
+                    angle: null,
+                };
+            },
+            methods: {
+
+
+            },
+        });
+
+        app.mount("#app");
+        let knobTrigger = document.querySelector("#knobTr"),
+            knob = document.querySelector("#labRat"),
+            wrap = document.querySelector("#wrap"),
+            volumeBar = document.querySelector("#volumeBar"),
+            fadeOut;
+
+        function valBetween(v, min, max) {
+            return Math.min(max, Math.max(min, v));
+        }
+
+        knobTrigger.addEventListener("mousedown", e => {
+            let x0 = knob.getBoundingClientRect().left + knob.offsetWidth / 2,
+                y0 = knob.getBoundingClientRect().top + knob.offsetHeight / 2;
+            let p2 = {
+                x: x0,
+                y: y0
+            };
+            if (e.button === 0) {
+                let rotateKnob = function (e) {
+                    let p1 = {
+                        x: e.clientX,
+                        y: e.clientY
+                    },
+                        // angle in degrees
+                        angleDeg = -Math.atan2(p1.x - p2.x, p1.y - p2.y) * 180 / Math.PI + 180;
+                    let percentValue = parseInt((valBetween(angleDeg, 45, 315) - 315) / -2.7);
+                    console.log(p2.x, p1.x);
+
+                    // Set the value of the input field------------------------------------
+                    var vueInput = document.getElementById("angle-value");
+                    vueInput.value = JSON.stringify(valBetween(angleDeg, 0, 359));
+
+                    // Trigger a simulated input event
+                    var inputEvent = new InputEvent('input', { bubbles: true });
+                    vueInput.dispatchEvent(inputEvent);
+                    clearTimeout(fadeOut);
+                    knob.style.transform =
+                        "rotateZ(" + (valBetween(angleDeg, 45, 315) - 315) + "deg)";
+                    console.log('knob.style.transform: ', knob.style.transform);
+                };
+
+
+
+
+                document.addEventListener("mousemove", rotateKnob, false);
+                document.addEventListener("mouseup", e => {
+                    document.removeEventListener("mousemove", rotateKnob, false);
+                });
+            } else {
+                return false;
+            }
+        });
+
+        wrap.addEventListener("contextmenu", e => {
+            e.preventDefault();
+        });
+
+
+
+    </script>
+
+</body>
+
+</html>

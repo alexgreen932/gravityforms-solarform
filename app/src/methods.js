@@ -6,13 +6,35 @@ export default {
     this.dir = direction;
     var side = null
     var d = this.dir;
-    switch (true) {
+    switch (true) {//rm //TODO
       case d > -30 && d < 30:
-
+        side = 'Süd';
+        break;
+      case d > 30 && d < 60:
+        side = 'Süd-West';
+        break;
+      case d > 60 && d < 120:
+        side = 'West';
+        break;
+      case d > 120 && d < 150:
+        side = 'Nord-West';
+        break;
+      case d > 150 && d < -150:
+        side = 'Nord';
+        break;
+      case d > -150 && d < -120:
+        side = 'Nord-Ost';
+        break;
+      case d > -120 && d < -60:
+        side = 'Ost';
+        break;
+      case d > -60 && d < -30:
+        side = 'Süd-Ost';
         break;
       default:
         side = null;
         break;
+        
     }
     //add side value based on rotate
     this.screens[4].value = side;
