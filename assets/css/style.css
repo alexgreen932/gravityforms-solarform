@@ -1082,26 +1082,65 @@ body {
     transform: translateY(-6.4px);
   }
 }
-html {
-  height: 100%;
-}
-
-body {
-  height: 100%;
-  background: #999;
-  font-family: "Montserrat";
-  display: grid;
-  align-items: center;
-}
-
 #wrap {
-  width: 50%;
-  height: 400px;
+  width: 340px;
+  height: 340px;
   display: flex;
   position: relative;
   justify-content: center;
   align-items: center;
   margin: 0 auto;
+}
+#wrap span {
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #b0bec5;
+  background: #fff;
+  font-size: 14px;
+  width: 100px;
+  height: 20px;
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+  border-radius: 10px;
+  z-index: 0;
+}
+#wrap span.active {
+  color: #fff;
+  background: #6ec248;
+}
+#wrap .n-o {
+  top: 70px;
+  right: -40px;
+}
+#wrap .s-o {
+  bottom: 70px;
+  right: -40px;
+}
+#wrap .s-w {
+  bottom: 70px;
+  left: -40px;
+}
+#wrap .n-w {
+  top: 70px;
+  left: -40px;
+}
+#wrap .n {
+  top: 0px;
+  left: 120px;
+}
+#wrap .s {
+  bottom: 0px;
+  left: 120px;
+}
+#wrap .w {
+  top: 160px;
+  left: -70px;
+}
+#wrap .o {
+  top: 160px;
+  right: -70px;
 }
 #wrap #cover-circle {
   display: block;
@@ -1111,8 +1150,6 @@ body {
   border-radius: 50%;
   border: none;
   z-index: -1;
-  bottom: 63%;
-  background: #999999;
 }
 #wrap #level-circle {
   display: block;
@@ -1131,39 +1168,35 @@ body {
 #labRat {
   width: 260px;
   height: 260px;
+  border: 2px dashed #b0bec5;
   position: relative;
+  -webkit-border-radius: 50%;
+  -moz-border-radius: 50%;
   border-radius: 50%;
+  box-sizing: border-box;
+  cursor: all-scroll;
   display: flex;
   justify-content: center;
-  background: radial-gradient(ellipse at center, rgb(235, 235, 235) 34%, #fff 35%, rgb(238, 238, 238) 35%, rgb(210, 210, 210) 51%, #bbb 67%, #000 100%);
-  box-shadow: 0 3px 1px -2px rgba(0, 0, 0, 0.4);
+  margin-bottom: 0 !important;
 }
 
 #knobTr {
   content: "";
-  background: linear-gradient(to top, rgb(235, 235, 235) 10%, rgb(235, 235, 235) 11%, rgb(235, 235, 235) 11%, #444 14%);
   width: 20px;
-  height: 80px;
+  height: 20px;
   border-radius: 0;
   position: absolute;
-  top: 25px;
-  margin-top: -20px;
+  bottom: -10;
+  left: 120px;
   display: flex;
+  background: #6ec248;
+  border: 1px solid #FBA701;
   justify-content: center;
-  box-shadow: 7px -2px 5px -5px #999, -7px -2px 5px -5px #999;
-  transform: rotateZ(-45deg);
-  right: 73%;
   cursor: pointer;
-}
-#knobTr:after {
-  content: "";
-  display: block;
-  width: 30%;
-  position: absolute;
-  top: 0;
-  height: 50%;
-  background: #1fa;
-  box-shadow: 0 0 1px #999 inset;
+  -webkit-border-radius: 50%;
+  -moz-border-radius: 50%;
+  border-radius: 50%;
+  box-sizing: border-box;
 }
 
 #volumeBarCont {
@@ -1255,29 +1288,6 @@ body {
   position: absolute;
   bottom: 0;
   right: 0;
-}
-#compass-alt span {
-  position: absolute;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  color: transparent;
-  font-size: 14px;
-  background: transparent;
-  width: 100px;
-  height: 100px;
-  -webkit-border-radius: 50%;
-  -moz-border-radius: 50%;
-  border-radius: 50%;
-  z-index: 0;
-}
-#compass-alt span.n:hover, #compass-alt span.s:hover, #compass-alt span.w:hover, #compass-alt span.o:hover {
-  background: rgba(122, 230, 72, 0.2);
-  color: rgb(0, 0, 0);
-}
-#compass-alt span.n-w:hover, #compass-alt span.s-w:hover, #compass-alt span.s-o:hover, #compass-alt span.n-o:hover {
-  background: rgba(169, 169, 228, 0.2);
-  color: rgb(0, 0, 0);
 }
 #compass-alt .n-o {
   top: -20px;

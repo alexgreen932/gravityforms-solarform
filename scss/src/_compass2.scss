@@ -4,24 +4,76 @@ $color_1: #fff;
 $font-family_1: "Montserrat";
 $font-family_2: Arial;
 
-html {
-	height: 100%;
-}
-body {
-	height: 100%;
-	background: #999;
-	font-family: $font-family_1;
-	display: grid;
-	align-items: center;
-}
+
 #wrap {
-	width: 50%;
-	height: 400px;
+	width: 340px;
+	height: 340px;
 	display: flex;
 	position: relative;
 	justify-content: center;
 	align-items: center;
 	margin: 0 auto;
+    span {
+        position: absolute;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        color: $prim_col;
+        background: #fff;
+        font-size: 14px;
+        // font-weight: 600;
+        width: 100px;
+        height: 20px;
+        -webkit-border-radius: 10px;
+        -moz-border-radius: 10px;
+        border-radius:10px;
+        z-index: 0;
+        &.active{
+    color: #fff;
+            background: $active;
+        }
+        
+    }
+
+    .n-o {
+        top: 70px;
+        right: -40px;
+    }
+
+    .s-o {
+        bottom: 70px;
+        right: -40px;
+    }
+
+    .s-w {
+        bottom: 70px;
+        left: -40px;
+    }
+
+    .n-w {
+        top: 70px;
+        left: -40px;
+    }
+
+    .n {
+        top: 0px;
+        left: 120px;
+    }
+
+    .s {
+        bottom: 0px;
+        left: 120px;
+    }
+
+    .w {
+        top: 160px;
+        left: -70px;
+    }
+
+    .o {
+        top: 160px;
+        right: -70px;
+    }
 	#cover-circle {
 		display: block;
 		width: 270px;
@@ -30,8 +82,6 @@ body {
 		border-radius: 50%;
 		border: none;
 		z-index: -1;
-		bottom: 63%;
-		background: #999999;
 	}
 	#level-circle {
 		display: block;
@@ -76,40 +126,48 @@ body {
 // 	}
 // }
 #labRat {
-	width: 260px;
-	height: 260px;
+    width: 260px;
+    height: 260px;
+    border: 2px dashed $prim_col;
 	position: relative;
-	border-radius: 50%;
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    border-radius: 50%;
+    box-sizing: border-box;
+    cursor: all-scroll;
 	display: flex;
 	justify-content: center;
-	background: radial-gradient(ellipse at center, rgb(235, 235, 235) 34%, #fff 35%, rgb(238, 238, 238) 35%, rgb(210, 210, 210) 51%, #bbb 67%, #000 100%);
-	box-shadow: 0 3px 1px -2px #0006;
+    margin-bottom: 0!important;
+	// background: radial-gradient(ellipse at center, rgb(235, 235, 235) 34%, #fff 35%, rgb(238, 238, 238) 35%, rgb(210, 210, 210) 51%, #bbb 67%, #000 100%);
+	// box-shadow: 0 3px 1px -2px #0006;
 }
 #knobTr {
 	content: "";
-	background: linear-gradient(to top, rgb(235, 235, 235) 10%, rgb(235, 235, 235) 11%, rgb(235, 235, 235) 11%, #444 14%);
 	width: 20px;
-	height: 80px;
+	height: 20px;
 	border-radius: 0;
 	position: absolute;
-	top: 25px;
-	margin-top: -20px;
+	bottom: -10;
+	left: 120px;
 	display: flex;
+    background: $active;
+    border: 1px solid #FBA701;
 	justify-content: center;
-	box-shadow: 7px -2px 5px -5px #999, -7px -2px 5px -5px #999;
-	transform: rotateZ(-45deg);
-	right: 73%;
 	cursor: pointer;
-	&:after {
-		content: "";
-		display: block;
-		width: 30%;
-		position: absolute;
-		top: 0;
-		height: 50%;
-		background: #1fa;
-		box-shadow: 0 0 1px #999 inset;
-	}
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    border-radius: 50%;
+    box-sizing: border-box;
+	// &:after {
+	// 	content: "";
+	// 	display: block;
+	// 	width: 30%;
+	// 	position: absolute;
+	// 	top: 0;
+	// 	height: 50%;
+	// 	background: #1fa;
+	// 	box-shadow: 0 0 1px #999 inset;
+	// }
 }
 #volumeBarCont {
 	position: absolute;
@@ -232,44 +290,7 @@ body {
         right: 0;
     }
 
-    span {
-        position: absolute;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        color: transparent;
-        font-size: 14px;
-        // font-weight: 600;
-        background: transparent;
-        width: 100px;
-        height: 100px;
-        -webkit-border-radius: 50%;
-        -moz-border-radius: 50%;
-        border-radius: 50%;
-        z-index: 0;
 
-        &.n,
-        &.s,
-        &.w,
-        &.o {
-            &:hover{
-                background: rgba(122, 230, 72, .2);
-            color:rgba(0,0,0.2)
-            }
-            
-        }
-
-        &.n-w,
-        &.s-w,
-        &.s-o,
-        &.n-o {
-            &:hover{
-                background: rgba(169, 169, 228,.2);
-            color:rgba(0,0,0.2)
-            }
-            
-        }
-    }
 
     .n-o {
         top: -20px;
