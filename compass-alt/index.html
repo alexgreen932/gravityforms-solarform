@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link type="text/css" rel="stylesheet" href="../assets/css/style.css">
+    <link type="text/css" rel="stylesheet" href="../assets/css/all.min.css">
+    <script src="../assets/js/jquery-3.7.1.min.js"></script>
+    <script src="../assets/js/vue.js"></script>
+    <!-- <script src="../assets/js/script.js"></script> -->
+</head>
+
+<body>
+    <div id="app">
+        <j-comp :el="side" @nv="side=$event"></j-comp>
+        <!-- Display selected direction -->
+        <!-- <p>Selected Direction: {{ dir }}</p> -->
+        <!-- <p>Side: {{ side }}</p> -->
+    </div>
+    <script type="module">
+        import comp from "../app/src/compass-alt.js";
+
+        let app = Vue.createApp({
+            components: {
+                "j-comp": comp,
+            },
+            data() {
+                return {
+                    
+                    // dir: null,
+                    // compass_degree: 0,
+                    side:null,
+                    //other props...
+                };
+            },
+            methods: {
+                
+
+            },
+        });
+
+        app.mount("#app");
+
+    </script>
+</body>
+
+</html>

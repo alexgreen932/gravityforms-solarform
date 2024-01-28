@@ -7,8 +7,208 @@ $prim_col: $bor_lg;
     position: relative;
     // width: 260px;
     height: 260px;
-    padding: 30px;   
+    padding: 30px;
 }
+
+#compass-wrap-alt {
+    display: flex;
+    // flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    // width: 260px;
+    height: 260px;
+    padding: 30px;
+}
+
+#info {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+
+#compass-alt {
+    // display: flex;
+    // flex-wrap: wrap;
+    position: relative;
+    width: 260px;
+    height: 260px;
+    border: 2px dashed $prim_col;
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    border-radius: 50%;
+    box-sizing: border-box;
+    cursor: all-scroll;
+
+    div {
+        display: inline-block;
+        width: 130px;
+        height: 130px;
+        box-sizing: border-box;
+        margin-bottom: 0;
+
+    }
+
+    .side-top-left {
+        border-right: 2px dashed $prim_col;
+        border-bottom: 2px dashed $prim_col;
+        position: absolute;
+        top: 0;
+        left: 0;
+    }
+
+    .side-bottom-right {
+        border-top: 2px dashed $prim_col;
+        border-left: 2px dashed $prim_col;
+        position: absolute;
+        bottom: 0;
+        right: 0;
+    }
+
+    span {
+        position: absolute;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        color: transparent;
+        font-size: 14px;
+        // font-weight: 600;
+        background: transparent;
+        width: 100px;
+        height: 100px;
+        -webkit-border-radius: 50%;
+        -moz-border-radius: 50%;
+        border-radius: 50%;
+        z-index: 0;
+
+        &.n,
+        &.s,
+        &.w,
+        &.o {
+            &:hover{
+                background: rgba(122, 230, 72, .2);
+            color:rgba(0,0,0.2)
+            }
+            
+        }
+
+        &.n-w,
+        &.s-w,
+        &.s-o,
+        &.n-o {
+            &:hover{
+                background: rgba(169, 169, 228,.2);
+            color:rgba(0,0,0.2)
+            }
+            
+        }
+    }
+
+    .n-o {
+        top: -20px;
+        right: -20px;
+    }
+
+    .s-o {
+        bottom: -20px;
+        right: -20px;
+    }
+
+    .s-w {
+        bottom: -20px;
+        left: -20px;
+    }
+
+    .n-w {
+        top: -20px;
+        left: -20px;
+    }
+
+    .n {
+        top: -50px;
+        left: 80px;
+    }
+
+    .s {
+        bottom: -50px;
+        left: 80px;
+    }
+
+    .w {
+        top: 80px;
+        left: -50px;
+    }
+
+    .o {
+        top: 80px;
+        right: -50px;
+    }
+
+    &:hover .center:before{
+        -webkit-animation: shake-vertical 5s infinite both;
+	        animation: shake-vertical 5s infinite both;
+
+    }
+    .center {
+        width: 104px;
+        height: 70px;
+        position: absolute;
+        top: 95px;
+        left: 78px;
+        background: #FEB931;
+        z-index: 2;
+
+        .roof {
+            display: block;
+            width: 104px;
+            height: 35px;
+            background: #FBA701;
+            -webkit-border-radius: 0;
+            -moz-border-radius: 0;
+            border-radius: 0;
+        }
+
+        .arr {
+            content: '';
+            height: 10px;
+            width: 10px;
+            position: absolute;
+            top: -40px;
+            left: 47px;
+            // left: 56px;
+            // background: #dddadd;
+            z-index: 3;
+        }
+
+        &:before {
+            content: '';
+            height: 80px;
+            width: 40px;
+            position: absolute;
+            bottom: 85%;
+            left: 32px;
+            background: #3157fe;
+            clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
+            // -webkit-animation: shake-vertical 5s infinite both;
+	        // animation: shake-vertical 5s infinite both;
+        }
+
+        &:after {
+            content: '';
+            height: 70px;
+            width: 40px;
+            position: absolute;
+            top: 100%;
+            left: 32px;
+            background: #dbd4d4;
+            clip-path: polygon(0 0, 50% 100%, 100% 0);
+        }
+    }
+
+}
+
 #compass {
     // display: flex;
     // flex-wrap: wrap;
@@ -20,9 +220,10 @@ $prim_col: $bor_lg;
     -moz-border-radius: 50%;
     border-radius: 50%;
     box-sizing: border-box;
-    cursor: -webkit-grab; 
-    cursor: grab;
-    div{
+
+    // cursor: -webkit-grab; 
+    // cursor: grab;
+    div {
         display: inline-block;
         width: 130px;
         height: 130px;
@@ -30,44 +231,51 @@ $prim_col: $bor_lg;
         margin-bottom: 0;
 
     }
-    .side-top-left{
-        border-right: 2px dashed $prim_col;  
-        border-bottom: 2px dashed $prim_col; 
+
+    .side-top-left {
+        border-right: 2px dashed $prim_col;
+        border-bottom: 2px dashed $prim_col;
         position: absolute;
         top: 0;
-        left: 0; 
+        left: 0;
     }
-    .side-bottom-right{
-        border-top: 2px dashed $prim_col;  
-        border-left: 2px dashed $prim_col;  
+
+    .side-bottom-right {
+        border-top: 2px dashed $prim_col;
+        border-left: 2px dashed $prim_col;
         position: absolute;
         bottom: 0;
         right: 0;
     }
-    .center{
+
+    .center {
         width: 104px;
         height: 70px;
         position: absolute;
         top: 95px;
         left: 78px;
         background: #FEB931;
-        span{
+
+        span {
             display: block;
             width: 104px;
             height: 35px;
             background: #FBA701;
         }
     }
-    i{
-        color:$active;
+
+    i {
+        color: $active;
         position: absolute;
     }
-    .fa-compass{
+
+    .fa-compass {
         font-size: 24px;
         top: 246px;
         left: 115px;
     }
-    .fa-chevron-left{
+
+    .fa-chevron-left {
         top: 244px;
         left: 90px;
         -moz-transform: rotate(10deg);
@@ -76,13 +284,85 @@ $prim_col: $bor_lg;
         -ms-transform: rotate(10deg);
         transform: rotate(10deg);
     }
-    .fa-chevron-right{
+
+    .fa-chevron-right {
         top: 244px;
         left: 160px;
         -moz-transform: rotate(350deg);
--webkit-transform: rotate(350deg);
--o-transform: rotate(350deg);
--ms-transform: rotate(350deg);
-transform: rotate(350deg);
+        -webkit-transform: rotate(350deg);
+        -o-transform: rotate(350deg);
+        -ms-transform: rotate(350deg);
+        transform: rotate(350deg);
     }
 }
+
+
+/* ----------------------------------------------
+ * Generated by Animista on 2024-1-28 14:56:51
+ * Licensed under FreeBSD License.
+ * See http://animista.net/license for more info. 
+ * w: http://animista.net, t: @cssanimista
+ * ---------------------------------------------- */
+
+/**
+ * ----------------------------------------
+ * animation shake-vertical
+ * ----------------------------------------
+ */
+ @-webkit-keyframes shake-vertical {
+    0%,
+    100% {
+      -webkit-transform: translateY(0);
+              transform: translateY(0);
+    }
+    10%,
+    30%,
+    50%,
+    70% {
+      -webkit-transform: translateY(-8px);
+              transform: translateY(-8px);
+    }
+    20%,
+    40%,
+    60% {
+      -webkit-transform: translateY(8px);
+              transform: translateY(8px);
+    }
+    80% {
+      -webkit-transform: translateY(6.4px);
+              transform: translateY(6.4px);
+    }
+    90% {
+      -webkit-transform: translateY(-6.4px);
+              transform: translateY(-6.4px);
+    }
+  }
+  @keyframes shake-vertical {
+    0%,
+    100% {
+      -webkit-transform: translateY(0);
+              transform: translateY(0);
+    }
+    10%,
+    30%,
+    50%,
+    70% {
+      -webkit-transform: translateY(-8px);
+              transform: translateY(-8px);
+    }
+    20%,
+    40%,
+    60% {
+      -webkit-transform: translateY(8px);
+              transform: translateY(8px);
+    }
+    80% {
+      -webkit-transform: translateY(6.4px);
+              transform: translateY(6.4px);
+    }
+    90% {
+      -webkit-transform: translateY(-6.4px);
+              transform: translateY(-6.4px);
+    }
+  }
+  

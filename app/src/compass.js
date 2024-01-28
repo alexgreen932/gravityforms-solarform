@@ -1,7 +1,8 @@
 export default {
     template: `
         <div id="compass-wrap">
-            <div id="compass" :style="rotate()" @mousedown="startDrag" @mousemove="drag" @mouseup="endDrag" @click="rotateByClick">
+            <!-- <div id="compass" :style="rotate()" @mousedown.left="startDrag" @mousemove="drag" @mouseup="endDrag" @click="rotateByClick"> -->
+            <div id="compass" :style="rotate()" v-on="{ mousedown: startDrag, mousemove:drag, mouseup: endDrag }" @click="rotateByClick" :style="{cursor: cursor}">
                 <div class="side-top-left"></div>
                 <div class="side-bottom-right"></div>
                 <div class="center">
@@ -13,6 +14,12 @@ export default {
             </div>
             <!-- nest_comment_start~--{{el}}
             ----{{degree}}~nest_comment_end -->
+            <hr>
+            isDragging--{{isDragging}}
+            <br>startX--{{startX}}
+            <br>startDegree--{{startDegree}}
+            <br>
+            <br>
         </div>
     `,
     props: ["el", "degree"],
@@ -22,6 +29,8 @@ export default {
             isDragging: false,
             startX: 0,
             startDegree: 0,
+            cursor: 'crosshair'
+
         };
     },
     methods: {
@@ -32,6 +41,8 @@ export default {
             this.isDragging = true;
             this.startX = event.clientX;
             this.startDegree = this.degree;
+            this.cursor = 'wait';
+            this.cursor = 'grab';
         },
         drag(event) {
             if (this.isDragging) {
@@ -42,14 +53,15 @@ export default {
         },
         endDrag() {
             this.isDragging = false;
+            this.cursor = 'crosshair';
         },
         rotateByClick(event) {
-            const rect = event.target.getBoundingClientRect();
-            const centerX = rect.left + rect.width / 2;
-            const centerY = rect.top + rect.height / 2;
-            const angle = Math.atan2(event.clientY - centerY, event.clientX - centerX);
-            const degrees = angle * (180 / Math.PI);
-            this.$emit("nv", -degrees); // Negate degrees because atan2 returns angle in radians clockwise from positive x-axis
+            // const rect = event.target.getBoundingClientRect();
+            // const centerX = rect.left + rect.width / 2;
+            // const centerY = rect.top + rect.height / 2;
+            // const angle = Math.atan2(event.clientY - centerY, event.clientX - centerX);
+            // const degrees = angle * (180 / Math.PI);
+            // this.$emit("nv", -degrees); // Negate degrees because atan2 returns angle in radians clockwise from positive x-axis
         },
     },
 };
