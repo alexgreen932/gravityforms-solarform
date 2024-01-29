@@ -1,9 +1,11 @@
 export default {
     template: `
-            --{{angle}}  
+     <div style="width:500px;text-align:center">
+         --{{angle}}  
         --{{side}}
+         
         <div id="wrap">
-            <div id="labRat">
+            <div id="labRat" class="top">
                 <div id="knobTr"></div>
             </div>
             <input id="angle-value" type="hidden" v-model="angle" @input="calcSide">
@@ -15,7 +17,10 @@ export default {
             <span :class="classActive(6)" class="s-w">Süd-Ost</span>
             <span :class="classActive(7)" class="w">West</span>
             <span :class="classActive(8)" class="n-w">Nord-West</span>
-        </div>
+        </div>       
+     </div>
+           
+
 
         <!-- <div id="compass-wrap-alt">
 
@@ -63,10 +68,15 @@ export default {
             }
         },
         calcSide() {
-            console.log(`gggggggggggggg`);
+
             var d = this.angle;
             switch (true) {
-                case d > 330 && d < 300:
+                case d > 0 && d < 30:
+                case d > 330 && d < 360:
+                    this.side = "Nord";
+                    this.s = 1;
+                    break;
+                case d > 300 && d < 330:
                     this.side = "Nord-West";
                     this.s = 8;
                     break;
@@ -92,13 +102,10 @@ export default {
                     this.s = 3;
                     break;
                 case d > 30 && d < 60:
-                    this.side = 'Nord-Ost';
+                    this.side = "Nord-Ost";
                     this.s = 2;
                     break;
-                case d > 30 && d < 330:
-                    this.side = "Nord";
-                    this.s = 1;
-                    break;
+
                 default:
                     this.side = null;
                     break;

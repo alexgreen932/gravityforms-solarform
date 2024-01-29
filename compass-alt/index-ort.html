@@ -9,48 +9,34 @@
     <link type="text/css" rel="stylesheet" href="../assets/css/all.min.css">
     <script src="../assets/js/jquery-3.7.1.min.js"></script>
     <script src="../assets/js/vue.js"></script>
-    <!-- <script src="../assets/js/knob.js"></script> -->
-    <style>
-        #app {
-            display: flex;
-            width: 100%;
-        }
-
-        .dummy {
-            width: 600px;
-            height: 500px;
-            background: #999;
-        }
-
-        .info {
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            width: 500px;
-        }
-    </style>
+    <!-- <script src="../assets/js/script.js"></script> -->
 </head>
 
 <body>
     <div id="app">
-        <div class="dummy"></div>
-        <j-compassknob></j-compassknob>
+        <j-comp :el="side" @nv="side=$event"></j-comp>
+        <!-- Display selected direction -->
+        <!-- <p>Selected Direction: {{ dir }}</p> -->
+        <!-- <p>Side: {{ side }}</p> -->
     </div>
     <script type="module">
-        import comp from '../app/src/knob.js'
+        import comp from "../app/src/compass-alt.js";
 
         let app = Vue.createApp({
             components: {
-                "j-compassknob": comp,
+                "j-comp": comp,
             },
             data() {
                 return {
-                    angle: null,
+                    
+                    // dir: null,
+                    // compass_degree: 0,
+                    side:null,
+                    //other props...
                 };
             },
             methods: {
-
+                
 
             },
         });
@@ -58,7 +44,6 @@
         app.mount("#app");
 
     </script>
-
 </body>
 
 </html>

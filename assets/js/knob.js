@@ -85,6 +85,15 @@ function onMouseMove(event) {
         //270 degrees maximum freedom of rotation / 100% volume = 1% of volume difference per 2.7 degrees of rotation
         volumeSetting = Math.floor(finalAngleInDegrees / (360 / 360));
 
+        // Set the value of the input field -----------------
+        let vueInput = document.getElementById("azimut");
+        vueInput.value = volumeSetting;
+
+        // Trigger a simulated input event
+        let inputEvent = new InputEvent('input', { bubbles: true });
+        vueInput.dispatchEvent(inputEvent);
+
+
         tickHighlightPosition = Math.round((volumeSetting * 2.7) / 10); //interpolate how many ticks need to be highlighted
 
         createTicks(27, tickHighlightPosition); //highlight ticks
@@ -97,26 +106,26 @@ function onMouseMove(event) {
 
 //dynamically create volume knob "ticks"
 function createTicks(numTicks, highlightNumTicks) {
-    //reset first by deleting all existing ticks
-    while (tickContainer.firstChild) {
-        tickContainer.removeChild(tickContainer.firstChild);
-    }
+    // //reset first by deleting all existing ticks
+    // while (tickContainer.firstChild) {
+    //     tickContainer.removeChild(tickContainer.firstChild);
+    // }
 
-    //create ticks
-    for (var i = 0; i < numTicks; i++) {
-        var tick = document.createElement("div");
+    // //create ticks
+    // for (var i = 0; i < numTicks; i++) {
+    //     var tick = document.createElement("div");
 
-        //highlight only the appropriate ticks using dynamic CSS
-        if (i < highlightNumTicks) {
-            tick.className = "tick activetick";
-        } else {
-            tick.className = "tick";
-        }
+    //     //highlight only the appropriate ticks using dynamic CSS
+    //     if (i < highlightNumTicks) {
+    //         tick.className = "tick activetick";
+    //     } else {
+    //         tick.className = "tick";
+    //     }
 
-        tickContainer.appendChild(tick);
-        tick.style.transform = "rotate(" + startingTickAngle + "deg)";
-        startingTickAngle += 10;
-    }
+    //     tickContainer.appendChild(tick);
+    //     tick.style.transform = "rotate(" + startingTickAngle + "deg)";
+    //     startingTickAngle += 0;
+    // }
 
     startingTickAngle = -135; //reset
 }

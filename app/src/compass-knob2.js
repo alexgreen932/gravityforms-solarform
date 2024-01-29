@@ -7,7 +7,7 @@ export default {
             --{{side}}
             </div>
             <div id="wrap">
-                <div id="labRat">
+                <div id="labRat" class="top">
                     <div id="knobTr"></div>
                     <div class="ver"></div>
                     <div class="hor"></div>
@@ -46,7 +46,7 @@ export default {
             }
         },
         calcSide() {
-            console.log(`gggggggggggggg`);
+
             var d = this.angle;
             switch (true) {
                 case d > 0 && d < 30:

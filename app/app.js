@@ -14,7 +14,7 @@ let app = Vue.createApp({
     },
     data() {
         return {
-            screen: 0,
+            screen: 4,
             result: false,
             done: [],
             finish: false,
