@@ -1083,8 +1083,8 @@ body {
   }
 }
 #wrap {
-  width: 340px;
-  height: 340px;
+  width: 320px;
+  height: 320px;
   display: flex;
   position: relative;
   justify-content: center;
@@ -1098,8 +1098,8 @@ body {
   align-items: center;
   color: #b0bec5;
   background: #fff;
-  font-size: 14px;
-  width: 100px;
+  font-size: 12px;
+  width: 80px;
   height: 20px;
   -webkit-border-radius: 10px;
   -moz-border-radius: 10px;
@@ -1109,22 +1109,6 @@ body {
 #wrap span.active {
   color: #fff;
   background: #6ec248;
-}
-#wrap .n-o {
-  top: 70px;
-  right: -40px;
-}
-#wrap .s-o {
-  bottom: 70px;
-  right: -40px;
-}
-#wrap .s-w {
-  bottom: 70px;
-  left: -40px;
-}
-#wrap .n-w {
-  top: 70px;
-  left: -40px;
 }
 #wrap .n {
   top: 0px;
@@ -1141,6 +1125,22 @@ body {
 #wrap .o {
   top: 160px;
   right: -70px;
+}
+#wrap .n-o {
+  top: 70px;
+  right: -40px;
+}
+#wrap .s-o {
+  bottom: 70px;
+  right: -40px;
+}
+#wrap .s-w {
+  bottom: 70px;
+  left: -40px;
+}
+#wrap .n-w {
+  top: 70px;
+  left: -40px;
 }
 #wrap #cover-circle {
   display: block;
@@ -1179,6 +1179,44 @@ body {
   justify-content: center;
   margin-bottom: 0 !important;
 }
+#labRat .ver {
+  position: absolute;
+  width: 50%;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  box-sizing: border-box;
+  border-right: 2px dashed #b0bec5;
+  margin-bottom: 0 !important;
+}
+#labRat .hor {
+  position: absolute;
+  height: 50%;
+  top: 0;
+  left: 0;
+  right: 0;
+  box-sizing: border-box;
+  border-bottom: 2px dashed #b0bec5;
+  margin-bottom: 0 !important;
+}
+#labRat .center {
+  width: 104px;
+  height: 70px;
+  position: absolute;
+  top: 95px;
+  left: 78px;
+  background: #FEB931;
+  z-index: 2;
+}
+#labRat .center .roof {
+  display: block;
+  width: 104px;
+  height: 35px;
+  background: #FBA701;
+  -webkit-border-radius: 0;
+  -moz-border-radius: 0;
+  border-radius: 0;
+}
 
 #knobTr {
   content: "";
@@ -1186,8 +1224,9 @@ body {
   height: 20px;
   border-radius: 0;
   position: absolute;
-  bottom: -10;
-  left: 120px;
+  top: -10px;
+  left: 118px;
+  margin-bottom: 0 !important;
   display: flex;
   background: #6ec248;
   border: 1px solid #FBA701;
@@ -1324,53 +1363,6 @@ body {
 #compass-alt:hover .center:before {
   -webkit-animation: shake-vertical 5s infinite both;
   animation: shake-vertical 5s infinite both;
-}
-#compass-alt .center {
-  width: 104px;
-  height: 70px;
-  position: absolute;
-  top: 95px;
-  left: 78px;
-  background: #FEB931;
-  z-index: 2;
-}
-#compass-alt .center .roof {
-  display: block;
-  width: 104px;
-  height: 35px;
-  background: #FBA701;
-  -webkit-border-radius: 0;
-  -moz-border-radius: 0;
-  border-radius: 0;
-}
-#compass-alt .center .arr {
-  content: "";
-  height: 10px;
-  width: 10px;
-  position: absolute;
-  top: -40px;
-  left: 47px;
-  z-index: 3;
-}
-#compass-alt .center:before {
-  content: "";
-  height: 80px;
-  width: 40px;
-  position: absolute;
-  bottom: 85%;
-  left: 32px;
-  background: #3157fe;
-  clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
-}
-#compass-alt .center:after {
-  content: "";
-  height: 70px;
-  width: 40px;
-  position: absolute;
-  top: 100%;
-  left: 32px;
-  background: #dbd4d4;
-  clip-path: polygon(0 0, 50% 100%, 100% 0);
 }
 
 #compass {
