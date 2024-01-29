@@ -11,23 +11,24 @@
     <script src="../assets/js/vue.js"></script>
     <!-- <script src="../assets/js/script.js"></script> -->
     <style>
-        #app{
+        #app {
             display: flex;
             width: 100%;
         }
-        .dummy{
-            width: 600px; 
-            height: 500px; 
+
+        .dummy {
+            width: 600px;
+            height: 500px;
             background: #999;
         }
-        .info{
+
+        .info {
             display: flex;
             flex-direction: column;
             justify-content: center;
             align-items: center;
             width: 500px;
         }
-
     </style>
 </head>
 
@@ -56,61 +57,78 @@
 
         app.mount("#app");
 
-        let knobTrigger = document.querySelector("#knobTr"),
-            knob = document.querySelector("#labRat"),
-            wrap = document.querySelector("#wrap"),
-            volumeBar = document.querySelector("#volumeBar"),
-            fadeOut;
-
         function valBetween(v, min, max) {
-            return Math.min(max, Math.max(min, v));
-        }
-
-        knobTrigger.addEventListener("mousedown", e => {
-            let x0 = knob.getBoundingClientRect().left + knob.offsetWidth / 2,
-                y0 = knob.getBoundingClientRect().top + knob.offsetHeight / 2;
-            let p2 = {
-                x: x0,
-                y: y0
-            };
-            if (e.button === 0) {
-                let rotateKnob = function (e) {
-                    let p1 = {
-                        x: e.clientX,
-                        y: e.clientY
-                    },
-                    // angle in degrees
-                    angleDeg = -Math.atan2(p1.x - p2.x, p1.y - p2.y) * 180 / Math.PI + 180;
-                    let percentValue = parseInt((valBetween(angleDeg, 0, 360) - 360) / -2.7);
-                    console.log(p2.x, p1.x);
-
-                    
-                    // Set the value of the input field------------------------------------
-                    var vueInput = document.getElementById("angle-value");
-                    vueInput.value = JSON.stringify(valBetween(angleDeg, 0, 360));
-
-                    // Trigger a simulated input event
-                    var inputEvent = new InputEvent('input', { bubbles: true });
-                    vueInput.dispatchEvent(inputEvent);
-
-                    clearTimeout(fadeOut);
-                    knob.style.transform =
-                        "rotateZ(" + (valBetween(angleDeg, 0, 360) - 360) + "deg)";
-                    console.log('knob.style.transform: ', knob.style.transform);
-                };
-
-                document.addEventListener("mousemove", rotateKnob, false);
-                document.addEventListener("mouseup", e => {
-                document.removeEventListener("mousemove", rotateKnob, false);
-                });
-            } else {
-                return false;
+                return Math.min(max, Math.max(min, v));
             }
-        });
 
-        wrap.addEventListener("contextmenu", e => {
-            e.preventDefault();
-        });
+        class Knob {
+            constructor() {
+                // super();
+                let knobTrigger = document.querySelector("#knobTr"),
+                    knob = document.querySelector("#labRat"),
+                    wrap = document.querySelector("#wrap"),
+                    volumeBar = document.querySelector("#volumeBar"),
+                    fadeOut;
+                knobTrigger.addEventListener("mousedown", e => {
+                    let x0 = knob.getBoundingClientRect().left + knob.offsetWidth / 2,
+                        y0 = knob.getBoundingClientRect().top + knob.offsetHeight / 2;
+                    let p2 = {
+                        x: x0,
+                        y: y0
+                    };
+                    if (e.button === 0) {
+                        let rotateKnob = function (e) {
+                            let p1 = {
+                                x: e.clientX,
+                                y: e.clientY
+                            },
+                                // angle in degrees
+                                angleDeg = -Math.atan2(p1.x - p2.x, p1.y - p2.y) * 180 / Math.PI + 180;
+                            let percentValue = parseInt((valBetween(angleDeg, 0, 360) - 360) / -2.7);
+                            console.log(p2.x, p1.x);
+
+
+                            // Set the value of the input field------------------------------------
+                            var vueInput = document.getElementById("angle-value");
+                            vueInput.value = JSON.stringify(valBetween(angleDeg, 0, 360));
+
+                            // Trigger a simulated input event
+                            var inputEvent = new InputEvent('input', { bubbles: true });
+                            vueInput.dispatchEvent(inputEvent);
+
+                            clearTimeout(fadeOut);
+                            knob.style.transform =
+                                "rotateZ(" + (valBetween(angleDeg, 0, 360) - 360) + "deg)";
+                            console.log('knob.style.transform: ', knob.style.transform);
+                        };
+
+                        document.addEventListener("mousemove", rotateKnob, false);
+                        document.addEventListener("mouseup", e => {
+                            document.removeEventListener("mousemove", rotateKnob, false);
+                        });
+                    } else {
+                        return false;
+                    }
+                });
+
+                wrap.addEventListener("contextmenu", e => {
+                    e.preventDefault();
+                });
+
+
+            }
+
+
+
+
+        }
+        const kn = new Knob;
+
+
+
+
+
+
 
 
 

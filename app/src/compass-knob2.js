@@ -40,9 +40,9 @@ export default {
     methods: {
         classActive(n) {
             if (this.s == n) {
-                return 'active';
+                return "active";
             } else {
-                return '';
+                return "";
             }
         },
         calcSide() {
@@ -80,7 +80,7 @@ export default {
                     this.s = 3;
                     break;
                 case d > 30 && d < 60:
-                    this.side = 'Nord-Ost';
+                    this.side = "Nord-Ost";
                     this.s = 2;
                     break;
 
@@ -88,65 +88,10 @@ export default {
                     this.side = null;
                     break;
             }
-//n 260 - 0 - 30
-//n0 30-60
-//o 60-120
-// so - 120-150
-//s 150 - 210
-//sw 210-240
-// w 240-300 
-// w 300-330
-//
-//180 -
-
-
         },
-        // script() {
-        //     let knobTrigger = document.querySelector("#knobTr"),
-        //         knob = document.querySelector("#labRat"),
-        //         wrap = document.querySelector("#wrap"),
-        //         volumeBar = document.querySelector("#volumeBar"),
-        //         fadeOut;
-
-        //     function valBetween(v, min, max) {
-        //         return Math.min(max, Math.max(min, v));
-        //     }
-
-        //     knobTrigger.addEventListener("mousedown", e => {
-        //         let x0 = knob.getBoundingClientRect().left + knob.offsetWidth / 2,
-        //             y0 = knob.getBoundingClientRect().top + knob.offsetHeight / 2;
-        //         let p2 = {
-        //             x: x0,
-        //             y: y0
-        //         };
-        //         if (e.button === 0) {
-        //             let rotateKnob = function (e) {
-        //                 let p1 = {
-        //                     x: e.clientX,
-        //                     y: e.clientY
-        //                 },
-        //                     // angle in degrees
-        //                     angleDeg = -Math.atan2(p1.x - p2.x, p1.y - p2.y) * 180 / Math.PI + 180;
-        //                 let percentValue = parseInt((valBetween(angleDeg, 45, 315) - 315) / -2.7);
-        //                 console.log(p2.x, p1.x);
-
-        //                 // Set the value of the input field------------------------------------
-        //                 var vueInput = document.getElementById("angle-value");
-        //                 vueInput.value = JSON.stringify(valBetween(angleDeg, 0, 359));
-
-        //                 // Trigger a simulated input event
-        //                 var inputEvent = new InputEvent('input', { bubbles: true });
-        //                 vueInput.dispatchEvent(inputEvent);
-        //                 clearTimeout(fadeOut);
-        //                 knob.style.transform =
-        //                     "rotateZ(" + (valBetween(angleDeg, 45, 315) - 315) + "deg)";
-        //                 console.log('knob.style.transform: ', knob.style.transform);
-        //             };
-
-
-        //         }
-            },
-
-
-}
+    },
+    created() {
+        // this.sides();
+    },
+};
 
