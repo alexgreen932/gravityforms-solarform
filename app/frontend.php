@@ -68,7 +68,8 @@ if (is_admin()) {
                                                         <!-- <select v-model="el.value">
                                                             <option v-for="op in angle">{{op}}</option>
                                                         </select> -->
-                                                        <j-compass :el="dir" :degree="compass_degree" @nv="updateDirection"></j-compass>
+                                                        <!-- <j-compass :el="dir" :degree="compass_degree" @nv="updateDirection"></j-compass> -->
+                                                        <j-compass @nv="el.value=$event"></j-compass>
                                                     </template>
                                                     <template v-if="index==5">
                                                         <select v-model="el.value">
@@ -84,7 +85,8 @@ if (is_admin()) {
                                                     </template>
                                                     <template v-if="index==7">
 
-                                                    <div class="inline"><label>{{el.title3}}(cents)</label><input type="number" v-model="el.value"></div>
+                                                    <div class="inline"><label>{{el.title3}}(cents)</label>
+                                                    <input type="number" v-model="el.value"></div>
                                                         <!-- nest_comment_start~{{el.title3}}
 
                                                     <select v-model="el.value">

@@ -37,7 +37,7 @@ function gfsfi_public_scripts_and_styles() {
     wp_enqueue_style('j-icons', plugin_dir_url(__FILE__) . 'assets/css/all.min.css', array(), '');
     wp_enqueue_script('jquery'); // Enqueue jQuery
     wp_enqueue_script('j-script', plugin_dir_url(__FILE__) . 'assets/js/script.js', array('jquery'), '1.0');
-    wp_enqueue_script('j-knob', plugin_dir_url(__FILE__) . 'assets/js/knob.js', array(), '1.0');
+    // wp_enqueue_script('j-knob', plugin_dir_url(__FILE__) . 'assets/js/knob.js', array(), '1.0');
 
 }
 

@@ -1,29 +1,25 @@
 export default {
     template: `
     <div class="cd__main">
+        <span><i class="fas fa-globe"></i>N<i class="fas fa-globe"></i></span>
 
-        <div class="body">
-
- 
             <input id="azimut" type="hidden" v-model="angle" @input="calcSide()">
-            --{{angle}}
-            --{{side}}
+            <!-- --{{angle}}
+            --{{side}} -->
             <div class="knob-surround">
 
                 <div id="knob" class="knob">
                     <div class="ver"></div>
                     <div class="hor"></div>
                     <div class="center">
-                        <span class="arr"></span>
                         <span class="roof"></span>
                     </div>
                     <div class="dot"></div>
+                    <i class="fas fa-caret-left"></i>
+                    <i class="fas fa-caret-right"></i>
                 </div>
                 <!-- <div id="tickContainer" class="ticks"></div> -->
             </div>
-
-
-        </div>
 
     </div>
 
@@ -51,36 +47,36 @@ export default {
             switch (true) {
                 case d > 0 && d < 30:
                 case d > 330 && d < 360:
-                    this.side = "Süd";
+                    this.$emit('nv', 'Süd');
                     this.s = 1;
                     break;
                 case d > 300 && d < 330:
-                    this.side = "Süd-Ost";
+                    this.$emit('nv', 'Süd-Ost');
                     this.s = 8;
                     break;
                 case d > 240 && d < 300:
-                    this.side = "Ost";
+                    this.$emit('nv', 'Ost');
                     this.s = 7;
                     break;
                 case d > 210 && d < 240:
-                    this.side = "Nord-Ost";
+                    this.$emit('nv', 'Nord-Ost');
                     this.s = 6;
                     break;
 
                 case d > 150 && d < 210:
-                    this.side = "Nord";
+                    this.$emit('nv', 'Nord');
                     this.s = 5;
                     break;
                 case d > 120 && d < 150:
-                    this.side = "Nord-West";
+                    this.$emit('nv', 'Nord-West');
                     this.s = 4;
                     break;
                 case d > 60 && d < 120:
-                    this.side = "West";
+                    this.$emit('nv', 'West');
                     this.s = 3;
                     break;
                 case d > 30 && d < 60:
-                    this.side = "Süd-West";
+                    this.$emit('nv', 'Süd-West');
                     this.s = 2;
                     break;
 
