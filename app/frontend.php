@@ -25,7 +25,7 @@ if (is_admin()) {
                                 <div class="j-map">
                                     <template v-if="screen==0 && screens">
                                         <h3>{{screens[0].title}}</h3>
-                                        <p>{{screens[0].des}}</p>
+                                        <p v-if="screen!==4">{{screens[0].des}}</p>
                                     </template>
     
                                     <g-map :scr="screen" :lang="lang" :ind="screen" @newel="screen=$event"></g-map>
@@ -69,7 +69,7 @@ if (is_admin()) {
                                                             <option v-for="op in angle">{{op}}</option>
                                                         </select> -->
                                                         <!-- <j-compass :el="dir" :degree="compass_degree" @nv="updateDirection"></j-compass> -->
-                                                        <j-compass @nv="el.value=$event"></j-compass>
+                                                        <j-compass :el="el.value" @nv="el.value=$event"></j-compass>
                                                     </template>
                                                     <template v-if="index==5">
                                                         <select v-model="el.value">

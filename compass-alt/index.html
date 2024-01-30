@@ -33,9 +33,11 @@
 </head>
 
 <body>
-    <div id="app">
-        <div class="dummy"></div>
-        <j-compassknob></j-compassknob>
+    <div id="app" style="display:flex; justify-content: center;align-items: center;flex-direction: column;">
+        <!-- <div>Side is - {{angle}}</div> -->
+        <div><j-compassknob :el="angle" @nv="angle=$event"></j-compassknob></div>
+    
+        
     </div>
     <script type="module">
         import comp from '../app/src/knob.js'

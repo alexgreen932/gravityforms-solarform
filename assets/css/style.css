@@ -1414,6 +1414,11 @@ body {
   align-items: center;
   margin: 0 auto;
 }
+.cd__main .p-wrap {
+  height: 25px;
+  line-height: 25px;
+  margin-bottom: 5px;
+}
 .cd__main span {
   display: flex;
   justify-content: center;
