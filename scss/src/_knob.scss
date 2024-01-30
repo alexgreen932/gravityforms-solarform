@@ -36,20 +36,35 @@ $hov: #FBA701;
             padding: 0 7px;
         }
     }
+    .manually span{
+        font-size: 1rem;
+        font-weight: normal;
+        margin-bottom: 0;
+            color:#444;
+            cursor: pointer;
+    }
+
 }
 
 .knob-surround {
+    display: flex;
+    justify-content: center;
+    align-items: center;
     position: relative;
 
-    width: 260px;
-    height: 260px;
-    -webkit-border-radius: 50%;
-    -moz-border-radius: 50%;
-    border-radius: 50%;
-    border: 2px dashed $prim_col;
+    width: 300px;
+    height: 300px;
+    .manually{
+        font-size: 1rem;
+        font-weight: normal;
+        margin-bottom: 0;
+    }
 
     &:hover {
-        background: #f7f7f7;
+        .knob{
+            background: #f7f7f7;
+        }
+        
 
         .dot {
             background: $hov;
@@ -72,19 +87,100 @@ $hov: #FBA701;
 
 }
 
+.knob-wrap {
+    width: 260px;
+    height: 260px;
+    position: relative;
+    .manual-wrap{
+        span {
+            position: absolute;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: #fff;
+            font-size: 12px;
+            font-weight: 600;
+            background: $active;
+            width: 30px;
+            height: 30px;
+            -webkit-border-radius: 50%;
+            -moz-border-radius: 50%;
+            border-radius: 50%;
+            cursor: pointer;
+            transition: all ease 0.5s;
+            margin-bottom: 0;
+            z-index: 15;
+            &:hover{
+                transform: scale3d(1.4, 1.4, 1) rotateX(0deg) rotateY(0deg) rotateZ(0deg) translate3d(0px, 0px, 0px) skew(0deg, 0deg);
+            }
+    
+            &.n-w,
+            &.s-w,
+            &.s-o,
+            &.n-o {
+                background: rgb(169, 169, 228);
+            }
+        }
+    
+        .n-o {
+            top: 27px;
+            right: 18px;
+        }
+    
+        .s-o {
+            bottom: 25px;
+            right: 18px;
+        }
+    
+        .s-w {
+            bottom: 27px;
+            left: 18px;
+        }
+    
+        .n-w {
+            top: 27px;
+            left: 18px;
+        }
+    
+        .n {
+            top: -15px;
+            left: 115px;
+        }
+    
+        .s {
+            bottom: -15px;
+            left: 115px;
+        }
+    
+        .w {
+            top: 115px;
+            left: -15px;
+        }
+    
+        .o {
+            top: 115px;
+            right: -15px;
+        }
+    } 
+}
+
 .knob {
     position: absolute;
-    width: 100%;
-    height: 100%;
+    width: 260px;
+    height: 260px;
     border-radius: 50%;
-    -webkit-transform: rotate(0deg);
-    -moz-transform: rotate(0deg);
-    -o-transform: rotate(0deg);
-    -ms-transform: rotate(0deg);
-    transform: rotate(0deg);
-    z-index: 10;
-    cursor: -webkit-grab;
-    cursor: grab;
+    // -webkit-transform: rotate(0deg);
+    // -moz-transform: rotate(0deg);
+    // -o-transform: rotate(0deg);
+    // -ms-transform: rotate(0deg);
+    // transform: rotate(0deg);
+    z-index: 10;   
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    border-radius: 50%;
+    border: 2px dashed $prim_col;
+    // cursor: -webkit-grab;
+    // cursor: grab;
     // transition: all ease 0.3s;
 
     .dot {
@@ -100,8 +196,8 @@ $hov: #FBA701;
         background: $active;
         // border: 1px solid #FBA701;
         justify-content: center;
-        cursor: -webkit-grab;
-        cursor: grab;
+        // cursor: -webkit-grab;
+        // cursor: grab;
         -webkit-border-radius: 50%;
         -moz-border-radius: 50%;
         border-radius: 50%;
@@ -177,6 +273,7 @@ $hov: #FBA701;
             margin: 0 0;
         }
     }
+
 
 }
 

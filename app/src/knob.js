@@ -2,155 +2,164 @@ export default {
     template: `
     <div class="cd__main">
         <span><i class="fas fa-globe"></i>N<i class="fas fa-globe"></i></span>
-            <input id="azimut" type="hidden" v-model="angle" @input="calcSide()">
-            <div class="knob-surround">
-                <div id="knob" class="knob" @mousedown="isDragging=true" @mousemove="drag($event)" @mouseup="isDragging=false" @click="setDefault()">
-                    <div class="ver"></div>
-                    <div class="hor"></div>
-                    <div class="center">
-                        <span class="roof"></span>
-                    </div>
-                    <div class="dot"></div>
-                    <i class="fas fa-caret-left"></i>
-                    <i class="fas fa-caret-right"></i>
+        <input id="azimut" type="hidden" v-model="angle" @input="calcSide">
+        <div class="knob-surround" @mousedown="startDrag"  @mousemove="drag" @mouseup="stopDrag"  :style="cursor">
+            <!-- <div id="knob" class="knob" @mousedown="startDrag" @touchstart="startDrag" @mousemove="drag" @touchmove="drag" @mouseup="stopDrag" @touchend="stopDrag" :style="rotateStyle"> -->
+            <!-- <div id="knob" class="knob" @mousedown="startDrag"  @mousemove="drag" @mouseup="stopDrag"  :style="rotateStyle"> -->
+            <div class="knob-wrap">
+            <div id="knob" class="knob" :style="rotateStyle">
+                <div class="ver"></div>
+                <div class="hor"></div>
+                <div class="center">
+                    <span class="roof"></span>
+                </div>
+                <div v-if="!manually" class="dot"></div>
+                <i v-if="!manually" class="fas fa-caret-left"></i>
+                <i v-if="!manually" class="fas fa-caret-right"></i>
+            </div>
+                <div class="manual-wrap" v-if="manually">
+                    <span class="n" @click=selectSide('Nord')>N</span>
+                    <span class="n-o" @click=selectSide('Nord-Ost')>N-O</span>
+                    <span class="o" @click=selectSide('Ost')>Ost</span>
+                    <span class="s-o" @click=selectSide('Süd-Ost')>S-O</span>
+                    <span class="s" @click=selectSide('Süd')>Süd</span>
+                    <span class="s-w" @click=selectSide('Süd-West')>S-W</span>
+                    <span class="w" @click=selectSide('West')>West</span>
+                    <span class="n-w" @click=selectSide('Nord-West')>N-W</span>
                 </div>
             </div>
-            <template v-if="el">Selected: {{el}}</template> 
-            <!-- {{knob()}} -->
+        </div>
+        <template v-if="el">Selected: {{ el }}</template> 
+        <!-- <template v-if="el">Selected: {{ angle }}</template>  -->
+        <div class="manually" @click="manually=!manually"><span>Select Manually</span></div>
     </div>
-
     `,
     props: ["el"],
     emits: ["nv"],
     data() {
         return {
             isDragging: false,
-            side: null,
-            // angle: null,
-            s: null,
+            angle: 0,
+            rotateStyle: null,
+            cursor: "none",
+            firstTough: true,
+            manually: false,
+            manually: true,
         };
     },
-    methods: {
-        setDefault(){
-            this.$emit('nv', 'Süd');
+    computed: {
+        compassDirection() {
+            // Calculate compass direction based on angle
+            // You can customize this logic based on your requirements
+            // This is just a simplified example
+            const directions = [
+                "N",
+                "Nord-Ost",
+                "Ost",
+                "Süd-Ost",
+                "Süd",
+                "Süd-West",
+                "West",
+                "Nord-West",
+            ];
+            const index = Math.round(this.angle / 45) % 8;
+            //set style
+            var deg = Math.floor(this.angle);
+            this.rotateStyle = "transform: rotate(" + deg + "deg)";
+            return directions[index];
         },
-        calcSide() {
-            var d = this.angle;
-            switch (true) {
-                case d > 0 && d < 30:
-                case d > 330 && d < 360:
-                    this.$emit('nv', 'Süd');
-                    this.s = 1;
+    },
+    methods: {
+        selectSide(e) {
+            this.$emit("nv", e);
+            var d = 0;
+            switch (e) {
+                case 'Süd':
+                    d = 0;
                     break;
-                case d > 300 && d < 330:
-                    this.$emit('nv', 'Süd-Ost');
-                    this.s = 8;
+                case 'Süd-Ost':
+                    d = 315;
                     break;
-                case d > 240 && d < 300:
-                    this.$emit('nv', 'Ost');
-                    this.s = 7;
+                case 'Ost':
+                    d = 270;
                     break;
-                case d > 210 && d < 240:
-                    this.$emit('nv', 'Nord-Ost');
-                    this.s = 6;
+                case 'Nord-Ost':
+                    d = 225;
                     break;
-
-                case d > 150 && d < 210:
-                    this.$emit('nv', 'Nord');
-                    this.s = 5;
+                case 'Nord':
+                    d = 180;
                     break;
-                case d > 120 && d < 150:
-                    this.$emit('nv', 'Nord-West');
-                    this.s = 4;
+                case 'Nord-West':
+                    d = 135;
                     break;
-                case d > 60 && d < 120:
-                    this.$emit('nv', 'West');
-                    this.s = 3;
+                case 'West':
+                    d = 90;
                     break;
-                case d > 30 && d < 60:
-                    this.$emit('nv', 'Süd-West');
-                    this.s = 2;
+                case 'Süd-West':
+                    d = 45;
                     break;
-
                 default:
                     this.side = null;
                     break;
             }
+            this.rotateStyle = "transform: rotate(" + d + "deg)";
         },
-
+        startDrag(event) {
+            // console.log('start');
+            this.isDragging = true;
+            this.drag(event);
+        },
+        stopDrag() {
+            // console.log('stop');
+            this.cursor = "cursor: none;";
+            this.isDragging = false;
+        },
         drag(event) {
-            console.log('dragging')
-            // document.addEventListener("DOMContentLoaded", function () {
-            // Your script here
-            var knobPositionX;
-            var knobPositionY;
-            var mouseX;
-            var mouseY;
-            var knobCenterX;
-            var knobCenterY;
-            var adjacentSide;
-            var oppositeSide;
-            var currentRadiansAngle;
-            var getRadiansInDegrees;
-            var finalAngleInDegrees;
-            var compassDedree;
-            var volumeKnob = document.getElementById("knob");
-            var boundingRectangle = volumeKnob.getBoundingClientRect(); //get rectangular geometric data of knob (x, y, width, height)
-            if (this.isDragging) {
-                knobPositionX = boundingRectangle.left; //get knob's global x position
-                knobPositionY = boundingRectangle.top; //get knob's global y position
-        
-                if (this.detectMobile() == "desktop") {
-                    mouseX = event.pageX; //get mouse's x global position
-                    mouseY = event.pageY; //get mouse's y global position
-                } else {
-                    mouseX = event.touches[0].pageX; //get finger's x global position
-                    mouseY = event.touches[0].pageY; //get finger's y global position
+            this.cursor = "cursor: crosshair;";
+            if (this.isDragging && !this.manually) {
+                // console.log('dragging');
+                console.log("this.firstTough: ", this.firstTough);
+                this.cursor = "cursor: move;";
+                const boundingRect = event.target.getBoundingClientRect();
+                const centerX = boundingRect.left + boundingRect.width / 2;
+                const centerY = boundingRect.top + boundingRect.height / 2;
+                let mouseX, mouseY;
+                if (event.type.startsWith("mouse")) {
+                    mouseX = event.pageX;
+                    mouseY = event.pageY;
+                    console.log("1st touch");
+                } else if (event.touches.length > 0) {
+                    mouseX = event.touches[0].pageX;
+                    mouseY = event.touches[0].pageY;
+                    console.log("taches length: ");
                 }
-        
-                knobCenterX = boundingRectangle.width / 2 + knobPositionX; //get global horizontal center position of knob relative to mouse position
-                knobCenterY = boundingRectangle.height / 2 + knobPositionY; //get global vertical center position of knob relative to mouse position
-        
-                adjacentSide = knobCenterX - mouseX; //compute adjacent value of imaginary right angle triangle
-                oppositeSide = knobCenterY - mouseY; //compute opposite value of imaginary right angle triangle
-        
-                //arc-tangent function returns circular angle in radians
-                //use atan2() instead of atan() because atan() returns only 180 degree max (PI radians) but atan2() returns four quadrant's 360 degree max (2PI radians)
-                currentRadiansAngle = Math.atan2(adjacentSide, oppositeSide);
-        
-                getRadiansInDegrees = currentRadiansAngle * 180 / Math.PI; //convert radians into degrees
-        
-                finalAngleInDegrees = -(getRadiansInDegrees - 180); //knob is already starting at -135 degrees due to visual design so 135 degrees needs to be subtracted to compensate for the angle offset, negative value represents clockwise direction
-        
-                //only allow rotate if greater than zero degrees or lesser than 270 degrees
-                if (finalAngleInDegrees >= 0 && finalAngleInDegrees <= 360) {
-                    volumeKnob.style.transform = "rotate(" + finalAngleInDegrees + "deg)"; //use dynamic CSS transform to rotate volume knob
-        
-                    //270 degrees maximum freedom of rotation / 100% volume = 1% of volume difference per 2.7 degrees of rotation
-                    compassDedree = Math.floor(finalAngleInDegrees / (360 / 360));
-       
-                    // Set the value of the input field -----------------
-                    let vueInput = document.getElementById("azimut");
-                    vueInput.value = compassDedree;
-        
-                    // Trigger a simulated input event
-                    let inputEvent = new InputEvent('input', { bubbles: true });
-                    vueInput.dispatchEvent(inputEvent);
-                }
-        
-        
-            }
-        }, 
+                console.log("mouseX: ", mouseX);
+                console.log("mouseY: ", mouseY);
+                const deltaX = mouseX - centerX;
+                const deltaY = mouseY - centerY;
 
-        detectMobile() {
-            var result = (navigator.userAgent.match(/(iphone)|(ipod)|(ipad)|(android)|(blackberry)|(windows phone)|(symbian)/i));
-            if (result !== null) {
-                return "mobile";
-            } else {
-                return "desktop";
+                // calculation degrees
+                const sensitivity = 0.5; // You can adjust this value
+                const angle =
+                    Math.atan2(deltaY, deltaX) * (180 / Math.PI) * sensitivity;
+                // const angle = Math.atan2(deltaY, deltaX) * (180 / Math.PI);
+
+                // const angle = Math.atan2(y2-y1,x2-x1);
+
+                let num = 0;
+                if (!this.firstTough) {
+                    num = (angle + 360) % 360; // Ensure angle is within [0, 360)
+                }
+                this.angle = Math.floor(num);
+                this.angle = num;
+                // console.log('this.angle: ', this.angle);
+                this.calcSide();
+                this.firstTough = false;
+                console.log("this.firstTough: ", this.firstTough);
             }
-        }      
+        },
+        calcSide() {
+            this.$emit("nv", this.compassDirection);
+        },
     },
-
 };
-

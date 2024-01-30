@@ -26,6 +26,8 @@ let app = Vue.createApp({
             dir: null,
             area: null,
             area_alert: false,
+            isDragging: false,
+            s: null,
             form: {
                 address: null,
                 // size: null,
@@ -52,19 +54,6 @@ let app = Vue.createApp({
                 // :null,
                 // :null,
             },
-            // left for now to pick-up data for form
-            // Address: Lorem Ipsum
-            // Floor plan area: 900
-            // Selection of roof type: gable roof
-            // Choice of roof pitch: 30
-            // Name: Doe
-            // First name: John
-            // Street: Weidestraße
-            // House number: 122A
-            // Location: Hamburg-Nord
-            // Postal code: B17EA
-            // Telephone: +49 977 320 4254
-            // Email: work@vivapro.net
             roof_types: ["Satteldach", "Zeltdach", "Flachdach", "Pultdach", "Walmdach", "Anderes Dach"],
             angle: [0, 30, 45],
             hot_water: [

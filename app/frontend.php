@@ -70,6 +70,23 @@ if (is_admin()) {
                                                         </select> -->
                                                         <!-- <j-compass :el="dir" :degree="compass_degree" @nv="updateDirection"></j-compass> -->
                                                         <j-compass :el="el.value" @nv="el.value=$event"></j-compass>
+    <!-- <div class="cd__main">
+        <span><i class="fas fa-globe"></i>N<i class="fas fa-globe"></i></span>
+            <input id="azimut" type="hidden" v-model="compass_degree" @input="calcSide()">
+            <div class="knob-surround">
+                <div id="knob" class="knob" @mousedown="isDragging=true" @mousemove="drag($event)" @mouseup="isDragging=false" @click="setDefault()">
+                    <div class="ver"></div>
+                    <div class="hor"></div>
+                    <div class="center">
+                        <span class="roof"></span>
+                    </div>
+                    <div class="dot"></div>
+                    <i class="fas fa-caret-left"></i>
+                    <i class="fas fa-caret-right"></i>
+                </div>
+            </div>
+            <template v-if="el">Selected: {{el.value}}</template> 
+    </div> -->
                                                     </template>
                                                     <template v-if="index==5">
                                                         <select v-model="el.value">
