@@ -3,35 +3,32 @@ export default {
     <div class="range__main">
         <input id="azimut" type="hidden" v-model="angle" @input="calcSide">
         <div class="knob-surround">
-            <div class="knob-wrap">
-            <div id="knob" class="knob" :style="rotStyle()">
+            <!-- <div class="knob-wrap"> -->
+            <div id="knob" class="knob" @mouseover="tip=true" @mouseleave="tip=false" :style="rotateStyle()">
                 <div class="ver"></div>
                 <div class="hor"></div>
                 <div class="center">
-                    <span class="roof"></span>
+                    <span class="roof" :class="cls"><p>Sonnenseite</p></span>
+                    
                 </div>
-                <!-- <div v-if="!manually" class="dot"></div>
-                <i v-if="!manually" class="fas fa-caret-left"></i>
-                <i v-if="!manually" class="fas fa-caret-right"></i> -->
+            <!-- </div> -->
+
             </div>
-                <div class="manual-wrap" v-if="manually">
-                    <span class="n" @click=selectSide('Nord')>N</span>
-                    <span class="n-o" @click=selectSide('Nord-Ost')>N-O</span>
-                    <span class="o" @click=selectSide('Ost')>Ost</span>
-                    <span class="s-o" @click=selectSide('Süd-Ost')>S-O</span>
-                    <span class="s" @click=selectSide('Süd')>Süd</span>
-                    <span class="s-w" @click=selectSide('Süd-West')>S-W</span>
-                    <span class="w" @click=selectSide('West')>West</span>
-                    <span class="n-w" @click=selectSide('Nord-West')>N-W</span>
-                </div>
-            </div>
+                <div class="sides-wrap">
+                    <span class="n">{{side_w}}</span>
+                </div>         
+            
         </div>
-        <input class="custom-slider" type="range" min="0" max="360" v-model="angle"/>
-        <!-- nest_comment_start~<input type="text" v-model="angle"/>
-        <div>Selected: {{ el }}</div> 
+        <div class="j-range">
+            <input class="custom-slider" type="range" min="0" max="360" v-model="angle"/>
+            <span v-show="tip">Komm her</span>
+            <!-- <span>Komm her</span> -->
+        </div>
+        
+        <input type="text" v-model="angle"/>
+        <div>Selected: {{ side_w }}</div> 
         <template>---{{ angle }}</template> 
-        <div>---{{ rotStyle() }}</div> 
-        <div class="manually" @click="manually=!manually"><span>Select Manually</span></div>~nest_comment_end -->
+        <div>---{{ rotateStyle() }}</div> 
     </div>
     `,
     props: ["el"],
@@ -40,18 +37,16 @@ export default {
         return {
             isDragging: false,
             angle: 180,
-            rotateStyle: null,
             cursor: "none",
             firstTough: true,
             manually: false,
-            // manually: true,
+            side_w:null,
+            tip:false,
+            cls:'south',
         };
     },
     computed: {
         compassDirection() {
-            // Calculate compass direction based on angle
-            // You can customize this logic based on your requirements
-            // This is just a simplified example
             const directions = [
                 "N",
                 "Nord-Ost",
@@ -70,99 +65,71 @@ export default {
         },
     },
     methods: {
-        rotStyle(){
-            return "transform: rotate(" + this.angle + "deg)";
+
+        // rotStyle(){
+        //     return "transform: rotate(" + this.angle + "deg)";
+        // },
+        classActive(n) {
+            if (this.s == n) {
+                return "active";
+            } else {
+                return "";
+            }
         },
-        selectSide(e) {
-            this.$emit("nv", e);
-            var d = 0;
-            switch (e) {
-                case 'Süd':
-                    d = 0;
+        rotateStyle() {
+            var d = this.angle;
+            if (d > 90 && d < 270 ) {
+                this.cls = 'north';
+            } else {
+                this.cls = 'north';
+            }
+            switch (true) {
+                case d > 0 && d < 30:
+                case d > 330 && d < 360:
+                    this.side_w = "Nord";
+                    this.s = 1;
                     break;
-                case 'Süd-Ost':
-                    d = 315;
+                case d > 300 && d < 330:
+                    this.side_w = "Nord-West";
+                    this.s = 8;
                     break;
-                case 'Ost':
-                    d = 270;
+                case d > 240 && d < 300:
+                    this.side_w = "West";
+                    this.s = 7;
                     break;
-                case 'Nord-Ost':
-                    d = 225;
+                case d > 210 && d < 240:
+                    this.side_w = "Süd-West";
+                    this.s = 6;
                     break;
-                case 'Nord':
-                    d = 180;
+
+                case d > 150 && d < 210:
+                    this.side_w = "Süd";
+                    this.s = 5;
                     break;
-                case 'Nord-West':
-                    d = 135;
+                case d > 120 && d < 150:
+                    this.side_w = "Süd-Ost";
+                    this.s = 4;
                     break;
-                case 'West':
-                    d = 90;
+                case d > 60 && d < 120:
+                    this.side_w = "Ost";
+                    this.s = 3;
                     break;
-                case 'Süd-West':
-                    d = 45;
+                case d > 30 && d < 60:
+                    this.side_w = "Nord-Ost";
+                    this.s = 2;
                     break;
+
                 default:
-                    this.side = null;
+                    this.side_w = "Nord";
+                    this.s = 5;
                     break;
             }
-            this.rotateStyle = "transform: rotate(" + d + "deg)";
-        },
-        startDrag(event) {
-            // console.log('start');
-            this.isDragging = true;
-            this.drag(event);
-        },
-        stopDrag() {
-            // console.log('stop');
-            this.cursor = "cursor: none;";
-            this.isDragging = false;
-        },
-        drag(event) {
-            // this.cursor = "cursor: crosshair;";
-            // if (this.isDragging && !this.manually) {
-            //     // console.log('dragging');
-            //     console.log("this.firstTough: ", this.firstTough);
-            //     this.cursor = "cursor: move;";
-            //     const boundingRect = event.target.getBoundingClientRect();
-            //     const centerX = boundingRect.left + boundingRect.width / 2;
-            //     const centerY = boundingRect.top + boundingRect.height / 2;
-            //     let mouseX, mouseY;
-            //     if (event.type.startsWith("mouse")) {
-            //         mouseX = event.pageX;
-            //         mouseY = event.pageY;
-            //         console.log("1st touch");
-            //     } else if (event.touches.length > 0) {
-            //         mouseX = event.touches[0].pageX;
-            //         mouseY = event.touches[0].pageY;
-            //         console.log("taches length: ");
-            //     }
-            //     console.log("mouseX: ", mouseX);
-            //     console.log("mouseY: ", mouseY);
-            //     const deltaX = mouseX - centerX;
-            //     const deltaY = mouseY - centerY;
-
-            //     // calculation degrees
-            //     const sensitivity = 0.5; // You can adjust this value
-            //     const angle =
-            //         Math.atan2(deltaY, deltaX) * (180 / Math.PI) * sensitivity;
-            //     // const angle = Math.atan2(deltaY, deltaX) * (180 / Math.PI);
-
-            //     // const angle = Math.atan2(y2-y1,x2-x1);
-
-            //     let num = 0;
-            //     if (!this.firstTough) {
-            //         num = (angle + 360) % 360; // Ensure angle is within [0, 360)
-            //     }
-            //     this.angle = Math.floor(num);
-            //     this.angle = num;
-            //     // console.log('this.angle: ', this.angle);
-            //     this.calcSide();
-            //     this.firstTough = false;
-            //     console.log("this.firstTough: ", this.firstTough);
-            // }
+            this.calcSide();
+            return "transform: rotate(" + this.angle + "deg)";
         },
         calcSide() {
-            this.$emit("nv", this.compassDirection);
+            this.$emit("nv", this.side_w);
         },
+
     },
 };

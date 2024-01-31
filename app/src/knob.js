@@ -140,7 +140,7 @@ export default {
 
                 // calculation degrees
                 const sensitivity = 0.5; // You can adjust this value
-                const angle = Math.atan2(deltaY, deltaX) * (180 / Math.PI) * sensitivity;
+                const angle = Math.atan2(deltaY, deltaX) * (360 / Math.PI) * sensitivity;
                 // const angle = Math.atan2(deltaY, deltaX) * (180 / Math.PI);
 
                 // const angle = Math.atan2(y2-y1,x2-x1);

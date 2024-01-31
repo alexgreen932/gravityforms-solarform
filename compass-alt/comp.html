@@ -9,7 +9,7 @@
     <link type="text/css" rel="stylesheet" href="../assets/css/all.min.css">
     <script src="../assets/js/jquery-3.7.1.min.js"></script>
     <script src="../assets/js/vue.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/vue-product-spinner@latest/dist/VueProductSpinner.umd.min.js" type="text/javascript"></script>
+    <!-- <script src="https://cdn.jsdelivr.net/npm/vue-product-spinner@latest/dist/VueProductSpinner.umd.min.js" type="text/javascript"></script> -->
     <!-- <script src="../assets/js/knob.js"></script> -->
     <style>
         #app {
@@ -41,7 +41,7 @@
         
     </div>
     <script type="module">
-        import comp from '../app/src/range.js'
+        import comp from '../app/src/comp.js'
 
         let app = Vue.createApp({
             components: {
@@ -58,6 +58,7 @@
             },
         });
 
+        app.use("vue-product-spinner");
         app.mount("#app");
 
     </script>

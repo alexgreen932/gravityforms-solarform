@@ -3,8 +3,8 @@ import preview from "./src/preview.js";
 import gmap from "./src/gmap.js";
 import angle from "./src/angle.js";
 // import compass from "./src/compass.js";
-import compass from "./src/knob.js";
-// import compass from "./src/range.js";
+// import compass from "./src/knob.js";
+import compass from "./src/range.js";
 
 let app = Vue.createApp({
     components: {
