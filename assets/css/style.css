@@ -1536,7 +1536,6 @@ body {
 }
 .range__main .knob .center .roof {
   position: absolute;
-  top: 0;
   right: 0;
   left: 0;
   display: block;
@@ -1556,6 +1555,15 @@ body {
   text-align: center;
   transform: rotate(180deg);
   color: #923e06;
+}
+.range__main .knob .center .roof.south {
+  top: 0;
+}
+.range__main .knob .center .roof.north {
+  bottom: 0;
+}
+.range__main .knob .center .roof.north p {
+  transform: rotate(0deg);
 }
 
 .sides-wrap span {
@@ -1598,8 +1606,8 @@ body {
   -moz-border-radius: 5px;
   border-radius: 5px;
   z-index: 5;
-  -webkit-animation: bounce-top 1s infinite both;
-  animation: bounce-top 1s infinite both;
+  -webkit-animation: bounce-top 1s 1s infinite both;
+  animation: bounce-top 1s 1s infinite both;
   z-index: 20;
 }
 .j-range span:before {

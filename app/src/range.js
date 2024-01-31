@@ -25,10 +25,10 @@ export default {
             <!-- <span>Komm her</span> -->
         </div>
         
-        <input type="text" v-model="angle"/>
-        <div>Selected: {{ side_w }}</div> 
+        <!-- <input type="text" v-model="angle"/> -->
+        <!-- <div>Selected: {{ side_w }}</div> 
         <template>---{{ angle }}</template> 
-        <div>---{{ rotateStyle() }}</div> 
+        <div>---{{ rotateStyle() }}</div>  -->
     </div>
     `,
     props: ["el"],
@@ -42,27 +42,8 @@ export default {
             manually: false,
             side_w:null,
             tip:false,
-            cls:'south',
+            cls:'north',
         };
-    },
-    computed: {
-        compassDirection() {
-            const directions = [
-                "N",
-                "Nord-Ost",
-                "Ost",
-                "Süd-Ost",
-                "Süd",
-                "Süd-West",
-                "West",
-                "Nord-West",
-            ];
-            const index = Math.round(this.angle / 45) % 8;
-            //set style
-            var deg = Math.floor(this.angle);
-            // this.rotateStyle = "transform: rotate(" + deg + "deg)";
-            return directions[index];
-        },
     },
     methods: {
 
@@ -79,7 +60,7 @@ export default {
         rotateStyle() {
             var d = this.angle;
             if (d > 90 && d < 270 ) {
-                this.cls = 'north';
+                this.cls = 'south';
             } else {
                 this.cls = 'north';
             }
