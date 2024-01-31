@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link type="text/css" rel="stylesheet" href="../assets/css/style.css">
+    <link type="text/css" rel="stylesheet" href="../assets/css/all.min.css">
+    <script src="../assets/js/jquery-3.7.1.min.js"></script>
+    <script src="../assets/js/vue.js"></script>
+    <!-- <script src="../assets/js/knob.js"></script> -->
+    <style>
+        #app {
+            display: flex;
+            width: 100%;
+        }
+
+        .dummy {
+            width: 600px;
+            height: 500px;
+            background: #999;
+        }
+
+        .info {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            width: 500px;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="app" style="display:flex; justify-content: center;align-items: center;flex-direction: column;">
+        <!-- <div>Side is - {{angle}}</div> -->
+        <div><j-compassknob :el="angle" @nv="angle=$event"></j-compassknob></div>
+    
+        
+    </div>
+    <script type="module">
+        import comp from '../app/src/range.js'
+
+        let app = Vue.createApp({
+            components: {
+                "j-compassknob": comp,
+            },
+            data() {
+                return {
+                    angle: null,
+                };
+            },
+            methods: {
+
+
+            },
+        });
+
+        app.mount("#app");
+
+    </script>
+
+</body>
+
+</html>

@@ -8,6 +8,156 @@ $background-color_2: #a8d8f8;
 $background-color_3: rgba(255, 255, 255, 0.2);
 
 $hov: #FBA701;
+$sl: #FBA701;
+
+#app .range__main input{
+    background: transparent !important;
+    border-width: 0!important;
+    &:hover,
+    &:focus,
+    &:active {
+        border-width: 0!important;
+        outline: 0;
+    }
+}
+
+.range__main {
+    // width: 500px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    // width: 1100px;
+    margin: 0 auto;
+
+    .knob-surround {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        position: relative;
+
+        width: 100%;
+        height: 260px;
+        margin-bottom: 0 !important;
+
+    }
+
+
+
+    input[type=range].custom-slider {
+        -webkit-appearance: none;
+        width: 100%;
+        margin: 11.4px 0;
+        margin-top: 0;
+ 
+    }
+
+    input[type=range].custom-slider:focus {
+        outline: none;
+    }
+
+    // input[type=range].custom-slider::-webkit-slider-runnable-track {
+    //     &:hover,
+    //     &:focus,
+    //     &:active {
+    //         background: $active;
+    //     }
+    // }
+
+    input[type=range].custom-slider::-webkit-slider-runnable-track {
+        width: 100%;
+        height: 3.2px;
+        cursor: pointer;
+        box-shadow: 1px 1px 1px rgba(0, 0, 0, 0), 0px 0px 1px rgba(13, 13, 13, 0);
+        background: $sl;
+        border-radius: 25px;
+        border: 0px solid $sl;
+    }
+
+    input[type=range].custom-slider::-webkit-slider-thumb {
+        box-shadow: 0.9px 0.9px 1px rgba(94, 243, 140, 0), 0px 0px 0.9px rgba(118, 245, 157, 0);
+        border: 2px solid $sl;
+        height: 26px;
+        width: 26px;
+        border-radius: 26px;
+        background: #ffffff linear-gradient(to right, #fff calc(20% - 1.5px), #a9a9a9 20%, #fff calc(20% + 1.5px), #fff calc(50% - 1.5px), #a9a9a9 50%, #fff calc(50% + 1.5px), #fff calc(80% - 1.5px), #a9a9a9 80%, #fff calc(80% + 1.5px)) center / 90% 40% no-repeat;
+        cursor: pointer;
+        -webkit-appearance: none;
+        margin-top: -11.4px;
+    }
+    // input[type=range].custom-slider::-webkit-slider-thumb:before{
+    //         content: '777';
+
+    // }
+
+    input[type=range].custom-slider:focus::-webkit-slider-runnable-track {
+        background: $sl;
+    }
+
+    input[type=range].custom-slider::-moz-range-track {
+        width: 100%;
+        height: 3.2px;
+        cursor: pointer;
+        box-shadow: 1px 1px 1px rgba(0, 0, 0, 0), 0px 0px 1px rgba(13, 13, 13, 0);
+        background: $sl;
+        border-radius: 25px;
+        border: 0px solid $sl;
+    }
+
+    input[type=range].custom-slider::-moz-range-thumb {
+        box-shadow: 0.9px 0.9px 1px rgba(94, 243, 140, 0), 0px 0px 0.9px rgba(118, 245, 157, 0);
+        border: 2px solid $sl;
+        height: 26px;
+        width: 26px;
+        border-radius: 26px;
+        background: #ffffff;
+        cursor: pointer;
+    }
+
+    input[type=range].custom-slider::-ms-track {
+        width: 100%;
+        height: 3.2px;
+        cursor: pointer;
+        background: transparent;
+        border-color: transparent;
+        color: transparent;
+    }
+
+    input[type=range].custom-slider::-ms-fill-lower {
+        background: $sl;
+        border: 0px solid $sl;
+        border-radius: 50px;
+        box-shadow: 1px 1px 1px rgba(0, 0, 0, 0), 0px 0px 1px rgba(13, 13, 13, 0);
+    }
+
+    input[type=range].custom-slider::-ms-fill-upper {
+        background: $sl;
+        border: 0px solid $sl;
+        border-radius: 50px;
+        box-shadow: 1px 1px 1px rgba(0, 0, 0, 0), 0px 0px 1px rgba(13, 13, 13, 0);
+    }
+
+    input[type=range].custom-slider::-ms-thumb {
+        box-shadow: 0.9px 0.9px 1px rgba(94, 243, 140, 0), 0px 0px 0.9px rgba(118, 245, 157, 0);
+        border: 2px solid $sl;
+        height: 26px;
+        width: 26px;
+        border-radius: 26px;
+        background: #ffffff;
+        cursor: pointer;
+        height: 3.2px;
+    }
+
+    input[type=range].custom-slider:focus::-ms-fill-lower {
+        background: $sl;
+    }
+
+    input[type=range].custom-slider:focus::-ms-fill-upper {
+        background: $sl;
+    }
+
+
+}
 
 .cd__main {
     display: flex;
@@ -16,32 +166,36 @@ $hov: #FBA701;
     align-items: center;
     // width: 1100px;
     margin: 0 auto;
+
     // background: #fff;
-    .p-wrap{
+    .p-wrap {
         // content:'';
         height: 25px;
         line-height: 25px;
         margin-bottom: 5px;
     }
-    span{
+
+    span {
         display: flex;
         justify-content: center;
         align-items: center;
         font-size: 34px;
         font-weight: 600;
-        color:rgb(123, 123, 231);
+        color: rgb(123, 123, 231);
         margin-bottom: 10px;
-        i{
-            font-size: 16px!important;
+
+        i {
+            font-size: 16px !important;
             padding: 0 7px;
         }
     }
-    .manually span{
+
+    .manually span {
         font-size: 1rem;
         font-weight: normal;
         margin-bottom: 0;
-            color:#444;
-            cursor: pointer;
+        color: #444;
+        cursor: pointer;
     }
 
 }
@@ -54,17 +208,18 @@ $hov: #FBA701;
 
     width: 300px;
     height: 300px;
-    .manually{
+
+    .manually {
         font-size: 1rem;
         font-weight: normal;
         margin-bottom: 0;
     }
 
     &:hover {
-        .knob{
+        .knob {
             background: #f7f7f7;
         }
-        
+
 
         .dot {
             background: $hov;
@@ -91,7 +246,8 @@ $hov: #FBA701;
     width: 260px;
     height: 260px;
     position: relative;
-    .manual-wrap{
+
+    .manual-wrap {
         span {
             position: absolute;
             display: flex;
@@ -110,10 +266,11 @@ $hov: #FBA701;
             transition: all ease 0.5s;
             margin-bottom: 0;
             z-index: 15;
-            &:hover{
+
+            &:hover {
                 transform: scale3d(1.4, 1.4, 1) rotateX(0deg) rotateY(0deg) rotateZ(0deg) translate3d(0px, 0px, 0px) skew(0deg, 0deg);
             }
-    
+
             &.n-w,
             &.s-w,
             &.s-o,
@@ -121,47 +278,47 @@ $hov: #FBA701;
                 background: rgb(169, 169, 228);
             }
         }
-    
+
         .n-o {
             top: 27px;
             right: 18px;
         }
-    
+
         .s-o {
             bottom: 25px;
             right: 18px;
         }
-    
+
         .s-w {
             bottom: 27px;
             left: 18px;
         }
-    
+
         .n-w {
             top: 27px;
             left: 18px;
         }
-    
+
         .n {
             top: -15px;
             left: 115px;
         }
-    
+
         .s {
             bottom: -15px;
             left: 115px;
         }
-    
+
         .w {
             top: 115px;
             left: -15px;
         }
-    
+
         .o {
             top: 115px;
             right: -15px;
         }
-    } 
+    }
 }
 
 .knob {
@@ -174,7 +331,7 @@ $hov: #FBA701;
     // -o-transform: rotate(0deg);
     // -ms-transform: rotate(0deg);
     // transform: rotate(0deg);
-    z-index: 10;   
+    z-index: 10;
     -webkit-border-radius: 50%;
     -moz-border-radius: 50%;
     border-radius: 50%;

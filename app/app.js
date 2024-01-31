@@ -4,6 +4,7 @@ import gmap from "./src/gmap.js";
 import angle from "./src/angle.js";
 // import compass from "./src/compass.js";
 import compass from "./src/knob.js";
+// import compass from "./src/range.js";
 
 let app = Vue.createApp({
     components: {
@@ -15,7 +16,7 @@ let app = Vue.createApp({
     },
     data() {
         return {
-            screen: 4,
+            screen: 0,
             result: false,
             done: [],
             finish: false,
