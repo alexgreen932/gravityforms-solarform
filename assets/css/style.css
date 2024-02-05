@@ -1675,6 +1675,12 @@ body {
     animation-timing-function: ease;
   }
 }
+.icon-wrap {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 .j-roof {
   position: relative;
   width: 260px;
@@ -1715,11 +1721,15 @@ body {
   left: 0px;
   border-bottom: 1px dotted #b0bec5;
 }
+.j-roof div:hover img {
+  transform: scale(1.05);
+}
 .j-roof img {
   position: absolute;
   width: 60px;
   height: 60px;
   cursor: pointer;
+  transition: all easy 0.5s;
 }
 .j-roof .sector0 img {
   top: 10px;

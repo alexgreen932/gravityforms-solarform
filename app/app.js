@@ -5,6 +5,7 @@ import angle from "./src/angle.js";
 // import compass from "./src/compass.js";
 // import compass from "./src/knob.js";
 import compass from "./src/range.js";
+import icons from '../app/src/icons.js'
 
 let app = Vue.createApp({
     components: {
@@ -13,10 +14,11 @@ let app = Vue.createApp({
         "g-map": gmap,
         "j-angle": angle,
         "j-compass": compass,
+        "j-icons": icons,
     },
     data() {
         return {
-            screen: 1,
+            screen: 5,
             result: false,
             done: [],
             finish: false,
@@ -29,6 +31,26 @@ let app = Vue.createApp({
             area_alert: false,
             isDragging: false,
             s: null,
+//             Satteldach - Gable
+// Zeltdach - Tent
+// Flachdach - Flat
+// Pultdach - Pitched
+// Walmdach - Hipped
+
+// И добавил еще Gambrel
+            arr_roof: [
+
+            ],
+            arr_water: [
+                { img: 'icon-1.png', img_h: 'icon-1_h.png', val: 'Electric boiler', isHovered: false },
+                { img: 'icon-2.png', img_h: 'icon-2_h.png', val: 'Wärmepumpen­boiler', isHovered: false },
+                { img: 'icon-3.png', img_h: 'icon-3_h.png', val: 'Öl, Gas, Holz, Fernwärme', isHovered: false },
+            ],
+            arr_heating: [
+                { img: 'icon-1.png', img_h: 'icon-1_h.png', val: 'Elektrische Heizung', isHovered: false },
+                { img: 'icon-2.png', img_h: 'icon-2_h.png', val: 'Wärmepumpe', isHovered: false },
+                { img: 'icon-3.png', img_h: 'icon-3_h.png', val: 'Öl, Gas, Holz, Fernwärme', isHovered: false },
+            ],
             form: {
                 address: null,
                 // size: null,

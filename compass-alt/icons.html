@@ -36,7 +36,7 @@
     <div id="app" style="display:flex; justify-content: center;align-items: center;flex-direction: column;">
         <!-- <div>Side is - {{angle}}</div> -->
         <j-com :el="el" :arr="arr_roof" :cls="'j-roof'" @nv="el=$event"></j-com>
-        <j-com :el="el" :arr="arr" :cls="'j-icons'" @nv="el=$event"></j-com>
+        <!-- <j-com :el="el" :arr="arr" :cls="'j-icons'" @nv="el=$event"></j-com> -->
         <div>
             --{{el}}
         </div>
@@ -59,12 +59,12 @@
                         { img: 'icon-3.png', img_h: 'icon-3_h.png', val: 'Öl, Gas, Holz, Fernwärme', isHovered: false },
                     ],
                     arr_roof: [
-                        { img: 'flat-150x150.png', img_h: 'flat-150x150_h.png', val: 'Flachdach', isHovered: false },
-                        { img: 'gable-150x150.png', img_h: 'gable-150x150_h.png', val: 'Gambrel', isHovered: false },
-                        { img: 'gambrel-150x150.png', img_h: 'gambrel-150x150_h.png', val: 'Satteldach', isHovered: false },
-                        { img: 'hipped-150x150.png', img_h: 'hipped-150x150_h.png', val: 'Walmdach', isHovered: false },
-                        { img: 'pitched-150x150.png', img_h: 'pitched-150x150_h.png', val: 'Pultdach', isHovered: false },
-                        { img: 'tent-150x150.png', img_h: 'tent-150x150_h.png', val: 'Satteldach', isHovered: false },
+                    { img: 'flat-150x150.png', img_h: 'flat-150x150_h.png', val: 'Flachdach', isHovered: false },
+                { img: 'gable-150x150.png', img_h: 'gable-150x150_h.png', val: 'Gambrel', isHovered: false },
+                { img: 'gambrel-150x150.png', img_h: 'gambrel-150x150_h.png', val: 'Satteldach', isHovered: false },
+                { img: 'hipped-150x150.png', img_h: 'hipped-150x150_h.png', val: 'Walmdach', isHovered: false },
+                { img: 'pitched-150x150.png', img_h: 'pitched-150x150_h.png', val: 'Pultdach', isHovered: false },
+                { img: 'tent-150x150.png', img_h: 'tent-150x150_h.png', val: 'Zeltdach', isHovered: false },
                     ],
                 };
             },

@@ -1,3 +1,8 @@
+.icon-wrap{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
 .j-roof {
     position: relative;
     width: 260px;
@@ -54,8 +59,10 @@
         border-bottom: 1px dotted $prim_col;
     }
 
-    div {
-        // margin-bottom: 0!important;
+    div:hover img{
+        // width: 70px;
+        // height: 70px;
+        transform: scale(1.05); 
     }
 
     img {
@@ -63,6 +70,11 @@
         width: 60px;
         height: 60px;
         cursor: pointer;
+        transition: all easy .5s;
+        &:hover{
+            // transform: scale(1.05); 
+        }
+
     }
 
 
