@@ -4,7 +4,7 @@ export default {
         <div v-for="(e, index) in arr" :class="'sector'+index" @click="sel(e.val)">
             <img :src="addImg(e)" @mouseover="changeImg(e, true)" @mouseleave="changeImg(e, false)" :alt="e.val"/>
             <span v-if="cls=='j-icons'">{{e.val}}</span>
-        </div>--{{cls}}
+        </div>
         <template v-if="cls=='j-roof'">
             <div class="c"></div>
             <div class="l1"></div>

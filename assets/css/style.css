@@ -1684,37 +1684,23 @@ body {
   border: 1px dotted #b0bec5;
   overflow: hidden;
 }
-
-.c,
-.l1,
-.l2,
-.l3 {
+.j-roof .c,
+.j-roof .l1,
+.j-roof .l2,
+.j-roof .l3 {
   content: "";
   border-radius: 50%;
   position: absolute;
 }
-
-.c {
-  width: 10px;
-  height: 10px;
-  top: 125px;
-  left: 125px;
-  background: #999;
-  -webkit-border-radius: 50%;
-  -moz-border-radius: 50%;
-  border-radius: 50%;
-}
-
-.l1 {
-  height: 260px;
+.j-roof .l1 {
+  height: 300px;
   width: 0px;
   top: -20px;
-  left: 140px;
+  left: 130px;
   transform: rotate(30deg);
   border-right: 1px dotted #b0bec5;
 }
-
-.l2 {
+.j-roof .l2 {
   height: 300px;
   width: 0px;
   top: -20px;
@@ -1722,18 +1708,42 @@ body {
   transform: rotate(-30deg);
   border-right: 1px dotted #b0bec5;
 }
-
-.l3 {
+.j-roof .l3 {
   height: 0px;
   width: 260px;
   top: 130px;
   left: 0px;
   border-bottom: 1px dotted #b0bec5;
 }
-
-img {
+.j-roof img {
+  position: absolute;
   width: 60px;
   height: 60px;
+  cursor: pointer;
+}
+.j-roof .sector0 img {
+  top: 10px;
+  left: 100px;
+}
+.j-roof .sector3 img {
+  bottom: 10px;
+  left: 100px;
+}
+.j-roof .sector1 img {
+  top: 50px;
+  right: 30px;
+}
+.j-roof .sector5 img {
+  top: 50px;
+  left: 30px;
+}
+.j-roof .sector2 img {
+  bottom: 50px;
+  right: 30px;
+}
+.j-roof .sector4 img {
+  bottom: 50px;
+  left: 30px;
 }
 
 .j-icons {

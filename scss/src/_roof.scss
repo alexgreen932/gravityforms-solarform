@@ -6,74 +6,100 @@
     z-index: 10;
     border: 1px dotted $prim_col;
     overflow: hidden;
-}
 
-.c,
-.l1,
-.l2,
-.l3 {
-    content: '';
-    border-radius: 50%;
-    position: absolute;
-}
-.c{
-    width: 10px;
-    height: 10px;
-    top: 125px;
-    left: 125px;
-    background: #999;
-    -webkit-border-radius: 50%;
--moz-border-radius: 50%;
-border-radius: 50%
-}
+    .c,
+    .l1,
+    .l2,
+    .l3 {
+        content: '';
+        border-radius: 50%;
+        position: absolute;
+    }
 
-.l1 {
-    height: 260px;
-    width: 0px;
-    top: -20px;
-    left: 140px;
-    transform: rotate(30deg);
-    border-right: 1px dotted $prim_col;
-}
+    // .c {
+    //     width: 10px;
+    //     height: 10px;
+    //     top: 125px;
+    //     left: 125px;
+    //     background: #999;
+    //     -webkit-border-radius: 50%;
+    //     -moz-border-radius: 50%;
+    //     border-radius: 50%
+    // }
 
-.l2 {
-    height: 300px;
-    width: 0px;
-    top: -20px;
-    left: 130px;
-    transform: rotate(-30deg);
-    border-right: 1px dotted $prim_col;
-}
-.l3 {
-    height: 0px;
-    width: 260px;
-    top: 130px;
-    left: 0px;
-    // transform: rotate(-30deg);
-    border-bottom: 1px dotted $prim_col;
-}
+    .l1 {
+        height: 300px;
+        width: 0px;
+        top: -20px;
+        left: 130px;
+        transform: rotate(30deg);
+        border-right: 1px dotted $prim_col;
+    }
+
+    .l2 {
+        height: 300px;
+        width: 0px;
+        top: -20px;
+        left: 130px;
+        transform: rotate(-30deg);
+        border-right: 1px dotted $prim_col;
+    }
+
+    .l3 {
+        height: 0px;
+        width: 260px;
+        top: 130px;
+        left: 0px;
+        // transform: rotate(-30deg);
+        border-bottom: 1px dotted $prim_col;
+    }
+
+    div {
+        // margin-bottom: 0!important;
+    }
 
     img {
+        position: absolute;
         width: 60px;
         height: 60px;
+        cursor: pointer;
     }
 
 
-//     .sector0 img {
-//         top: 10px;
-//         left: 30px;
-//     }
+    .sector0 img {
+        top: 10px;
+        left: 100px;
+    }
 
-//     .sector1 img {
-//         top: 10px;
-//         left: 100px;
-//     }
+    .sector3 img {
+        bottom: 10px;
+        left: 100px;
+    }
 
-//     .sector3 img {
-//         top: 10px;
-//         right: 30px;
-//     }
-// }
+    .sector1 img {
+        top: 50px;
+        right: 30px;
+    }
+
+    .sector5 img {
+        top: 50px;
+        left: 30px;
+    }
+
+    .sector2 img {
+        bottom: 50px;
+        right: 30px;
+    }
+
+    .sector4 img {
+        bottom: 50px;
+        left: 30px;
+    }
+
+}
+
+
+
 
 
 
