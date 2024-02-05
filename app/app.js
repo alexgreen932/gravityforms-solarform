@@ -16,7 +16,7 @@ let app = Vue.createApp({
     },
     data() {
         return {
-            screen: 0,
+            screen: 1,
             result: false,
             done: [],
             finish: false,
@@ -296,7 +296,7 @@ let app = Vue.createApp({
             lang_current: 0,
             lang: {
                 show: 'Show',
-                further: 'ZWeiter',
+                further: 'Weiter',
                 reset: 'Reset',
                 change: 'Change',
             },
@@ -308,7 +308,7 @@ let app = Vue.createApp({
             },
             lang_de: {
                 show: 'Zeigen',
-                further: 'Zurücksetzen',
+                further: 'Weiter',
                 reset: 'Zurücksetzen',
                 change: 'Ändern',
             },
