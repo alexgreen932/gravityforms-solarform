@@ -21,6 +21,24 @@
 
     #app, #app #final-form{
         width: 100%;
+        .icon-wrap{
+            width: 100%!important;
+        }
+        .j-angle, .j-icons{
+            min-width: 100%!important;
+            div{
+                // flex-shrink: 1;
+                // flex-basis: content;
+                width: 33%;
+            img{
+                width: 80px;
+                height: 80px;
+            }
+            span{
+                width: auto;
+            }
+            }
+        }
         input{
             
         }
@@ -52,7 +70,7 @@
         }
         h3, p, input, select, div{
             flex-shrink: 1;
-            width: auto;
+            // width: auto;//99
         }
         .inline{
             display: flex;

@@ -35,8 +35,9 @@
 <body>
     <div id="app" style="display:flex; justify-content: center;align-items: center;flex-direction: column;">
         <!-- <div>Side is - {{angle}}</div> -->
-        <j-com :el="el" :arr="arr_roof" :cls="'j-roof'" @nv="el=$event"></j-com>
+        <!-- <j-com :el="el" :arr="arr_roof" :cls="'j-roof'" @nv="el=$event"></j-com> -->
         <!-- <j-com :el="el" :arr="arr" :cls="'j-icons'" @nv="el=$event"></j-com> -->
+        <j-com :el="el" :arr="arr_angle" :cls="'j-angle'" @nv="el=$event"></j-com>
         <div>
             --{{el}}
         </div>
@@ -53,6 +54,11 @@
             data() {
                 return {
                     el: null,
+                    arr_angle: [
+                        { img: '0.svg', img_h: '0h.svg', val: 0, isHovered: false },
+                        { img: '30.svg', img_h: '30h.svg', val: 30, isHovered: false },
+                        { img: '45.svg', img_h: '45h.svg', val: 45, isHovered: false },
+                    ],
                     arr: [
                         { img: 'icon-1.png', img_h: 'icon-1_h.png', val: 'Electric boiler', isHovered: false },
                         { img: 'icon-2.png', img_h: 'icon-2_h.png', val: 'Wärmepumpen­boiler', isHovered: false },

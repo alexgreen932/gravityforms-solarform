@@ -1482,6 +1482,14 @@ body {
   border-radius: 50%;
   border: 2px dashed #b0bec5;
 }
+.range__main .knob .show-tip {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 9999;
+}
 .range__main .knob .dot {
   content: "";
   width: 20px;
@@ -1533,6 +1541,23 @@ body {
   left: 78px;
   background: #e69c09;
   z-index: 2;
+}
+.range__main .knob .center .terrace {
+  width: 60px;
+  height: 6px;
+  position: absolute;
+  bottom: 100%;
+  left: 22px;
+  background: #8d705c;
+}
+.range__main .knob .center .terrace:after {
+  content: "";
+  width: 40px;
+  height: 6px;
+  position: absolute;
+  bottom: 100%;
+  left: 10px;
+  background: #8d705c;
 }
 .range__main .knob .center .roof {
   position: absolute;
@@ -1784,6 +1809,38 @@ body {
   color: #6ec248;
 }
 
+.j-angle {
+  min-width: 400px;
+  background: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: start;
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+  border-radius: 10px;
+}
+.j-angle img {
+  width: 100px;
+  height: 100px;
+}
+.j-angle div {
+  padding: 7px 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
+  align-items: center;
+  cursor: pointer;
+}
+.j-angle div span {
+  width: 130px;
+  font-size: 12px;
+  color: #999;
+  text-align: center;
+}
+.j-angle div:hover span {
+  color: #6ec248;
+}
+
 @media (min-width: 820px) {
   .gform_wrapper {
     width: 1100px !important;
@@ -1798,6 +1855,22 @@ body {
 @media (max-width: 420px) {
   #app, #app #final-form {
     width: 100%;
+  }
+  #app .icon-wrap, #app #final-form .icon-wrap {
+    width: 100% !important;
+  }
+  #app .j-angle, #app .j-icons, #app #final-form .j-angle, #app #final-form .j-icons {
+    min-width: 100% !important;
+  }
+  #app .j-angle div, #app .j-icons div, #app #final-form .j-angle div, #app #final-form .j-icons div {
+    width: 33%;
+  }
+  #app .j-angle div img, #app .j-icons div img, #app #final-form .j-angle div img, #app #final-form .j-icons div img {
+    width: 80px;
+    height: 80px;
+  }
+  #app .j-angle div span, #app .j-icons div span, #app #final-form .j-angle div span, #app #final-form .j-icons div span {
+    width: auto;
   }
   #app .j-grid, #app .j-grid-col, #app #final-form .j-grid, #app #final-form .j-grid-col {
     flex-direction: column;
@@ -1822,7 +1895,6 @@ body {
   }
   #app h3, #app p, #app input, #app select, #app div, #app #final-form h3, #app #final-form p, #app #final-form input, #app #final-form select, #app #final-form div {
     flex-shrink: 1;
-    width: auto;
   }
   #app .inline, #app #final-form .inline {
     display: flex;

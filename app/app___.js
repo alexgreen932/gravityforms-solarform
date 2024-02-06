@@ -18,7 +18,7 @@ let app = Vue.createApp({
     },
     data() {
         return {
-            screen: 3,
+            screen: 0,
             result: false,
             done: [],
             finish: false,
@@ -39,16 +39,6 @@ let app = Vue.createApp({
                 { img: 'pitched-150x150.png', img_h: 'pitched-150x150_h.png', val: 'Pultdach', isHovered: false },
                 { img: 'tent-150x150.png', img_h: 'tent-150x150_h.png', val: 'Satteldach', isHovered: false },
             ],
-            arr_angle: [
-                { img: '0.svg', img_h: '0h.svg', val: 0, isHovered: false },
-                { img: '30.svg', img_h: '30h.svg', val: 30, isHovered: false },
-                { img: '45.svg', img_h: '45h.svg', val: 45, isHovered: false },
-            ],
-            // arr_angle: [
-            //     { img: 'icon-1.png', img_h: 'icon-1_h.png', val: 0, isHovered: false },
-            //     { img: 'icon-2.png', img_h: 'icon-2_h.png', val: 30, isHovered: false },
-            //     { img: 'icon-3.png', img_h: 'icon-3_h.png', val: 45, isHovered: false },
-            // ],
             arr_water: [
                 { img: 'icon-1.png', img_h: 'icon-1_h.png', val: 'Electric boiler', isHovered: false },
                 { img: 'icon-2.png', img_h: 'icon-2_h.png', val: 'Wärmepumpen­boiler', isHovered: false },

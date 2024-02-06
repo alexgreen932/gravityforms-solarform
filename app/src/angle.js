@@ -20,6 +20,7 @@ export default {
         };
     },
     methods: {
+        isActive(e){},
         sel(e){
             this.el.value = e;
             console.log('e: ', e);

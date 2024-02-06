@@ -169,6 +169,14 @@ $sl: #FBA701;
         background: $sl;
     }
     .knob {
+        .show-tip{
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            z-index: 9999;
+        }
         &:hover{
             // background: $hov_kn;
         }
@@ -181,9 +189,6 @@ $sl: #FBA701;
         -moz-border-radius: 50%;
         border-radius: 50%;
         border: 2px dashed $prim_col;
-        // cursor: -webkit-grab;
-        // cursor: grab;
-        // transition: all ease 0.3s;
     
         .dot {
             content: "";
@@ -246,10 +251,26 @@ $sl: #FBA701;
             left: 78px;
             background: #e69c09;
             z-index: 2;
+            .terrace{
+                width: 60px;
+                height: 6px;
+                position: absolute;
+                bottom: 100%;
+                left: 22px;
+                background: #8d705c;
+                &:after{
+                    content:'';
+                    width: 40px;
+                    height: 6px;
+                    position: absolute;
+                    bottom: 100%;
+                    left: 10px;
+                    background: #8d705c; 
+                }
+            }
     
             .roof {
-                position: absolute;
-                
+                position: absolute;                
                 right: 0;
                 left: 0;
                 display: block;
