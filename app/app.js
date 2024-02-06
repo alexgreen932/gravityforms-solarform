@@ -18,7 +18,7 @@ let app = Vue.createApp({
     },
     data() {
         return {
-            screen: 3,
+            screen: 0,
             result: false,
             done: [],
             finish: false,
@@ -31,13 +31,20 @@ let app = Vue.createApp({
             area_alert: false,
             isDragging: false,
             s: null,
+//             Satteldach - Gable
+// Zeltdach - Tent
+// Flachdach - Flat
+// Pultdach - Pitched
+// Walmdach - Hipped
+
+// И добавил еще Gambrel
             arr_roof: [
                 { img: 'flat-150x150.png', img_h: 'flat-150x150_h.png', val: 'Flachdach', isHovered: false },
-                { img: 'gable-150x150.png', img_h: 'gable-150x150_h.png', val: 'Gambrel', isHovered: false },
-                { img: 'gambrel-150x150.png', img_h: 'gambrel-150x150_h.png', val: 'Satteldach', isHovered: false },
+                { img: 'gable-150x150.png', img_h: 'gable-150x150_h.png', val: 'Satteldach', isHovered: false },
+                { img: 'gambrel-150x150.png', img_h: 'gambrel-150x150_h.png', val: 'Gambrel', isHovered: false },
                 { img: 'hipped-150x150.png', img_h: 'hipped-150x150_h.png', val: 'Walmdach', isHovered: false },
                 { img: 'pitched-150x150.png', img_h: 'pitched-150x150_h.png', val: 'Pultdach', isHovered: false },
-                { img: 'tent-150x150.png', img_h: 'tent-150x150_h.png', val: 'Satteldach', isHovered: false },
+                { img: 'tent-150x150.png', img_h: 'tent-150x150_h.png', val: 'Zeltdach', isHovered: false },
             ],
             arr_angle: [
                 { img: '0.svg', img_h: '0h.svg', val: 0, isHovered: false },

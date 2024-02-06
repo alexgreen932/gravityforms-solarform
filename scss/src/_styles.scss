@@ -1,7 +1,9 @@
 body {
     background-image: url('https://solar-stage.wcode.io/wp-content/themes/twentytwentyfour/assets/images/panels_bg.jpg') !important;
     background-position: 50% 0;
-    background-attachment: fixed;
+    background-attachment: fixed!important;
+    top: 0;
+    left: 0;
 }
 
 #final-form,
